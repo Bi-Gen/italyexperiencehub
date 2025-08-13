@@ -29,7 +29,6 @@ export default function BlogPage() {
       const title = data.title ?? slug;
       const description = data.description ?? "";
       const date = data.date ?? "";
-
       const image =
         data.image ||
         `https://picsum.photos/seed/${encodeURIComponent(slug)}/800/450`;
