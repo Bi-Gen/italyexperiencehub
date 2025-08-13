@@ -1,13 +1,14 @@
+// src/app/blog/[slug]/page.tsx
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
+import matter, { type GrayMatterFile } from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { mdxComponents } from "../../../components/mdx";
 import { InArticleAd } from "@/components/ads/AdSense";
 
 type Frontmatter = {
-  title: string;
+  title?: string;
   description?: string;
   date?: string;
   image?: string;
@@ -32,13 +33,13 @@ export async function generateMetadata({
     return {
       title: "Articolo non trovato",
       description: "Il contenuto che cerchi non esiste.",
+      alternates: { canonical: `/blog/${params.slug}` },
     };
   }
+
   const fileContent = fs.readFileSync(filePath, "utf-8");
-  const { data } = matter(fileContent) as {
-    data: Frontmatter;
-    content: string;
-  };
+  const parsed = matter(fileContent) as GrayMatterFile<string>;
+  const data = (parsed.data || {}) as Partial<Frontmatter>;
 
   return {
     title: data.title || "Articolo",
@@ -62,26 +63,24 @@ export default async function BlogPost({
   params: { slug: string };
 }) {
   const filePath = path.join(process.cwd(), "posts", `${params.slug}.mdx`);
-  if (!fs.existsSync(filePath)) notFound();
+  if (!fs.existsSync(filePath)) {
+    notFound();
+  }
 
   const fileContent = fs.readFileSync(filePath, "utf-8");
-  const { content, data } = matter(fileContent) as {
-    data: Frontmatter;
-    content: string;
-  };
-
-  // Legge il consenso dai cookie lato client
-  const consentGiven =
-    typeof document !== "undefined" &&
-    document.cookie.includes("consent-v1=accept");
+  const parsed = matter(fileContent) as GrayMatterFile<string>;
+  const data = (parsed.data || {}) as Partial<Frontmatter>;
+  const content = parsed.content || "";
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-14">
-      <h1 className="text-4xl font-bold mb-2">{data.title}</h1>
-      <p className="text-neutral-500 mb-6">{data.date}</p>
+      <h1 className="text-4xl font-bold mb-2">
+        {data.title || params.slug.replace(/-/g, " ")}
+      </h1>
+      {data.date && <p className="text-neutral-500 mb-6">{data.date}</p>}
 
-      {/* Annuncio in-article solo se c'è consenso */}
-      {consentGiven && <InArticleAd />}
+      {/* Annuncio in-article — verrà mostrato solo dopo consenso */}
+      <InArticleAd />
 
       <article className="prose prose-neutral">
         <MDXRemote source={content} components={mdxComponents} />
