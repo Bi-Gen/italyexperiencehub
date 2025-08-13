@@ -1,23 +1,29 @@
 /** @type {import('next-sitemap').IConfig} */
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
+
+const SITE = process.env.SITE_URL || 'https://italyexperiencehub.com';
 
 module.exports = {
-  siteUrl: process.env.SITE_URL || "http://localhost:3000",
+  siteUrl: SITE,
   generateRobotsTxt: true,
-  changefreq: "daily",
+  sitemapSize: 5000,
+  changefreq: 'daily',
   priority: 0.7,
 
+  // Aggiunge tutte le pagine blog generate dagli .mdx
   additionalPaths: async (config) => {
-    const base = process.env.SITE_URL || "http://localhost:3000";
-    const postsDir = path.join(process.cwd(), "posts");
+    const postsDir = path.join(process.cwd(), 'posts');
     const files = fs.existsSync(postsDir) ? fs.readdirSync(postsDir) : [];
-    const entries = files
-      .filter((f) => f.endsWith(".mdx"))
-      .map((f) => ({
-        loc: `${base}/blog/${f.replace(/\.mdx$/, "")}`,
-        lastmod: new Date().toISOString(),
-      }));
-    return entries.map((e) => config.transform(config, e.loc));
+
+    return Promise.all(
+      files
+        .filter((f) => f.endsWith('.mdx'))
+        .map((f) =>
+          config.transform(config, `/blog/${f.replace(/\.mdx$/, '')}`, {
+            lastmod: new Date().toISOString(),
+          })
+        )
+    );
   },
 };
