@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "https://italyexperiencehub.com/:path*",
+      "destination": "https://www.italyexperiencehub.com/:path*",
+      "permanent": true
+    }
+  ]
+}
