@@ -13,6 +13,7 @@ type Frontmatter = {
   date?: string;
   image?: string;
   keywords?: string[];
+  author?: string;
 };
 
 export default function BlogPage() {
@@ -30,18 +31,19 @@ export default function BlogPage() {
       const slug = file.replace(/\.mdx$/, "");
       const raw = fs.readFileSync(path.join(postsDir, file), "utf-8");
 
-      // parsing sicuro
       const parsed = matter(raw) as GrayMatterFile<string>;
       const data = (parsed.data || {}) as Partial<Frontmatter>;
 
-      const title = data.title ?? slug;
-      const description = data.description ?? "";
-      const date = data.date ?? "";
-      const image =
-        data.image ||
-        `https://picsum.photos/seed/${encodeURIComponent(slug)}/800/450`;
-
-      return { slug, title, description, date, image };
+      return {
+        slug,
+        title: data.title ?? slug,
+        description: data.description ?? "",
+        date: data.date ?? "",
+        image:
+          data.image ||
+          `https://picsum.photos/seed/${encodeURIComponent(slug)}/800/450`,
+        author: data.author ?? "",
+      };
     })
     .sort((a, b) => {
       const da = a.date ? new Date(a.date).getTime() : 0;
@@ -62,6 +64,7 @@ export default function BlogPage() {
       url: `${SITE}/blog/${p.slug}`,
       datePublished: p.date || "",
       image: [p.image],
+      author: p.author ? { "@type": "Person", name: p.author } : undefined,
     })),
   };
 
@@ -81,11 +84,8 @@ export default function BlogPage() {
       ) : (
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => (
-            <>
-              <article
-                key={post.slug}
-                className="rounded-xl overflow-hidden border hover:shadow-sm transition"
-              >
+            <div key={post.slug} className="contents">
+              <article className="rounded-xl overflow-hidden border hover:shadow-sm transition">
                 <Link
                   href={`/blog/${post.slug}`}
                   aria-label={`Leggi l'articolo: ${post.title}`}
@@ -103,23 +103,33 @@ export default function BlogPage() {
                     <h2 className="text-lg font-semibold line-clamp-2">
                       {post.title}
                     </h2>
+                    {post.author && (
+                      <p className="text-sm text-neutral-500">
+                        ✍ {post.author}
+                      </p>
+                    )}
+                    {post.date && (
+                      <p className="text-xs text-neutral-400">
+                        {new Date(post.date).toLocaleDateString("it-IT", {
+                          day: "2-digit",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </p>
+                    )}
                     <p className="text-sm text-neutral-600 line-clamp-3">
                       {post.description}
                     </p>
-                    {post.date && (
-                      <p className="text-xs text-neutral-500">{post.date}</p>
-                    )}
                   </div>
                 </Link>
               </article>
 
-              {/* Inseriamo un blocco AdSense dopo la 3a card */}
               {index === 2 && (
                 <div className="sm:col-span-2 lg:col-span-3">
                   <InArticleAd />
                 </div>
               )}
-            </>
+            </div>
           ))}
         </div>
       )}
