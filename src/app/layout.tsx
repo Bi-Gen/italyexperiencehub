@@ -7,7 +7,8 @@ import CookieBanner from "@/components/analytics/CookieBanner";
 import ConsentHydrator from "@/components/analytics/ConsentHydrator";
 import RouteTracker from "@/components/analytics/RouteTracker";
 
-import ClientAdSenseLoader from "@app/ClientAdSenseLoader"; // nuovo componente client
+import ClientAdSenseLoader from "./ClientAdSenseLoader";
+
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL ||
