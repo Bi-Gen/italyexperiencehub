@@ -1,11 +1,17 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import GA from "@/components/analytics/GA";
+
+import GTM from "@/components/analytics/GTM";
 import CookieBanner from "@/components/analytics/CookieBanner";
 import ConsentHydrator from "@/components/analytics/ConsentHydrator";
 import RouteTracker from "@/components/analytics/RouteTracker";
 import { AdSenseScript } from "@/components/ads/AdSense";
+
+const SITE =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.SITE_URL ||
+  "https://italyexperiencehub.com";
 
 export const metadata: Metadata = {
   title: {
@@ -14,11 +20,11 @@ export const metadata: Metadata = {
   },
   description:
     "Spazio web ottimizzato SEO, veloce e flessibile. Pronto per diventare blog, vetrina, e-commerce o SaaS.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(SITE),
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+    url: SITE,
     siteName: "Il Tuo Spazio Web",
     title: "Il Tuo Spazio Web – Pronto a Crescere",
     description:
@@ -28,19 +34,36 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // ✅ Lettura server-side del cookie di consenso
+  // Consenso letto lato server (per AdSense)
   const hasConsent = cookies().get("consent-v1")?.value === "accepted";
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
     <html lang="it">
-     <body className="min-h-screen bg-white text-neutral-900 antialiased">
-        {/* GA sempre (Consent Mode default denied) */}
-        <GA />
-        {/* Annunci: carica lo script solo se l'utente ha accettato */}
-        {hasConsent && <AdSenseScript />}
-        {/* Tracciamento delle pageview (funziona solo se GA è presente) */}
+      <body className="min-h-screen bg-white text-neutral-900 antialiased">
+        {/* Google Tag Manager + Consent Mode (default=denied) */}
+        <GTM />
+
+        {/* Fallback noscript GTM */}
+        {gtmId && (
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+            }}
+          />
+        )}
+
+        {/* Se esiste già una scelta, la reinvia a GTM al mount */}
+        <ConsentHydrator />
+
+        {/* Pageview su SPA (GA4 via GTM) */}
         <RouteTracker />
-        {/* Banner per raccogliere/aggiornare consenso */}
+
+        {/* Annunci solo dopo consenso */}
+        {hasConsent && <AdSenseScript />}
+
+        {/* Banner consenso */}
         <CookieBanner />
 
         {/* Contenuto */}

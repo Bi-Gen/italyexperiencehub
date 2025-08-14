@@ -1,57 +1,83 @@
-"use client";
-import { useEffect, useState } from "react";
+'use client';
 
-const KEY = "consent-v1";
+import { useEffect, useState } from 'react';
 
-function setConsentCookie(value: "accepted" | "denied") {
-  document.cookie = `${KEY}=${value}; Max-Age=${3600 * 24 * 365}; Path=/; SameSite=Lax`;
-}
+const CONSENT_KEY = 'consent-v1';
 
 export default function CookieBanner() {
-  const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem(KEY);
-    if (!saved) setOpen(true);
+    const saved = getConsent();
+    setVisible(saved == null); // Mostra banner se non c'è scelta
   }, []);
 
-  const update = (accept: boolean) => {
-    const val: "accepted" | "denied" = accept ? "accepted" : "denied";
-    localStorage.setItem(KEY, val);
-    setConsentCookie(val);
-    setOpen(false);
-
-    const granted = accept ? "granted" : "denied";
-    // @ts-ignore
-    const gtag = window.gtag || (() => {});
-    gtag("consent", "update", {
-      ad_storage: granted,
-      analytics_storage: granted,
-      ad_user_data: granted,
-      ad_personalization: granted,
-    });
-
-    // utile per componenti (es. AdSense) che devono reagire subito
-    window.dispatchEvent(new CustomEvent("consent-changed", { detail: val }));
-
-    if (process.env.NODE_ENV === "development") {
-      console.log("[consent]", val);
+  function getConsent(): 'accepted' | 'rejected' | null {
+    try {
+      const v = localStorage.getItem(CONSENT_KEY) || '';
+      if (v === 'accepted' || v === 'rejected') return v;
+    } catch {}
+    // fallback cookie
+    const c = document.cookie.split('; ').find((x) => x.startsWith(`${CONSENT_KEY}=`));
+    if (c) {
+      const v = c.split('=')[1];
+      if (v === 'accepted' || v === 'rejected') return v;
     }
-  };
+    return null;
+  }
 
-  if (!open) return null;
+  function setConsent(val: 'accepted' | 'rejected') {
+    try { localStorage.setItem(CONSENT_KEY, val); } catch {}
+    document.cookie = `${CONSENT_KEY}=${val}; Path=/; Max-Age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+  }
+
+  function consentUpdate(values: Record<string, 'granted' | 'denied'>) {
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    function gtag(){ (window as any).dataLayer.push(arguments as any); }
+    gtag('consent', 'update', values);
+  }
+
+  function onAccept() {
+    consentUpdate({
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+    });
+    setConsent('accepted');
+    setVisible(false);
+  }
+
+  function onReject() {
+    consentUpdate({
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+    });
+    setConsent('rejected');
+    setVisible(false);
+  }
+
+  if (!visible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 bg-neutral-900 text-white">
-      <div className="mx-auto max-w-5xl p-4 flex flex-col sm:flex-row gap-3 items-center justify-between">
-        <p className="text-sm">
+    <div className="fixed inset-x-0 bottom-0 z-[1000] bg-neutral-900 text-white">
+      <div className="mx-auto max-w-6xl px-4 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <p className="text-sm flex-1">
           Usiamo cookie per analitiche e (opz.) annunci personalizzati. Puoi accettare o rifiutare.
         </p>
         <div className="flex gap-2">
-          <button onClick={() => update(false)} className="px-3 py-2 border border-white/30 rounded">
+          <button
+            onClick={onReject}
+            className="px-3 py-2 rounded bg-neutral-700 hover:bg-neutral-600 text-sm"
+          >
             Rifiuta
           </button>
-          <button onClick={() => update(true)} className="px-3 py-2 bg-white text-neutral-900 rounded">
+          <button
+            onClick={onAccept}
+            className="px-3 py-2 rounded bg-green-600 hover:bg-green-700 text-sm"
+          >
             Accetta
           </button>
         </div>
