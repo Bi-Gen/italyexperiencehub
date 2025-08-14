@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const KEY = "consent-v1";
 
 export function AdSenseScript() {
-  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-4718945941038682"; // fallback
   if (!client) return null;
   return (
     <script
@@ -17,26 +17,30 @@ export function AdSenseScript() {
 }
 
 export function InArticleAd() {
-  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
-  const slot = process.env.NEXT_PUBLIC_ADSENSE_SLOT;
+  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-4718945941038682"; // fallback
+  const slot = process.env.NEXT_PUBLIC_ADSENSE_SLOT || ""; // puoi lasciarlo vuoto se usi auto ads
   const [canShow, setCanShow] = useState(false);
 
   useEffect(() => {
     const check = () => {
       const val = typeof window !== "undefined" ? localStorage.getItem(KEY) : null;
-      setCanShow(!!client && !!slot && val === "accepted");
+      setCanShow(!!client && val === "accepted");
     };
     check();
     const onChange = () => check();
     window.addEventListener("consent-changed", onChange);
     return () => window.removeEventListener("consent-changed", onChange);
-  }, [client, slot]);
+  }, [client]);
 
   useEffect(() => {
     if (!canShow) return;
     try {
       (window as any).adsbygoogle = (window as any).adsbygoogle || [];
-      (window as any).adsbygoogle.push({});
+      (window as any).adsbygoogle.push({
+        google_ad_client: client,
+        enable_page_level_ads: true,
+        google_adtest: "on", // ✅ Modalità test attiva
+      });
     } catch {}
   }, [canShow]);
 
