@@ -5,7 +5,7 @@ import matter, { type GrayMatterFile } from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { mdxComponents } from "../../../components/mdx";
-import { InArticleAd } from "@/components/ads/AdSense";
+import ClientInArticleAd from "@/components/ads/ClientInArticleAd";
 import Head from "next/head";
 
 type Frontmatter = {
@@ -123,14 +123,15 @@ export default async function BlogPost({
       {data.date && <p className="text-neutral-500 mb-6">{data.date}</p>}
 
       {/* Annuncio in-article dopo il titolo */}
-      <InArticleAd />
+      <ClientInArticleAd />
+ 
 
       <article className="prose prose-neutral">
         <MDXRemote source={content} components={mdxComponents} />
       </article>
 
       {/* Annuncio post-contenuto */}
-      <InArticleAd />
+      <ClientInArticleAd />
     </main>
   );
 }
