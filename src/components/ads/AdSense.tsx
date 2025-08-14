@@ -17,8 +17,8 @@ export function AdSenseScript() {
 }
 
 export function InArticleAd() {
-  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-4718945941038682"; // fallback
-  const slot = process.env.NEXT_PUBLIC_ADSENSE_SLOT || ""; // puoi lasciarlo vuoto se usi auto ads
+  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-4718945941038682";
+  const slot = process.env.NEXT_PUBLIC_ADSENSE_SLOT || ""; // opzionale se usi auto ads
   const [canShow, setCanShow] = useState(false);
 
   useEffect(() => {
@@ -39,7 +39,6 @@ export function InArticleAd() {
       (window as any).adsbygoogle.push({
         google_ad_client: client,
         enable_page_level_ads: true,
-        google_adtest: "on", // ✅ Modalità test attiva
       });
     } catch {}
   }, [canShow]);
