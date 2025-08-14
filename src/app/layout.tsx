@@ -1,12 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 
 import GTM from "@/components/analytics/GTM";
 import CookieBanner from "@/components/analytics/CookieBanner";
 import ConsentHydrator from "@/components/analytics/ConsentHydrator";
 import RouteTracker from "@/components/analytics/RouteTracker";
 import { AdSenseScript } from "@/components/ads/AdSense";
+import { useEffect, useState } from "react";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -33,18 +33,30 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+// 🔹 Componente client per montare AdSense dopo consenso
+function ClientAdSenseLoader() {
+  const [ok, setOk] = useState(false);
+
+  useEffect(() => {
+    const check = () => setOk(localStorage.getItem("consent-v1") === "accepted");
+    check();
+    const h = () => check();
+    window.addEventListener("consent-changed", h);
+    return () => window.removeEventListener("consent-changed", h);
+  }, []);
+
+  return ok ? <AdSenseScript /> : null;
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Consenso letto lato server (per AdSense)
-  const hasConsent = cookies().get("consent-v1")?.value === "accepted";
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
     <html lang="it">
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
-        {/* Google Tag Manager + Consent Mode (default=denied) */}
+        {/* GTM + Consent Mode default */}
         <GTM />
 
-        {/* Fallback noscript GTM */}
         {gtmId && (
           <noscript
             dangerouslySetInnerHTML={{
@@ -54,16 +66,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        {/* Se esiste già una scelta, la reinvia a GTM al mount */}
+        {/* Reinvia consenso esistente a GTM */}
         <ConsentHydrator />
 
-        {/* Pageview su SPA (GA4 via GTM) */}
+        {/* Tracciamento SPA */}
         <RouteTracker />
 
-        {/* Annunci solo dopo consenso */}
-        {hasConsent && <AdSenseScript />}
+        {/* Caricamento script AdSense solo con consenso */}
+        <ClientAdSenseLoader />
 
-        {/* Banner consenso */}
+        {/* Banner cookie */}
         <CookieBanner />
 
         {/* Contenuto */}

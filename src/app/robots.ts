@@ -8,7 +8,18 @@ const SITE =
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: { userAgent: '*', allow: '/' },
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: [
+          '/api/',         // API non indicizzabili
+          '/_next/',       // assets interni di Next.js
+          '/draft/',       // eventuali contenuti in bozza
+          '/preview/',     // anteprime
+        ],
+      },
+    ],
     sitemap: `${SITE}/sitemap.xml`,
     host: SITE,
   };
