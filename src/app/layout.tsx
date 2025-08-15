@@ -1,14 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 
 import GTM from "@/components/analytics/GTM";
-import CookieBanner from "@/components/analytics/CookieBanner";
+// import CookieBanner from "@/components/analytics/CookieBanner"; // disattivato: ora usi la CMP di Google
 import ConsentHydrator from "@/components/analytics/ConsentHydrator";
 import RouteTracker from "@/components/analytics/RouteTracker";
 
 import ClientAdSenseLoader from "./ClientAdSenseLoader";
-
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -36,7 +34,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const hasConsent = cookies().get("consent-v1")?.value === "accepted";
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
@@ -55,17 +52,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        {/* Ripristina consenso salvato */}
+        {/* Ripristina consenso salvato (utile per GTM/Consent Mode) */}
         <ConsentHydrator />
 
         {/* Tracciamento pageview SPA */}
         <RouteTracker />
 
-        {/* Annunci AdSense caricati lato client */}
-        {hasConsent && <ClientAdSenseLoader />}
+        {/* AdSense sempre caricato: la CMP di Google (Funding Choices) verrà mostrata automaticamente */}
+        <ClientAdSenseLoader />
 
-        {/* Banner cookie */}
-        <CookieBanner />
+        {/* CookieBanner disattivato perché ora gestisce tutto la CMP di Google */}
+        {/* <CookieBanner /> */}
 
         {/* Contenuto pagina */}
         {children}
