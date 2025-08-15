@@ -44,10 +44,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           strategy="beforeInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4718945941038682"
           crossOrigin="anonymous"
-          onError={(e) => {
-            // piccolo aiuto in debug
-            console.warn("AdSense script load error", e);
-          }}
         />
 
         {/* Funding Choices CMP – endpoint consigliato per GDPR */}
@@ -55,9 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           id="funding-choices"
           strategy="beforeInteractive"
           src="https://fundingchoicesmessages.google.com/i/pub-4718945941038682?ers=2"
-          onError={(e) => {
-            console.warn("Funding Choices script load error", e);
-          }}
         />
 
         {/* Snippet ufficiale Google: segnala la presenza di FC */}
@@ -81,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        {/* Logger TCF minimal (solo in produzione per aiuto debug) */}
+        {/* Logger TCF minimal per debug */}
         <Script id="tcf-debug" strategy="afterInteractive">
           {`
             (function () {
@@ -115,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        {/* Tracciamento pageview SPA */}
+        {/* Pageview su SPA racchiuso in Suspense (richiede hooks client) */}
         <Suspense fallback={null}>
           <RouteTracker />
         </Suspense>
