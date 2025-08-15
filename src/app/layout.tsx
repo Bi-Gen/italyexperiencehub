@@ -38,14 +38,42 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="it">
       <head>
-        {/* AdSense (CMP Funding Choices) – caricato prima di tutto */}
+        {/* AdSense (include Consent Mode / Funding Choices integrazione) */}
         <Script
           id="adsense"
           strategy="beforeInteractive"
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT}`}
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4718945941038682`}
           crossOrigin="anonymous"
         />
+        {/* Funding Choices CMP (forzata) */}
+        <Script
+          id="funding-choices"
+          strategy="beforeInteractive"
+          src="https://fundingchoicesmessages.google.com/i/pub-4718945941038682?ers=3"
+        />
+        {/* Snippet ufficiale per segnalare la presenza di Google FC */}
+        <Script
+          id="funding-choices-present"
+          strategy="beforeInteractive"
+        >{`
+          (function() {
+            function signalGooglefcPresent() {
+              if (!window.frames['googlefcPresent']) {
+                if (document.body) {
+                  const iframe = document.createElement('iframe');
+                  iframe.style = 'width:0;height:0;border:0;display:none';
+                  iframe.name = 'googlefcPresent';
+                  document.body.appendChild(iframe);
+                } else {
+                  setTimeout(signalGooglefcPresent, 0);
+                }
+              }
+            }
+            signalGooglefcPresent();
+          })();
+        `}</Script>
       </head>
+
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
         {/* Google Tag Manager */}
         <GTM />
@@ -60,7 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        {/* Tracciamento pageview SPA (wrappato in Suspense per build robusta) */}
+        {/* Tracciamento pageview SPA (robusto) */}
         <Suspense fallback={null}>
           <RouteTracker />
         </Suspense>
