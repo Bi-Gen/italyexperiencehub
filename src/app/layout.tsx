@@ -7,6 +7,11 @@ import ConsentHydrator from "@/components/analytics/ConsentHydrator";
 import RouteTracker from "@/components/analytics/RouteTracker";
 
 import ClientAdSenseLoader from "./ClientAdSenseLoader";
+import { Suspense } from "react";
+// ...
+<Suspense fallback={null}>
+  <RouteTracker />
+</Suspense>
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL ||

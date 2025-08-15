@@ -1,26 +1,31 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { pushDL } from '@/lib/gtag';
 
 /**
- * Su cambio rotta (SPA) inviamo un page_view custom.
- * Se in GTM hai un GA4 Config con “Send a page view” attivo,
- * puoi anche non usarlo. Ma questo è utile/esplicito.
+ * Invia un page_view su cambio rotta (SPA) senza usare useSearchParams
+ * per evitare il requisito di Suspense in fase di prerender.
  */
 export default function RouteTracker() {
   const pathname = usePathname();
-  const search = useSearchParams();
 
   useEffect(() => {
+    const href =
+      typeof window !== 'undefined' ? window.location.href : '';
+    const search =
+      typeof window !== 'undefined' ? window.location.search : '';
+    const title =
+      typeof document !== 'undefined' ? document.title : '';
+
     pushDL({
       event: 'page_view',
-      page_location: typeof window !== 'undefined' ? window.location.href : '',
-      page_path: pathname + (search?.toString() ? `?${search.toString()}` : ''),
-      page_title: typeof document !== 'undefined' ? document.title : '',
+      page_location: href,
+      page_path: pathname + search,
+      page_title: title,
     });
-  }, [pathname, search]);
+  }, [pathname]);
 
   return null;
 }
