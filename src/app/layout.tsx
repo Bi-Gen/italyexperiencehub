@@ -1,11 +1,10 @@
 // src/app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
-import Script from "next/script";
-import { Suspense } from "react";
 
 import GTM from "@/components/analytics/GTM";
 import RouteTracker from "@/components/analytics/RouteTracker";
+import ClientAdSenseLoader from "./ClientAdSenseLoader"; // carica adsbygoogle
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -37,68 +36,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="it">
-      <head>
-        {/* AdSense (necessario per Auto ads / CMP) */}
-        <Script
-          id="adsense"
-          strategy="beforeInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4718945941038682"
-          crossOrigin="anonymous"
-        />
-
-        {/* Funding Choices CMP – endpoint consigliato per GDPR */}
-        <Script
-          id="funding-choices"
-          strategy="beforeInteractive"
-          src="https://fundingchoicesmessages.google.com/i/pub-4718945941038682?ers=2"
-        />
-
-        {/* Snippet ufficiale Google: segnala la presenza di FC */}
-        <Script id="funding-choices-present" strategy="beforeInteractive">
-          {`
-            (function() {
-              function signalGooglefcPresent() {
-                if (!window.frames['googlefcPresent']) {
-                  if (document.body) {
-                    const iframe = document.createElement('iframe');
-                    iframe.style.cssText = 'width:0;height:0;border:0;display:none';
-                    iframe.name = 'googlefcPresent';
-                    document.body.appendChild(iframe);
-                  } else {
-                    setTimeout(signalGooglefcPresent, 0);
-                  }
-                }
-              }
-              signalGooglefcPresent();
-            })();
-          `}
-        </Script>
-
-        {/* Logger TCF minimal per debug */}
-        <Script id="tcf-debug" strategy="afterInteractive">
-          {`
-            (function () {
-              try {
-                if (typeof window.__tcfapi === 'function') {
-                  window.__tcfapi('addEventListener', 2, function(tcData, success) {
-                    console.log('[TCF] event', success, tcData && tcData.eventStatus, tcData);
-                  });
-                } else {
-                  console.log('[TCF] __tcfapi not ready yet');
-                }
-              } catch (e) {
-                console.warn('[TCF] listener error', e);
-              }
-            })();
-          `}
-        </Script>
-      </head>
-
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
-        {/* Google Tag Manager */}
+        {/* GTM */}
         <GTM />
-
-        {/* Fallback noscript GTM */}
         {gtmId && (
           <noscript
             dangerouslySetInnerHTML={{
@@ -108,13 +48,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        {/* Pageview su SPA racchiuso in Suspense (richiede hooks client) */}
-        <Suspense fallback={null}>
-          <RouteTracker />
-        </Suspense>
+        {/* Pageview SPA */}
+        <RouteTracker />
+
+        {/* AdSense sempre caricato: la CMP blocca gli storage finché non c’è consenso */}
+        <ClientAdSenseLoader />
 
         {children}
 
+        {/* Footer */}
         <footer className="mt-20 border-t bg-neutral-50">
           <div className="mx-auto max-w-6xl px-4 py-10 grid gap-6 sm:grid-cols-3">
             <div>
