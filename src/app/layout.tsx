@@ -38,20 +38,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="it">
       <head>
-        {/* AdSense (necessario anche per Auto ads) */}
+        {/* AdSense (necessario per Auto ads / CMP) */}
         <Script
           id="adsense"
           strategy="beforeInteractive"
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4718945941038682`}
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4718945941038682"
           crossOrigin="anonymous"
+          onError={(e) => {
+            // piccolo aiuto in debug
+            console.warn("AdSense script load error", e);
+          }}
         />
-        {/* Funding Choices CMP – versione TCF per GDPR (FIX) */}
+
+        {/* Funding Choices CMP – endpoint consigliato per GDPR */}
         <Script
-          id="funding-choices-tcf"
+          id="funding-choices"
           strategy="beforeInteractive"
-          src="https://fundingchoicesmessages.google.com/tcf/i/pub-4718945941038682?ers=2"
+          src="https://fundingchoicesmessages.google.com/i/pub-4718945941038682?ers=2"
+          onError={(e) => {
+            console.warn("Funding Choices script load error", e);
+          }}
         />
-        {/* Snippet ufficiale che segnala la presenza di Google FC */}
+
+        {/* Snippet ufficiale Google: segnala la presenza di FC */}
         <Script id="funding-choices-present" strategy="beforeInteractive">
           {`
             (function() {
@@ -59,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 if (!window.frames['googlefcPresent']) {
                   if (document.body) {
                     const iframe = document.createElement('iframe');
-                    iframe.style = 'width:0;height:0;border:0;display:none';
+                    iframe.style.cssText = 'width:0;height:0;border:0;display:none';
                     iframe.name = 'googlefcPresent';
                     document.body.appendChild(iframe);
                   } else {
@@ -68,6 +77,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 }
               }
               signalGooglefcPresent();
+            })();
+          `}
+        </Script>
+
+        {/* Logger TCF minimal (solo in produzione per aiuto debug) */}
+        <Script id="tcf-debug" strategy="afterInteractive">
+          {`
+            (function () {
+              try {
+                if (typeof window.__tcfapi === 'function') {
+                  window.__tcfapi('addEventListener', 2, function(tcData, success) {
+                    console.log('[TCF] event', success, tcData && tcData.eventStatus, tcData);
+                  });
+                } else {
+                  console.log('[TCF] __tcfapi not ready yet');
+                }
+              } catch (e) {
+                console.warn('[TCF] listener error', e);
+              }
             })();
           `}
         </Script>
