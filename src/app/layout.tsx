@@ -1,17 +1,11 @@
+// src/app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
+import Script from "next/script";
+import { Suspense } from "react";
 
 import GTM from "@/components/analytics/GTM";
-// import CookieBanner from "@/components/analytics/CookieBanner"; // disattivato: ora usi la CMP di Google
-import ConsentHydrator from "@/components/analytics/ConsentHydrator";
 import RouteTracker from "@/components/analytics/RouteTracker";
-
-import ClientAdSenseLoader from "./ClientAdSenseLoader";
-import { Suspense } from "react";
-// ...
-<Suspense fallback={null}>
-  <RouteTracker />
-</Suspense>
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -43,6 +37,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="it">
+      <head>
+        {/* AdSense (CMP Funding Choices) – caricato prima di tutto */}
+        <Script
+          id="adsense"
+          strategy="beforeInteractive"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT}`}
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
         {/* Google Tag Manager */}
         <GTM />
@@ -57,17 +60,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        {/* Ripristina consenso salvato (utile per GTM/Consent Mode) */}
-        <ConsentHydrator />
-
-        {/* Tracciamento pageview SPA */}
-        <RouteTracker />
-
-        {/* AdSense sempre caricato: la CMP di Google (Funding Choices) verrà mostrata automaticamente */}
-        <ClientAdSenseLoader />
-
-        {/* CookieBanner disattivato perché ora gestisce tutto la CMP di Google */}
-        {/* <CookieBanner /> */}
+        {/* Tracciamento pageview SPA (wrappato in Suspense per build robusta) */}
+        <Suspense fallback={null}>
+          <RouteTracker />
+        </Suspense>
 
         {/* Contenuto pagina */}
         {children}
