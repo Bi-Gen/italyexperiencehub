@@ -38,40 +38,39 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="it">
       <head>
-        {/* AdSense (include Consent Mode / Funding Choices integrazione) */}
+        {/* AdSense (necessario anche per Auto ads) */}
         <Script
           id="adsense"
           strategy="beforeInteractive"
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4718945941038682`}
           crossOrigin="anonymous"
         />
-        {/* Funding Choices CMP (forzata) */}
+        {/* Funding Choices CMP – versione TCF per GDPR (FIX) */}
         <Script
-          id="funding-choices"
+          id="funding-choices-tcf"
           strategy="beforeInteractive"
-          src="https://fundingchoicesmessages.google.com/i/pub-4718945941038682?ers=3"
+          src="https://fundingchoicesmessages.google.com/tcf/i/pub-4718945941038682?ers=2"
         />
-        {/* Snippet ufficiale per segnalare la presenza di Google FC */}
-        <Script
-          id="funding-choices-present"
-          strategy="beforeInteractive"
-        >{`
-          (function() {
-            function signalGooglefcPresent() {
-              if (!window.frames['googlefcPresent']) {
-                if (document.body) {
-                  const iframe = document.createElement('iframe');
-                  iframe.style = 'width:0;height:0;border:0;display:none';
-                  iframe.name = 'googlefcPresent';
-                  document.body.appendChild(iframe);
-                } else {
-                  setTimeout(signalGooglefcPresent, 0);
+        {/* Snippet ufficiale che segnala la presenza di Google FC */}
+        <Script id="funding-choices-present" strategy="beforeInteractive">
+          {`
+            (function() {
+              function signalGooglefcPresent() {
+                if (!window.frames['googlefcPresent']) {
+                  if (document.body) {
+                    const iframe = document.createElement('iframe');
+                    iframe.style = 'width:0;height:0;border:0;display:none';
+                    iframe.name = 'googlefcPresent';
+                    document.body.appendChild(iframe);
+                  } else {
+                    setTimeout(signalGooglefcPresent, 0);
+                  }
                 }
               }
-            }
-            signalGooglefcPresent();
-          })();
-        `}</Script>
+              signalGooglefcPresent();
+            })();
+          `}
+        </Script>
       </head>
 
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
@@ -88,15 +87,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        {/* Tracciamento pageview SPA (robusto) */}
+        {/* Tracciamento pageview SPA */}
         <Suspense fallback={null}>
           <RouteTracker />
         </Suspense>
 
-        {/* Contenuto pagina */}
         {children}
 
-        {/* Footer */}
         <footer className="mt-20 border-t bg-neutral-50">
           <div className="mx-auto max-w-6xl px-4 py-10 grid gap-6 sm:grid-cols-3">
             <div>
