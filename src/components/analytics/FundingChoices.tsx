@@ -3,10 +3,8 @@
 import Script from "next/script";
 
 /**
- * Carica la CMP Google (Funding Choices) + stub TCF.
- * - MOSTRA __tcfapi come funzione già al primo paint (queue finché la CMP non è pronta)
- * - Crea l'iframe __tcfapiLocator richiesto dallo standard TCF
- * - Carica lo script Funding Choices per il tuo publisher id
+ * Stub TCF + loader Funding Choices.
+ * Espone __tcfapi subito (in coda) e poi carica la CMP di Google.
  */
 export default function FundingChoices() {
   const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT; // es: "ca-pub-4718945941038682"
@@ -14,14 +12,13 @@ export default function FundingChoices() {
 
   return (
     <>
-      {/* ✅ Stub TCF + postMessage handler (prima di tutto) */}
+      {/* Stub TCF "prima di tutto" */}
       <Script id="tcf-stub" strategy="beforeInteractive">
         {`
           (function() {
             var TCF_LOCATOR_NAME='__tcfapiLocator';
             var queue = [];
             var win = window;
-            var cmpFrame;
 
             function addFrame() {
               if (!win.frames[TCF_LOCATOR_NAME]) {
@@ -34,25 +31,20 @@ export default function FundingChoices() {
 
             function tcfAPIHandler() {
               var args = arguments;
-              // Mettiamo in coda le chiamate finché la CMP vera non rimpiazza lo stub
-              queue.push(args);
+              queue.push(args); // accoda finché la CMP vera non sostituisce lo stub
             }
 
             function postMessageEventHandler(event) {
-              var msgIsString = typeof event.data === 'string';
+              var isStr = typeof event.data === 'string';
               var json = {};
-              try { json = msgIsString ? JSON.parse(event.data) : event.data; } catch (ignore) {}
+              try { json = isStr ? JSON.parse(event.data) : event.data; } catch (ignore) {}
               var payload = json.__tcfapiCall;
               if (payload) {
                 window.__tcfapi(payload.command, payload.version, function(retValue, success) {
                   var returnMsg = {
-                    __tcfapiReturn: {
-                      returnValue: retValue,
-                      success: success,
-                      callId: payload.callId
-                    }
+                    __tcfapiReturn: { returnValue: retValue, success: success, callId: payload.callId }
                   };
-                  event.source.postMessage(msgIsString ? JSON.stringify(returnMsg) : returnMsg, '*');
+                  event.source.postMessage(isStr ? JSON.stringify(returnMsg) : returnMsg, '*');
                 }, payload.parameter);
               }
             }
@@ -62,39 +54,32 @@ export default function FundingChoices() {
               win.addEventListener('message', postMessageEventHandler, false);
             }
 
-            // Crea l'iframe locator
-            function signalGooglefcPresent() {
+            function ensureLocator() {
               if (!win.frames[TCF_LOCATOR_NAME]) {
-                if (document.body) {
-                  addFrame();
-                } else {
-                  setTimeout(signalGooglefcPresent, 5);
-                }
+                if (document.body) addFrame();
+                else setTimeout(ensureLocator, 5);
               }
             }
-            signalGooglefcPresent();
+            ensureLocator();
 
-            // Poll: quando la CMP vera sostituisce lo stub, svuota la coda
-            function flushQueueWhenReady() {
+            function flushWhenReady() {
               try {
-                // Se la CMP vera ha "rimpiazzato" lo stub, __tcfapi !== tcfAPIHandler
                 if (typeof win.__tcfapi === 'function' && win.__tcfapi !== tcfAPIHandler) {
-                  var q = queue.slice();
-                  queue = [];
+                  var q = queue.slice(); queue = [];
                   q.forEach(function(args){ win.__tcfapi.apply(win, args); });
                 } else {
-                  setTimeout(flushQueueWhenReady, 200);
+                  setTimeout(flushWhenReady, 200);
                 }
               } catch (e) {
-                setTimeout(flushQueueWhenReady, 200);
+                setTimeout(flushWhenReady, 200);
               }
             }
-            flushQueueWhenReady();
+            flushWhenReady();
           })();
         `}
       </Script>
 
-      {/* ✅ Loader Funding Choices per il tuo publisher id */}
+      {/* Loader Funding Choices (CMP Google) */}
       <Script
         id="fc-loader"
         strategy="afterInteractive"
