@@ -2,10 +2,8 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [
-        { "type": "host", "value": "italyexperiencehub.com" }
-      ],
-      "destination": "https://www.italyexperiencehub.com/:path*",
+      "has": [{ "type": "host", "value": "www.italyexperiencehub.com" }],
+      "destination": "https://italyexperiencehub.com/:path*",
       "permanent": true
     }
   ]

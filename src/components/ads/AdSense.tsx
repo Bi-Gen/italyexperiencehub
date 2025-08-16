@@ -1,59 +1,63 @@
+// src/components/ads/AdSense.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
-const KEY = "consent-v1";
+const ADS_SCRIPT_ATTR = 'data-adsbygoogle-script';
 
-export function AdSenseScript() {
+/** Inietta lo script AdSense una sola volta (idempotente). */
+function ensureAdSenseScript() {
   const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
-  if (!client) return null;
+  if (!client) return;
 
-  return (
-    <script
-      async
-      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`}
-      crossOrigin="anonymous"
-    />
-  );
+  if (document.querySelector(`script[${ADS_SCRIPT_ATTR}="true"]`)) return;
+
+  const s = document.createElement("script");
+  s.async = true;
+  s.crossOrigin = "anonymous";
+  s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`;
+  s.setAttribute(ADS_SCRIPT_ATTR, "true");
+  document.head.appendChild(s);
 }
 
+/** Opzionale: usalo se vuoi forzare il solo caricamento dello script (auto-ads). */
+export function AutoAds() {
+  useEffect(() => {
+    ensureAdSenseScript();
+  }, []);
+  return null;
+}
+
+/**
+ * Blocco in-article manuale.
+ * Richiede:
+ *  - NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-XXXXXXXXXXXX
+ *  - NEXT_PUBLIC_ADSENSE_SLOT=NNNNNNNNNN
+ *
+ * Con Funding Choices la CMP gestisce il consenso: noi non filtriamo.
+ * Se l’utente nega, Google applica automaticamente il comportamento consent mode.
+ */
 export function InArticleAd() {
   const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
   const slot = process.env.NEXT_PUBLIC_ADSENSE_SLOT;
-  const [canShow, setCanShow] = useState(false);
+  const initialized = useRef(false);
+
+  // Non renderizzare se non hai configurato lo slot
+  if (!client || !slot) return null;
 
   useEffect(() => {
-    const checkConsent = () => {
-      const val =
-        typeof window !== "undefined"
-          ? localStorage.getItem(KEY) || getCookie(KEY)
-          : null;
-      setCanShow(!!client && !!slot && val === "accepted");
-    };
+    ensureAdSenseScript();
 
-    const getCookie = (name: string) => {
-      return document.cookie
-        .split("; ")
-        .find((row) => row.startsWith(name + "="))
-        ?.split("=")[1];
-    };
-
-    checkConsent();
-    window.addEventListener("consent-changed", checkConsent);
-    return () => window.removeEventListener("consent-changed", checkConsent);
-  }, [client, slot]);
-
-  useEffect(() => {
-    if (!canShow) return;
+    if (initialized.current) return;
     try {
       (window as any).adsbygoogle = (window as any).adsbygoogle || [];
+      // push può essere chiamato anche prima che lo script sia pronto; verrà processato in coda
       (window as any).adsbygoogle.push({});
-    } catch (err) {
-      console.error("Errore caricamento adsbygoogle:", err);
+      initialized.current = true;
+    } catch {
+      // evita crash se lo script non è ancora pronto
     }
-  }, [canShow]);
-
-  if (!canShow) return null;
+  }, [client, slot]);
 
   return (
     <ins
