@@ -5,13 +5,15 @@ import { Suspense } from "react";
 
 import GTM from "@/components/analytics/GTM";
 import RouteTracker from "@/components/analytics/RouteTracker";
-import ClientAdSenseLoader from "./ClientAdSenseLoader";
 import FundingChoices from "@/components/analytics/FundingChoices";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.SITE_URL ||
   "https://italyexperiencehub.com";
+
+// 👇 usa la variabile d'ambiente per il client AdSense
+const ADS_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-4718945941038682";
 
 export const metadata: Metadata = {
   title: {
@@ -39,10 +41,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="it">
       <head>
-        {/* Consigli AdSense/Funding Choices */}
-        <meta name="google-adsense-account" content="ca-pub-4718945941038682" />
+        {/* Preconnect consigliati */}
+        <meta name="google-adsense-account" content={ADS_CLIENT} />
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="" />
         <link rel="preconnect" href="https://fundingchoicesmessages.google.com" crossOrigin="" />
+
+        {/* ✅ Snippet ufficiale AdSense nel <head> (niente loader custom) */}
+        {ADS_CLIENT && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADS_CLIENT}`}
+            crossOrigin="anonymous"
+          />
+        )}
       </head>
 
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
@@ -57,17 +68,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        {/* ✅ CMP Google (Funding Choices) */}
+        {/* CMP Google (Funding Choices) */}
         <FundingChoices />
 
-        {/* Pageview SPA (wrappato in Suspense per evitare warning) */}
+        {/* Pageview SPA */}
         <Suspense fallback={null}>
           <RouteTracker />
         </Suspense>
 
-        {/* AdSense loader (la CMP sblocca gli storage dopo consenso) */}
-        <ClientAdSenseLoader />
-
+        {/* Contenuto */}
         {children}
 
         {/* Footer */}
