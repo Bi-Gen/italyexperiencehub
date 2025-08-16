@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 import GTM from "@/components/analytics/GTM";
+import FundingChoices from "@/components/analytics/FundingChoices";
 import RouteTracker from "@/components/analytics/RouteTracker";
 import ClientAdSenseLoader from "./ClientAdSenseLoader";
 
@@ -39,24 +40,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="it">
       <head>
         {/* Consigli ufficiali per AdSense/Funding Choices */}
-        <meta
-          name="google-adsense-account"
-          content="ca-pub-4718945941038682"
-        />
-        <link
-          rel="preconnect"
-          href="https://pagead2.googlesyndication.com"
-          crossOrigin=""
-        />
-        <link
-          rel="preconnect"
-          href="https://fundingchoicesmessages.google.com"
-          crossOrigin=""
-        />
+        <meta name="google-adsense-account" content="ca-pub-4718945941038682" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="" />
+        <link rel="preconnect" href="https://fundingchoicesmessages.google.com" crossOrigin="" />
       </head>
 
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager + Consent default */}
         <GTM />
         {gtmId && (
           <noscript
@@ -67,12 +57,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        {/* Pageview SPA (in Suspense per evitare warning con useSearchParams) */}
+        {/* CMP Google (Funding Choices) */}
+        <FundingChoices />
+
+        {/* Pageview SPA (wrap in Suspense per evitare warning su useSearchParams) */}
         <Suspense fallback={null}>
           <RouteTracker />
         </Suspense>
 
-        {/* AdSense sempre caricato: la CMP gestisce blocco/permessi */}
+        {/* AdSense: la CMP gestisce i permessi; lo script è caricato lato client */}
         <ClientAdSenseLoader />
 
         {/* Contenuto */}
