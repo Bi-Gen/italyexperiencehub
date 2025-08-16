@@ -110,7 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
           <div className="border-t text-center py-4 text-xs text-neutral-500">
-            © {new Date().getFullYear()} Il Tuo Spazio Web – Tutti i diritti riservati.
+            © {new Date().getFullYear()} ItalyExperienceHub – Tutti i diritti riservati.
           </div>
         </footer>
       </body>
