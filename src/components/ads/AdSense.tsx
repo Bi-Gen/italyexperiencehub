@@ -3,24 +3,38 @@
 
 import { useEffect, useRef } from "react";
 
-const ADS_SCRIPT_ATTR = 'data-adsbygoogle-script';
+const SCRIPT_ID = "adsbygoogle-init";
 
 /** Inietta lo script AdSense una sola volta (idempotente). */
 function ensureAdSenseScript() {
   const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
   if (!client) return;
 
-  if (document.querySelector(`script[${ADS_SCRIPT_ATTR}="true"]`)) return;
+  // Evita duplicazioni: controlla per id o per src già presente
+  if (
+    document.getElementById(SCRIPT_ID) ||
+    document.querySelector('script[src^="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')
+  ) {
+    return;
+  }
 
   const s = document.createElement("script");
+  s.id = SCRIPT_ID;
   s.async = true;
   s.crossOrigin = "anonymous";
   s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`;
-  s.setAttribute(ADS_SCRIPT_ATTR, "true");
   document.head.appendChild(s);
 }
 
-/** Opzionale: usalo se vuoi forzare il solo caricamento dello script (auto-ads). */
+/** Alias storico usato da ClientAdSenseLoader: carica solo lo script (auto-ads). */
+export function AdSenseScript() {
+  useEffect(() => {
+    ensureAdSenseScript();
+  }, []);
+  return null;
+}
+
+/** Opzionale, equivalente ad AdSenseScript: lasciare per chiarezza. */
 export function AutoAds() {
   useEffect(() => {
     ensureAdSenseScript();
@@ -34,15 +48,14 @@ export function AutoAds() {
  *  - NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-XXXXXXXXXXXX
  *  - NEXT_PUBLIC_ADSENSE_SLOT=NNNNNNNNNN
  *
- * Con Funding Choices la CMP gestisce il consenso: noi non filtriamo.
- * Se l’utente nega, Google applica automaticamente il comportamento consent mode.
+ * Con Funding Choices la CMP gestisce il consenso: se l’utente nega,
+ * Google applica automaticamente il Consent Mode.
  */
 export function InArticleAd() {
   const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
   const slot = process.env.NEXT_PUBLIC_ADSENSE_SLOT;
   const initialized = useRef(false);
 
-  // Non renderizzare se non hai configurato lo slot
   if (!client || !slot) return null;
 
   useEffect(() => {
@@ -55,7 +68,7 @@ export function InArticleAd() {
       (window as any).adsbygoogle.push({});
       initialized.current = true;
     } catch {
-      // evita crash se lo script non è ancora pronto
+      // ignora: riproverà al prossimo render/ri-mount
     }
   }, [client, slot]);
 
