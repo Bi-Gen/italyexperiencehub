@@ -1,10 +1,11 @@
 // src/app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 import GTM from "@/components/analytics/GTM";
 import RouteTracker from "@/components/analytics/RouteTracker";
-import ClientAdSenseLoader from "./ClientAdSenseLoader"; // carica adsbygoogle
+import ClientAdSenseLoader from "./ClientAdSenseLoader";
 
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -36,8 +37,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="it">
+      <head>
+        {/* Consigli ufficiali per AdSense/Funding Choices */}
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-4718945941038682"
+        />
+        <link
+          rel="preconnect"
+          href="https://pagead2.googlesyndication.com"
+          crossOrigin=""
+        />
+        <link
+          rel="preconnect"
+          href="https://fundingchoicesmessages.google.com"
+          crossOrigin=""
+        />
+      </head>
+
       <body className="min-h-screen bg-white text-neutral-900 antialiased">
-        {/* GTM */}
+        {/* Google Tag Manager */}
         <GTM />
         {gtmId && (
           <noscript
@@ -48,12 +67,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        {/* Pageview SPA */}
-        <RouteTracker />
+        {/* Pageview SPA (in Suspense per evitare warning con useSearchParams) */}
+        <Suspense fallback={null}>
+          <RouteTracker />
+        </Suspense>
 
-        {/* AdSense sempre caricato: la CMP blocca gli storage finché non c’è consenso */}
+        {/* AdSense sempre caricato: la CMP gestisce blocco/permessi */}
         <ClientAdSenseLoader />
 
+        {/* Contenuto */}
         {children}
 
         {/* Footer */}
