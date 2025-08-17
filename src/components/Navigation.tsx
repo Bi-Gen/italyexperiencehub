@@ -59,10 +59,12 @@ export default function Navigation() {
       <div className="container-custom">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-italy rounded-lg flex items-center justify-center">
-              <MapPin className="h-6 w-6 text-white" />
-            </div>
+          <Link href="/" className="flex items-center space-x-3">
+            <img 
+              src="/logo.png" 
+              alt="Italy Experience Hub" 
+              className="h-10 w-auto"
+            />
             <div className="hidden sm:block">
               <span className="font-bold text-xl text-gray-900">
                 Italy<span className="text-primary-600">Experience</span>
