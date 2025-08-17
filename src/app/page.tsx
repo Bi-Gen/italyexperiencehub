@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { MapPin, Star, Clock, Users, Calendar, ArrowRight, TrendingUp, Award, Shield } from 'lucide-react'
+import { HeroAdBanner, ContentAd, DestinationAd } from '@/components/AdSense/AdUnit'
 
 export default function HomePage() {
   const featuredDestinations = [
@@ -206,6 +207,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Hero Ad Banner */}
+      <section className="py-8 bg-gray-50">
+        <div className="container-custom">
+          <HeroAdBanner />
+        </div>
+      </section>
+
       {/* Featured Destinations */}
       <section className="py-16 lg:py-24">
         <div className="container-custom">
@@ -219,12 +227,12 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {featuredDestinations.map((destination) => (
-              <Link 
-                key={destination.id}
-                href={destination.href}
-                className="card group overflow-hidden hover:shadow-xl transition-all duration-300"
-              >
+            {featuredDestinations.map((destination, index) => (
+              <div key={destination.id} className="space-y-6">
+                <Link 
+                  href={destination.href}
+                  className="card group overflow-hidden hover:shadow-xl transition-all duration-300 block"
+                >
                 <div className="relative h-64 overflow-hidden">
                   <Image
                     src={destination.image}
@@ -253,7 +261,13 @@ export default function HomePage() {
                     <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-primary-600 transition-colors" />
                   </div>
                 </div>
-              </Link>
+                </Link>
+                
+                {/* Add ad after second destination */}
+                {index === 1 && (
+                  <DestinationAd className="lg:col-span-1" />
+                )}
+              </div>
             ))}
           </div>
         </div>
@@ -413,6 +427,9 @@ export default function HomePage() {
               Tutte le Guide Pratiche
             </Link>
           </div>
+
+          {/* Content Ad */}
+          <ContentAd className="mt-16" />
         </div>
       </section>
 

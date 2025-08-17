@@ -10,7 +10,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
-  themeColor: '#2563eb',
+  themeColor: '#2d8659',
 }
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: 'Italy Experience Hub | Guide Turistiche e Esperienze Esclusive in Italia',
     template: '%s | Italy Experience Hub'
   },
-  description: 'Scopri l\'Italia autentica con le nostre guide complete, esperienze esclusive e consigli da esperti. Il portale di riferimento per il turismo italiano.',
+  description: 'Scopri l\'Italia autentica con le nostre guide complete, esperienze esclusive e consigli da esperti locali. Tour privati, food tour, bike tour e molto altro. Il portale di riferimento per il turismo italiano con oltre 500 esperienze verificate.',
   keywords: [
     'turismo Italia',
     'guide turistiche Italia', 
@@ -27,7 +27,26 @@ export const metadata: Metadata = {
     'destinazioni Italia',
     'tour Italia',
     'vacanze Italia',
-    'cosa vedere Italia'
+    'cosa vedere Italia',
+    'Italia autentica',
+    'tour privati Italia',
+    'esperti locali Italia',
+    'cucina italiana',
+    'arte Italia',
+    'cultura Italia',
+    'Roma tour',
+    'Toscana tour',
+    'Venezia tour',
+    'Firenze tour',
+    'Costiera Amalfitana',
+    'Sicilia tour',
+    'Milano tour',
+    'Napoli tour',
+    'food tour Italia',
+    'bike tour Italia',
+    'boat tour Italia',
+    'storia Italia',
+    'patrimonio UNESCO Italia'
   ],
   authors: [{ name: 'Italy Experience Hub' }],
   creator: 'Italy Experience Hub',
@@ -122,23 +141,69 @@ export default function RootLayout({
         {/* Footer */}
         <Footer />
         
-        {/* Structured Data */}
+        {/* Enhanced Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'Italy Experience Hub',
-              url: SITE_URL,
-              logo: `${SITE_URL}/logo.png`,
-              description: 'Il portale di riferimento per il turismo in Italia',
-              sameAs: [
-                'https://www.facebook.com/italyexperiencehub',
-                'https://www.instagram.com/italyexperiencehub',
-                'https://www.twitter.com/italyexphub'
-              ]
-            })
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Organization',
+                name: 'Italy Experience Hub',
+                url: SITE_URL,
+                logo: `${SITE_URL}/logo.png`,
+                description: 'Il portale di riferimento per il turismo in Italia con guide complete ed esperienze esclusive',
+                foundingDate: '2024',
+                founder: {
+                  '@type': 'Person',
+                  name: 'Italy Experience Hub Team'
+                },
+                areaServed: {
+                  '@type': 'Country',
+                  name: 'Italy'
+                },
+                serviceType: ['Tourism', 'Travel Guides', 'Tour Services'],
+                sameAs: [
+                  'https://www.facebook.com/italyexperiencehub',
+                  'https://www.instagram.com/italyexperiencehub',
+                  'https://www.twitter.com/italyexphub'
+                ]
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                url: SITE_URL,
+                name: 'Italy Experience Hub',
+                description: 'Scopri l\'Italia autentica con guide complete ed esperienze esclusive',
+                inLanguage: 'it-IT',
+                potentialAction: {
+                  '@type': 'SearchAction',
+                  target: {
+                    '@type': 'EntryPoint',
+                    urlTemplate: `${SITE_URL}/search?q={search_term_string}`
+                  },
+                  'query-input': 'required name=search_term_string'
+                }
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'TravelAgency',
+                name: 'Italy Experience Hub',
+                url: SITE_URL,
+                description: 'Agenzia di viaggi specializzata in esperienze autentiche in Italia',
+                areaServed: {
+                  '@type': 'Country',
+                  name: 'Italy'
+                },
+                serviceType: [
+                  'Tour guidati',
+                  'Esperienze gastronomiche', 
+                  'Tour in bicicletta',
+                  'Tour in barca',
+                  'Guide turistiche'
+                ]
+              }
+            ])
           }}
         />
       </body>
