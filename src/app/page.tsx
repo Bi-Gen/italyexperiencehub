@@ -119,13 +119,13 @@ export default function HomePage() {
         <div className="relative container-custom py-20 lg:py-32">
           <div className="max-w-4xl">
             <div className="flex items-center space-x-2 mb-6">
-              <Award className="h-6 w-6 text-accent-400" />
-              <span className="text-accent-400 font-semibold">Il portale #1 per il turismo in Italia</span>
+              <Award className="h-6 w-6 text-gold-400" />
+              <span className="text-gold-400 font-semibold">Il portale #1 per il turismo in Italia</span>
             </div>
             
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-balance">
               Scopri l'Italia
-              <span className="block text-accent-400">come un Esperto</span>
+              <span className="block text-gold-400">come un Esperto</span>
             </h1>
             
             <p className="text-xl lg:text-2xl text-blue-100 mb-8 max-w-3xl leading-relaxed">
@@ -156,7 +156,7 @@ export default function HomePage() {
                 <span className="text-sm">500+ Esperienze Verificate</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Star className="h-5 w-5 text-accent-400" />
+                <Star className="h-5 w-5 text-gold-400" />
                 <span className="text-sm">4.8/5 Rating Medio</span>
               </div>
               <div className="flex items-center space-x-2">
@@ -237,7 +237,7 @@ export default function HomePage() {
                     <h3 className="text-2xl font-bold mb-1">{destination.name}</h3>
                     <div className="flex items-center space-x-4 text-sm">
                       <span className="flex items-center">
-                        <Star className="h-4 w-4 text-accent-400 mr-1" />
+                        <Star className="h-4 w-4 text-gold-400 mr-1" />
                         {destination.avgRating}
                       </span>
                       <span>{destination.experiences} esperienze</span>
@@ -291,9 +291,9 @@ export default function HomePage() {
                   />
                   <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      experience.badge === 'Bestseller' ? 'bg-green-500 text-white' :
-                      experience.badge === 'Eco-friendly' ? 'bg-emerald-500 text-white' :
-                      'bg-accent-500 text-white'
+                      experience.badge === 'Bestseller' ? 'bg-accent-500 text-white' :
+                      experience.badge === 'Eco-friendly' ? 'bg-primary-500 text-white' :
+                      'bg-gold-500 text-white'
                     }`}>
                       {experience.badge}
                     </span>
@@ -337,7 +337,7 @@ export default function HomePage() {
                   
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <Star className="h-4 w-4 text-accent-400" />
+                      <Star className="h-4 w-4 text-gold-400" />
                       <span className="text-sm font-medium">{experience.rating}</span>
                       <span className="text-sm text-gray-500">({experience.reviews})</span>
                     </div>
