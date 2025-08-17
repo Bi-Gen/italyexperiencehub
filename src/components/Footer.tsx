@@ -1,5 +1,14 @@
+'use client'
+
 import Link from 'next/link'
 import { MapPin, Mail, Phone, Facebook, Instagram, Twitter } from 'lucide-react'
+
+// Extend Window interface for Google Funding Choices
+declare global {
+  interface Window {
+    __gpp?: (command: string) => void;
+  }
+}
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -45,6 +54,7 @@ export default function Footer() {
       { name: 'Privacy Policy', href: '/privacy' },
       { name: 'Termini di Servizio', href: '/termini' },
       { name: 'Cookie Policy', href: '/cookie' },
+      { name: 'Gestisci Cookie', href: '#', onClick: () => window.__gpp && window.__gpp('displayUiForConsent') },
       { name: 'Disclaimer', href: '/disclaimer' },
     ]
   }
@@ -202,13 +212,23 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6">
               {footerLinks.legale.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
-                >
-                  {link.name}
-                </Link>
+                link.onClick ? (
+                  <button
+                    key={link.name}
+                    onClick={link.onClick}
+                    className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
+                  >
+                    {link.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
             </div>
           </div>
