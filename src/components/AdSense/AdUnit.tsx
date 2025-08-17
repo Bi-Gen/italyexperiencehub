@@ -36,7 +36,15 @@ export function AdUnit({
   }, [])
 
   if (!adsenseClient) {
-    return null
+    // Show placeholder during development
+    return (
+      <div 
+        className={`bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center ${className}`}
+        style={style}
+      >
+        <span className="text-gray-500 text-sm">AdSense Placeholder</span>
+      </div>
+    )
   }
 
   return (

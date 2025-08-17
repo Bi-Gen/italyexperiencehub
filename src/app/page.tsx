@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { MapPin, Star, Clock, Users, Calendar, ArrowRight, TrendingUp, Award, Shield } from 'lucide-react'
-import { HeroAdBanner, ContentAd, DestinationAd } from '@/components/AdSense/AdUnit'
+// import { HeroAdBanner, ContentAd, DestinationAd } from '@/components/AdSense/AdUnit'
 
 export default function HomePage() {
   const featuredDestinations = [
@@ -207,12 +207,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Hero Ad Banner */}
-      <section className="py-4 bg-gray-50">
+      {/* Hero Ad Banner - Temporaneamente disabilitato per evitare errori */}
+      {/* <section className="py-4 bg-gray-50">
         <div className="container-custom">
           <HeroAdBanner />
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Destinations */}
       <section className="py-16 lg:py-24">
@@ -263,10 +263,10 @@ export default function HomePage() {
                 </div>
                 </Link>
                 
-                {/* Add ad after second destination */}
-                {index === 1 && (
+                {/* Add ad after second destination - temporaneamente disabilitato */}
+                {/* {index === 1 && (
                   <DestinationAd className="lg:col-span-1" />
-                )}
+                )} */}
               </div>
             ))}
           </div>
@@ -428,8 +428,8 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Content Ad */}
-          <ContentAd className="mt-16" />
+          {/* Content Ad - temporaneamente disabilitato */}
+          {/* <ContentAd className="mt-16" /> */}
         </div>
       </section>
 

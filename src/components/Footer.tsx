@@ -54,7 +54,6 @@ export default function Footer() {
       { name: 'Privacy Policy', href: '/privacy' },
       { name: 'Termini di Servizio', href: '/termini' },
       { name: 'Cookie Policy', href: '/cookie' },
-      { name: 'Gestisci Cookie', href: '#', onClick: () => window.__gpp && window.__gpp('displayUiForConsent') },
       { name: 'Disclaimer', href: '/disclaimer' },
     ]
   }
@@ -212,24 +211,24 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6">
               {footerLinks.legale.map((link) => (
-                link.onClick ? (
-                  <button
-                    key={link.name}
-                    onClick={link.onClick}
-                    className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
-                  >
-                    {link.name}
-                  </button>
-                ) : (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                )
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
+                >
+                  {link.name}
+                </Link>
               ))}
+              <button
+                onClick={() => {
+                  if (typeof window !== 'undefined' && window.__gpp) {
+                    window.__gpp('displayUiForConsent')
+                  }
+                }}
+                className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
+              >
+                Gestisci Cookie
+              </button>
             </div>
           </div>
         </div>
