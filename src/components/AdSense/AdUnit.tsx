@@ -63,7 +63,7 @@ export function HeroAdBanner({ className = '' }: { className?: string }) {
       adSlot="1234567890" // Replace with actual ad slot
       adFormat="auto"
       className={`w-full max-w-4xl mx-auto ${className}`}
-      style={{ minHeight: '250px' }}
+      style={{ minHeight: '120px' }}
     />
   )
 }

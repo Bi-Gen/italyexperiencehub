@@ -208,7 +208,7 @@ export default function HomePage() {
       </section>
 
       {/* Hero Ad Banner */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-4 bg-gray-50">
         <div className="container-custom">
           <HeroAdBanner />
         </div>
