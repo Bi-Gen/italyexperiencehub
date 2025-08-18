@@ -43,25 +43,20 @@ export default function Footer() {
       { name: 'Documenti', href: '/guide/documenti' },
     ],
     azienda: [
-      { name: 'Chi Siamo', href: '/chi-siamo' },
-      { name: 'La Nostra Missione', href: '/missione' },
-      { name: 'Partner', href: '/partner' },
-      { name: 'Lavora con Noi', href: '/carriere' },
-      { name: 'Stampa', href: '/stampa' },
+      { name: 'Contatti', href: '/contatti' },
+      { name: 'Chi Siamo', href: '#' },
+      { name: 'Partnership', href: '#' },
     ],
     supporto: [
-      { name: 'Contatti', href: '/contatti' },
       { name: 'FAQ', href: '/faq' },
-      { name: 'Assistenza', href: '/assistenza' },
-      { name: 'Cancellazioni', href: '/cancellazioni' },
-      { name: 'Rimborsi', href: '/rimborsi' },
+      { name: 'Assistenza Clienti', href: '/contatti' },
+      { name: 'Come Prenotare', href: '/guide/come-prenotare' },
     ],
     legale: [
       { name: 'Privacy Policy', href: '/privacy' },
       { name: 'Termini di Servizio', href: '/termini' },
       { name: 'Cookie Policy', href: '/cookie' },
       { name: 'Impostazioni Cookie', href: '#', onClick: true },
-      { name: 'Disclaimer', href: '/disclaimer' },
     ]
   }
 
