@@ -93,7 +93,7 @@ export default function HomePage() {
       readTime: '12 min',
       views: '156K',
       href: '/guide/roma-3-giorni',
-      image: '/images/guides/milano-3-giorni.jpg'
+      image: '/images/destinations/roma-hero.webp'
     },
     {
       title: 'Quando Visitare l\'Italia: Guida Stagionale',
