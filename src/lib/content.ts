@@ -278,9 +278,67 @@ export function getExperiencesByCategory(category: string): ExperiencePost[] {
   return allExperiences.filter(experience => experience.category === category)
 }
 
+// Blog post functions
+export function getAllBlogPosts(): GuidePost[] {
+  const blogDirectory = path.join(contentDirectory, 'blog')
+  
+  if (!fs.existsSync(blogDirectory)) {
+    return []
+  }
+
+  const fileNames = fs.readdirSync(blogDirectory)
+  const allPosts = fileNames
+    .filter(name => name.endsWith('.md'))
+    .map((name) => {
+      const slug = name.replace(/\.md$/, '')
+      const fullPath = path.join(blogDirectory, name)
+      const fileContents = fs.readFileSync(fullPath, 'utf8')
+      const { data, content } = matter(fileContents)
+
+      return {
+        slug,
+        content,
+        ...data,
+        readingTime: Math.ceil(content.split(' ').length / 200), // Estimate reading time
+      } as GuidePost
+    })
+
+  return allPosts.sort((a, b) => 
+    new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  )
+}
+
+export function getBlogPostBySlug(slug: string): GuidePost | null {
+  try {
+    const fullPath = path.join(contentDirectory, 'blog', `${slug}.md`)
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const { data, content } = matter(fileContents)
+
+    return {
+      slug,
+      content,
+      ...data,
+      readingTime: Math.ceil(content.split(' ').length / 200),
+    } as GuidePost
+  } catch {
+    return null
+  }
+}
+
+export function getBlogPostsByCategory(category: string): GuidePost[] {
+  const allPosts = getAllBlogPosts()
+  return allPosts.filter(post => post.category === category)
+}
+
+export function getFeaturedBlogPosts(): GuidePost[] {
+  const allPosts = getAllBlogPosts()
+  return allPosts.filter(post => post.featured).slice(0, 6)
+}
+
 // Search functionality
 export function searchContent(query: string) {
   const guides = getAllGuides()
+  const blogPosts = getAllBlogPosts()
   const destinations = getAllDestinations()
   const experiences = getAllExperiences()
   
@@ -290,6 +348,12 @@ export function searchContent(query: string) {
     guide.title.toLowerCase().includes(searchTerm) ||
     guide.description.toLowerCase().includes(searchTerm) ||
     guide.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+  )
+  
+  const matchingBlogPosts = blogPosts.filter(post =>
+    post.title.toLowerCase().includes(searchTerm) ||
+    post.description.toLowerCase().includes(searchTerm) ||
+    post.tags.some(tag => tag.toLowerCase().includes(searchTerm))
   )
   
   const matchingDestinations = destinations.filter(destination =>
@@ -307,8 +371,9 @@ export function searchContent(query: string) {
   
   return {
     guides: matchingGuides,
+    blogPosts: matchingBlogPosts,
     destinations: matchingDestinations,
     experiences: matchingExperiences,
-    total: matchingGuides.length + matchingDestinations.length + matchingExperiences.length
+    total: matchingGuides.length + matchingBlogPosts.length + matchingDestinations.length + matchingExperiences.length
   }
 }

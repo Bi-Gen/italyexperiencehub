@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Calendar, User, Clock, Tag } from 'lucide-react'
+import { Calendar, User, Clock, Tag, TrendingUp } from 'lucide-react'
+import { getAllBlogPosts } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Blog di Viaggio | Storie e Consigli dall\'Italia',
@@ -9,55 +10,28 @@ export const metadata: Metadata = {
   keywords: ['blog viaggio Italia', 'storie viaggio', 'consigli viaggio', 'turismo Italia', 'luoghi nascosti Italia']
 }
 
-const blogPosts = [
-  {
-    slug: 'luoghi-nascosti-roma',
-    title: 'I 10 Luoghi Nascosti di Roma che Solo i Locali Conoscono',
-    excerpt: 'Scopri la Roma segreta lontana dalle folle turistiche: giardini nascosti, chiese poco conosciute e angoli magici della Città Eterna.',
-    author: 'Marco Rossi',
-    publishedAt: '2024-08-15',
-    readTime: 8,
-    category: 'Luoghi Nascosti',
-    image: 'https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=600&h=400&fit=crop',
-    tags: ['Roma', 'Luoghi nascosti', 'Local tips'],
-    featured: true
-  },
-  {
-    slug: 'cucina-regionale-italiana',
-    title: 'Viaggio Gastronomico: Le 20 Regioni Italiane a Tavola',
-    excerpt: 'Un viaggio culinario attraverso l\'Italia: dai tortellini dell\'Emilia-Romagna agli arancini siciliani, scopri i sapori autentici di ogni regione.',
-    author: 'Giulia Bianchi',
-    publishedAt: '2024-08-12',
-    readTime: 15,
-    category: 'Gastronomia',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop',
-    tags: ['Cucina italiana', 'Tradizioni', 'Food'],
-    featured: true
-  },
-  {
-    slug: 'sostenibilita-turismo-italia',
-    title: 'Turismo Sostenibile in Italia: Come Viaggiare Rispettando l\'Ambiente',
-    excerpt: 'Consigli pratici per un turismo responsabile: trasporti eco-friendly, strutture sostenibili e attività a basso impatto ambientale.',
-    author: 'Andrea Verdi',
-    publishedAt: '2024-08-10',
-    readTime: 12,
-    category: 'Sostenibilità',
-    image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop',
-    tags: ['Sostenibilità', 'Eco-tourism', 'Ambiente'],
-    featured: false
-  }
-]
-
-const categories = [
-  { name: 'Luoghi Nascosti', count: 23, color: 'bg-primary-100 text-primary-700' },
-  { name: 'Gastronomia', count: 18, color: 'bg-accent-100 text-accent-700' },
-  { name: 'Storia & Cultura', count: 31, color: 'bg-gold-100 text-gold-700' },
-  { name: 'Sostenibilità', count: 12, color: 'bg-green-100 text-green-700' },
-  { name: 'Tradizioni', count: 15, color: 'bg-purple-100 text-purple-700' },
-  { name: 'Local Tips', count: 27, color: 'bg-blue-100 text-blue-700' }
-]
-
 export default function BlogPage() {
+  const blogPosts = getAllBlogPosts()
+  
+  // Raggruppa per categoria per il conteggio
+  const categories = blogPosts.reduce((acc, post) => {
+    acc[post.category] = (acc[post.category] || 0) + 1
+    return acc
+  }, {} as Record<string, number>)
+  
+  const categoryList = Object.entries(categories).map(([name, count], index) => ({
+    name,
+    count,
+    color: [
+      'bg-primary-100 text-primary-700',
+      'bg-accent-100 text-accent-700', 
+      'bg-gold-100 text-gold-700',
+      'bg-green-100 text-green-700',
+      'bg-purple-100 text-purple-700',
+      'bg-blue-100 text-blue-700'
+    ][index % 6]
+  }))
+  
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
@@ -69,36 +43,41 @@ export default function BlogPage() {
           <p className="text-xl lg:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
             Storie, consigli e segreti dell'Italia raccontati da chi la vive ogni giorno
           </p>
-        </div>
-      </section>
-
-      {/* Categories */}
-      <section className="py-12 bg-gray-50">
-        <div className="container-custom">
-          <h2 className="text-2xl font-bold text-center mb-8">Categorie</h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category, index) => (
-              <Link
-                key={index}
-                href={`/blog?category=${category.name.toLowerCase().replace(' & ', '-').replace(' ', '-')}`}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors hover:shadow-md ${category.color}`}
-              >
-                {category.name} ({category.count})
-              </Link>
-            ))}
+          <div className="text-blue-200">
+            <span className="font-semibold">{blogPosts.length}</span> articoli pubblicati
           </div>
         </div>
       </section>
 
-      {/* Featured Posts */}
+      {/* Categories */}
+      {categoryList.length > 0 && (
+        <section className="py-12 bg-gray-50">
+          <div className="container-custom">
+            <h2 className="text-2xl font-bold text-center mb-8">Categorie</h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              {categoryList.map((category, index) => (
+                <Link
+                  key={index}
+                  href={`/blog?category=${category.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors hover:shadow-md ${category.color}`}
+                >
+                  {category.name} ({category.count})
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* All Posts */}
       <section className="py-16 lg:py-24">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Articoli in Evidenza
+              Tutti gli Articoli
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Le storie più lette e i consigli più apprezzati dalla nostra community
+              Scopri storie, consigli e guide pratiche per viaggiare in Italia
             </p>
           </div>
 
@@ -110,15 +89,22 @@ export default function BlogPage() {
                 className="card group overflow-hidden hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  {post.image ? (
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+                      <TrendingUp className="h-12 w-12 text-primary-500" />
+                    </div>
+                  )}
                   {post.featured && (
                     <div className="absolute top-4 left-4">
-                      <span className="bg-accent-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      <span className="bg-accent-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center">
+                        <TrendingUp className="h-3 w-3 mr-1" />
                         In Evidenza
                       </span>
                     </div>
@@ -142,7 +128,7 @@ export default function BlogPage() {
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
-                      {post.readTime} min
+                      {post.readingTime || 0} min
                     </div>
                   </div>
                   
@@ -151,11 +137,11 @@ export default function BlogPage() {
                   </h3>
                   
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {post.excerpt}
+                    {post.description}
                   </p>
                   
                   <div className="flex flex-wrap gap-1 mb-4">
-                    {post.tags.map((tag, index) => (
+                    {post.tags.slice(0, 3).map((tag, index) => (
                       <span
                         key={index}
                         className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded flex items-center"

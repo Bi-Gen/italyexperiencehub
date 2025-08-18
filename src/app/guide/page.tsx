@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Clock, Eye, Tag } from 'lucide-react'
+import { Clock, Tag, MapPin, Calendar } from 'lucide-react'
+import { getAllGuides } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Guide Pratiche | Consigli Esperti per Viaggiare in Italia',
@@ -9,43 +10,9 @@ export const metadata: Metadata = {
   keywords: ['guide viaggio Italia', 'consigli viaggio', 'itinerari Italia', 'come visitare', 'guida turistica']
 }
 
-const guides = [
-  {
-    slug: 'roma-3-giorni',
-    title: 'Come Visitare Roma in 3 Giorni: Itinerario Completo',
-    description: 'Guida completa per visitare Roma in 3 giorni con itinerario dettagliato, attrazioni imperdibili e consigli pratici per la Città Eterna.',
-    category: 'Guide Destinazioni',
-    readTime: 12,
-    views: '156K',
-    image: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=400&h=250&fit=crop',
-    tags: ['Roma', 'Itinerario', '3 giorni'],
-    featured: true
-  },
-  {
-    slug: 'quando-visitare-toscana',
-    title: 'Miglior Periodo per Visitare la Toscana: Guida Stagionale',
-    description: 'Scopri quando visitare la Toscana: clima, eventi, prezzi e consigli per ogni stagione dell\'anno.',
-    category: 'Guide Pratiche',
-    readTime: 8,
-    views: '89K',
-    image: 'https://images.unsplash.com/photo-1429554513779-906c3395a1a9?w=400&h=250&fit=crop',
-    tags: ['Toscana', 'Clima', 'Stagioni'],
-    featured: true
-  },
-  {
-    slug: 'trasporti-italia',
-    title: 'Trasporti in Italia: Come Muoversi Tra le Città',
-    description: 'Guida completa ai trasporti in Italia: treni, aerei, autobus e auto. Consigli per viaggiare comodi ed economici.',
-    category: 'Guide Pratiche',
-    readTime: 15,
-    views: '234K',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop',
-    tags: ['Trasporti', 'Treni', 'Viaggiare'],
-    featured: true
-  }
-]
-
 export default function GuidePage() {
+  const guides = getAllGuides()
+  
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
@@ -57,6 +24,9 @@ export default function GuidePage() {
           <p className="text-xl lg:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
             Consigli di esperti e guide complete per viaggiare in Italia come un locale
           </p>
+          <div className="text-blue-200">
+            <span className="font-semibold">{guides.length}</span> guide disponibili
+          </div>
         </div>
       </section>
 
@@ -71,12 +41,18 @@ export default function GuidePage() {
                 className="card group overflow-hidden hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={guide.image}
-                    alt={guide.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  {guide.image ? (
+                    <Image
+                      src={guide.image}
+                      alt={guide.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+                      <MapPin className="h-12 w-12 text-primary-500" />
+                    </div>
+                  )}
                   {guide.featured && (
                     <div className="absolute top-4 left-4">
                       <span className="bg-accent-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
@@ -94,11 +70,11 @@ export default function GuidePage() {
                     <div className="flex items-center space-x-4 text-xs text-gray-500">
                       <div className="flex items-center">
                         <Clock className="h-3 w-3 mr-1" />
-                        {guide.readTime} min
+                        {guide.readingTime || 0} min
                       </div>
                       <div className="flex items-center">
-                        <Eye className="h-3 w-3 mr-1" />
-                        {guide.views}
+                        <Calendar className="h-3 w-3 mr-1" />
+                        {new Date(guide.publishedAt).toLocaleDateString('it-IT')}
                       </div>
                     </div>
                   </div>
@@ -111,16 +87,24 @@ export default function GuidePage() {
                     {guide.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-1">
-                    {guide.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded flex items-center"
-                      >
-                        <Tag className="h-3 w-3 mr-1" />
-                        {tag}
-                      </span>
-                    ))}
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-wrap gap-1">
+                      {guide.tags.slice(0, 3).map((tag, index) => (
+                        <span
+                          key={index}
+                          className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded flex items-center"
+                        >
+                          <Tag className="h-3 w-3 mr-1" />
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    {guide.destination && (
+                      <div className="flex items-center text-xs text-gray-500">
+                        <MapPin className="h-3 w-3 mr-1" />
+                        {guide.destination}
+                      </div>
+                    )}
                   </div>
                 </div>
               </Link>
