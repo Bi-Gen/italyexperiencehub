@@ -175,12 +175,14 @@ export default function HomePage() {
         <div className="p-6 lg:p-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="search-destination" className="block text-sm font-medium text-gray-700 mb-2">
                 Dove vuoi andare?
               </label>
               <div className="relative">
                 <MapPin className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                 <input
+                  id="search-destination"
+                  name="destination"
                   type="text"
                   placeholder="Roma, Toscana, Costiera Amalfitana..."
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent"
@@ -188,12 +190,14 @@ export default function HomePage() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="search-date" className="block text-sm font-medium text-gray-700 mb-2">
                 Quando
               </label>
               <div className="relative">
                 <Calendar className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                 <input
+                  id="search-date"
+                  name="date"
                   type="date"
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
@@ -463,9 +467,13 @@ export default function HomePage() {
           </p>
           
           <form className="max-w-md mx-auto flex space-x-4">
+            <label htmlFor="newsletter-email" className="sr-only">La tua email</label>
             <input
+              id="newsletter-email"
+              name="email"
               type="email"
               placeholder="La tua email"
+              required
               className="flex-1 px-4 py-3 rounded-xl text-gray-900 focus:ring-2 focus:ring-accent-400 focus:outline-none"
             />
             <button

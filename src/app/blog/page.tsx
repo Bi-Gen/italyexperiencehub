@@ -173,9 +173,13 @@ export default function BlogPage() {
           </p>
           
           <form className="max-w-md mx-auto flex space-x-4">
+            <label htmlFor="blog-newsletter-email" className="sr-only">La tua email</label>
             <input
+              id="blog-newsletter-email"
+              name="email"
               type="email"
               placeholder="La tua email"
+              required
               className="flex-1 px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
             <button

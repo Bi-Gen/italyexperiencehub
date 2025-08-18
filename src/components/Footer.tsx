@@ -188,9 +188,13 @@ export default function Footer() {
               Ricevi guide esclusive, offerte speciali e consigli di viaggio direttamente nella tua inbox.
             </p>
             <form className="flex space-x-2">
+              <label htmlFor="footer-email" className="sr-only">La tua email</label>
               <input
+                id="footer-email"
+                name="email"
                 type="email"
                 placeholder="La tua email"
+                required
                 className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
               <button
