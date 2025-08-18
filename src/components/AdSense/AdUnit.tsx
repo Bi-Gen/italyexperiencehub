@@ -39,15 +39,24 @@ export function AdUnit({
       }
     }
 
-    // Only load AdSense if marketing cookies are accepted
+    // Only load AdSense if marketing cookies are accepted and element is not already processed
     if (marketingAccepted && typeof window !== 'undefined' && window.adsbygoogle) {
-      try {
-        window.adsbygoogle.push({})
-      } catch (err) {
-        console.error('AdSense error:', err)
-      }
+      // Add a small delay to ensure DOM is ready
+      const timer = setTimeout(() => {
+        try {
+          // Check if this specific ad unit is already processed
+          const adElement = document.querySelector(`[data-ad-slot="${adSlot}"]`)
+          if (adElement && !adElement.hasAttribute('data-adsbygoogle-status')) {
+            window.adsbygoogle.push({})
+          }
+        } catch (err) {
+          console.error('AdSense error:', err)
+        }
+      }, 100)
+      
+      return () => clearTimeout(timer)
     }
-  }, [])
+  }, [adSlot])
 
   // Check cookie consent for marketing
   const cookieConsent = typeof window !== 'undefined' ? localStorage.getItem('cookie-consent') : null

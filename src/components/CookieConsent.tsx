@@ -117,8 +117,8 @@ export default function CookieConsent() {
   const loadAdSense = () => {
     if (typeof window !== 'undefined') {
       // AdSense script è già caricato nel layout.tsx
-      // Qui inizializziamo solo gli ads esistenti nella pagina
-      const adElements = document.querySelectorAll('.adsbygoogle')
+      // Qui inizializziamo solo gli ads esistenti nella pagina che non sono già stati processati
+      const adElements = document.querySelectorAll('.adsbygoogle:not([data-adsbygoogle-status])')
       adElements.forEach(() => {
         try {
           if (window.adsbygoogle) {

@@ -40,7 +40,7 @@ export default function HomePage() {
   const featuredExperiences = [
     {
       id: 'food-rome',
-      title: 'Food Tour Autentico a Trastevere',
+      title: 'Tour Gastronomici Autentici',
       location: 'Roma',
       duration: '3.5 ore',
       groupSize: 'Max 12 persone',
@@ -51,11 +51,11 @@ export default function HomePage() {
       image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop',
       highlights: ['6 degustazioni autentiche', 'Guida esperta locale', 'Gruppi piccoli'],
       badge: 'Bestseller',
-      href: '/esperienze/food-tour-trastevere'
+      href: '/esperienze/food-wine'
     },
     {
       id: 'bike-tuscany',
-      title: 'E-bike Tour delle Colline del Chianti',
+      title: 'Tour in Bicicletta',
       location: 'Toscana',
       duration: '6 ore',
       groupSize: 'Max 8 persone',
@@ -66,11 +66,11 @@ export default function HomePage() {
       image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop',
       highlights: ['E-bike premium', 'Cantina storica', 'Pranzo incluso'],
       badge: 'Eco-friendly',
-      href: '/esperienze/ebike-chianti'
+      href: '/esperienze/bike-tours'
     },
     {
       id: 'boat-amalfi',
-      title: 'Tour Privato in Barca Costiera Amalfitana',
+      title: 'Noleggio Barche Premium',
       location: 'Costiera Amalfitana',
       duration: '8 ore',
       groupSize: 'Max 6 persone',
@@ -81,7 +81,7 @@ export default function HomePage() {
       image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&h=400&fit=crop',
       highlights: ['Skipper esperto', 'Pranzo a bordo', 'Grotte nascoste'],
       badge: 'Lusso',
-      href: '/esperienze/boat-tour-amalfi'
+      href: '/esperienze/boat-rental'
     }
   ]
 
@@ -95,11 +95,11 @@ export default function HomePage() {
       image: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=400&h=250&fit=crop'
     },
     {
-      title: 'Miglior Periodo per Visitare la Toscana: Guida Stagionale',
+      title: 'Quando Visitare l\'Italia: Guida Stagionale',
       category: 'Guide Pratiche',
       readTime: '8 min',
       views: '89K',
-      href: '/guide/quando-visitare-toscana',
+      href: '/guide/quando-visitare',
       image: 'https://images.unsplash.com/photo-1429554513779-906c3395a1a9?w=400&h=250&fit=crop'
     },
     {
@@ -107,7 +107,7 @@ export default function HomePage() {
       category: 'Guide Pratiche',
       readTime: '15 min',
       views: '234K',
-      href: '/guide/trasporti-italia',
+      href: '/guide/trasporti',
       image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop'
     }
   ]
