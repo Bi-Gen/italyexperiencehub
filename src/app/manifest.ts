@@ -42,19 +42,19 @@ export default function manifest(): MetadataRoute.Manifest {
       },
     ],
     categories: ['travel', 'tourism', 'lifestyle'],
-    screenshots: [
-      {
-        src: '/screenshot-wide.png',
-        sizes: '1280x720',
-        type: 'image/png',
-        form_factor: 'wide',
-      },
-      {
-        src: '/screenshot-narrow.png',
-        sizes: '750x1334',
-        type: 'image/png',
-        form_factor: 'narrow',
-      },
-    ],
+    // screenshots: [
+    //   {
+    //     src: '/screenshot-wide.png',
+    //     sizes: '1280x720',
+    //     type: 'image/png',
+    //     form_factor: 'wide',
+    //   },
+    //   {
+    //     src: '/screenshot-narrow.png',
+    //     sizes: '750x1334',
+    //     type: 'image/png',
+    //     form_factor: 'narrow',
+    //   },
+    // ],
   }
 }
