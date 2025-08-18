@@ -1,17 +1,17 @@
 ---
-title: "Come Risparmiare in un Viaggio in Italia: 25 Trucchi per Viaggiare Low-Cost nel 2024"
+title: "Come Risparmiare in un Viaggio in Italia: 25 Trucchi per Viaggiare Low-Cost nel 2025"
 description: "Scopri come risparmiare in Italia senza rinunciare alla qualità: 25 trucchi testati per voli, alloggi, cibo e attrazioni. Guida completa per viaggi low-cost nel Belpaese."
-author: "Marco Viaggiatore"
-publishedAt: "2024-08-17"
-updatedAt: "2024-08-17"
+author: "Italy Experience Hub"
+publishedAt: "2025-01-18"
+updatedAt: "2025-01-18"
 category: "Consigli Viaggio"
 tags: ["risparmiare", "low-cost", "budget", "Italia", "viaggi economici", "consigli", "trucchi", "offerte"]
 image: "/images/blog/risparmiare-viaggio-italia.jpg"
 featured: true
 readTime: "12 min"
 seo:
-  title: "Come Risparmiare in Italia: 25 Trucchi Viaggio Low-Cost 2024"
-  description: "Guida completa per risparmiare in Italia: trucchi per voli, hotel, cibo e attrazioni. Viaggia low-cost senza rinunciare alla qualità nel 2024."
+  title: "Come Risparmiare in Italia: 25 Trucchi Viaggio Low-Cost 2025"
+  description: "Guida completa per risparmiare in Italia: trucchi per voli, hotel, cibo e attrazioni. Viaggia low-cost senza rinunciare alla qualità nel 2025."
   keywords: ["come risparmiare in Italia", "viaggi low-cost Italia", "Italia economica", "trucchi risparmiare viaggio", "vacanze economiche Italia", "budget Italia", "viaggiare spendendo poco"]
 ---
 

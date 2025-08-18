@@ -1,9 +1,9 @@
 ---
 title: "Come Visitare Milano in 3 Giorni: Itinerario Completo per la Capitale della Moda"
 description: "Guida completa per visitare Milano in 3 giorni: itinerario dettagliato, attrazioni imperdibili, ristoranti autentici e consigli pratici per scoprire la capitale italiana della moda."
-author: "Sofia Conti"
-publishedAt: "2024-08-17"
-updatedAt: "2024-08-17"
+author: "Italy Experience Hub"
+publishedAt: "2025-01-18"
+updatedAt: "2025-01-18"
 category: "Guide Destinazioni"
 tags: ["Milano", "Itinerario", "3 giorni", "Lombardia", "Moda", "Aperitivo", "Duomo"]
 image: "/images/guides/milano-3-giorni.jpg"
@@ -13,7 +13,7 @@ difficulty: "Facile"
 duration: "3 giorni"
 bestTime: "Aprile-Giugno, Settembre-Ottobre"
 seo:
-  title: "Visitare Milano in 3 Giorni: Itinerario Completo 2024 | Guida Esperta"
+  title: "Visitare Milano in 3 Giorni: Itinerario Completo 2025 | Guida Esperta"
   description: "Scopri come visitare Milano in 3 giorni con il nostro itinerario completo. Duomo, Scala, Navigli, shopping e cucina milanese. Guida pratica e consigli esperti."
   keywords: ["Milano 3 giorni", "itinerario Milano", "cosa vedere Milano", "visitare Milano", "guida Milano", "Milano turismo", "Duomo Milano", "Navigli Milano", "shopping Milano", "aperitivo Milano"]
 ---

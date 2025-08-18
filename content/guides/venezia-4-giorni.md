@@ -1,9 +1,9 @@
 ---
 title: "Come Visitare Venezia in 4 Giorni: Guida Completa alla Serenissima"
 description: "Guida completa per visitare Venezia in 4 giorni: itinerario dettagliato tra canali e calli, attrazioni imperdibili, bacari autentici e consigli pratici per scoprire la magia della Serenissima."
-author: "Marco Venetian"
-publishedAt: "2024-08-17"
-updatedAt: "2024-08-17"
+author: "Italy Experience Hub"
+publishedAt: "2025-01-18"
+updatedAt: "2025-01-18"
 category: "Guide Destinazioni"
 tags: ["Venezia", "Itinerario", "4 giorni", "Veneto", "Gondola", "Bacari", "San Marco"]
 image: "/images/guides/venezia-4-giorni.jpg"
@@ -13,7 +13,7 @@ difficulty: "Medio"
 duration: "4 giorni"
 bestTime: "Aprile-Maggio, Settembre-Ottobre"
 seo:
-  title: "Visitare Venezia in 4 Giorni: Itinerario Completo 2024 | Guida Esperta"
+  title: "Visitare Venezia in 4 Giorni: Itinerario Completo 2025 | Guida Esperta"
   description: "Scopri come visitare Venezia in 4 giorni con il nostro itinerario completo. San Marco, Doge, gondole, bacari e isole. Guida pratica per la Serenissima."
   keywords: ["Venezia 4 giorni", "itinerario Venezia", "cosa vedere Venezia", "visitare Venezia", "guida Venezia", "gondola Venezia", "bacari Venezia", "Piazza San Marco", "Palazzo Ducale", "Murano Burano"]
 ---

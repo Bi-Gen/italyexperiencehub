@@ -1,17 +1,17 @@
 ---
 title: "Quando Visitare l'Italia: Guida Completa alle Stagioni e ai Periodi Migliori"
 description: "Scopri quando visitare l'Italia: analisi dettagliata di ogni stagione, clima, eventi, prezzi e affollamento. Guida completa per scegliere il periodo perfetto del tuo viaggio."
-author: "Alessandra Seasons"
-publishedAt: "2024-08-17"
-updatedAt: "2024-08-17"
+author: "Italy Experience Hub"
+publishedAt: "2025-01-18"
+updatedAt: "2025-01-18"
 category: "Guide Pratiche"
 tags: ["quando visitare", "stagioni", "clima", "meteo", "periodi migliori", "Italia", "viaggi", "pianificazione"]
 image: "/images/blog/quando-visitare-italia.jpg"
 featured: true
 readTime: "14 min"
 seo:
-  title: "Quando Visitare l'Italia: Periodi Migliori per Ogni Stagione 2024"
-  description: "Guida completa su quando visitare l'Italia: clima, stagioni, eventi e prezzi. Scopri il periodo perfetto per la tua vacanza italiana nel 2024."
+  title: "Quando Visitare l'Italia: Periodi Migliori per Ogni Stagione 2025"
+  description: "Guida completa su quando visitare l'Italia: clima, stagioni, eventi e prezzi. Scopri il periodo perfetto per la tua vacanza italiana nel 2025."
   keywords: ["quando visitare Italia", "miglior periodo Italia", "clima Italia", "stagioni Italia", "meteo Italia", "periodi visitare Italia", "pianificare viaggio Italia"]
 ---
 

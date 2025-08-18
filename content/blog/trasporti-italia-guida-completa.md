@@ -1,17 +1,17 @@
 ---
-title: "Trasporti in Italia: Guida Completa per Muoversi nel Belpaese nel 2024"
+title: "Trasporti in Italia: Guida Completa per Muoversi nel Belpaese nel 2025"
 description: "Guida completa ai trasporti in Italia: treni, autobus, aerei, auto a noleggio e mezzi urbani. Tutti i trucchi per viaggiare comodo ed economico nel 2024."
-author: "Luca Mobility"
-publishedAt: "2024-08-17"
-updatedAt: "2024-08-17"
+author: "Italy Experience Hub"
+publishedAt: "2025-01-18"
+updatedAt: "2025-01-18"
 category: "Guide Pratiche"
 tags: ["trasporti", "treni", "autobus", "aereo", "noleggio auto", "mezzi pubblici", "Italia", "viaggi"]
 image: "/images/blog/trasporti-italia-guida.jpg"
 featured: true
 readTime: "16 min"
 seo:
-  title: "Trasporti Italia 2024: Guida Completa Treni, Bus e Auto | Come Muoversi"
-  description: "Tutto sui trasporti in Italia 2024: treni ad alta velocità, autobus low-cost, voli interni, noleggio auto e mezzi pubblici urbani. Guida pratica e consigli."
+  title: "Trasporti Italia 2025: Guida Completa Treni, Bus e Auto | Come Muoversi"
+  description: "Tutto sui trasporti in Italia 2025: treni ad alta velocità, autobus low-cost, voli interni, noleggio auto e mezzi pubblici urbani. Guida pratica e consigli."
   keywords: ["trasporti Italia", "treni Italia", "come muoversi Italia", "autobus Italia", "voli interni Italia", "noleggio auto Italia", "mezzi pubblici Italia"]
 ---
 

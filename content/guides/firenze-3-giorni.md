@@ -1,9 +1,9 @@
 ---
 title: "Come Visitare Firenze in 3 Giorni: Guida Completa alla Culla del Rinascimento"
 description: "Guida completa per visitare Firenze in 3 giorni: itinerario dettagliato tra arte rinascimentale, Uffizi, Duomo e Oltrarno. Consigli pratici per scoprire la capitale del Rinascimento."
-author: "Giulia Fiorentina"
-publishedAt: "2024-08-17"
-updatedAt: "2024-08-17"
+author: "Italy Experience Hub"
+publishedAt: "2025-01-18"
+updatedAt: "2025-01-18"
 category: "Guide Destinazioni"
 tags: ["Firenze", "Itinerario", "3 giorni", "Toscana", "Rinascimento", "Uffizi", "Duomo"]
 image: "/images/guides/firenze-3-giorni.jpg"
@@ -13,7 +13,7 @@ difficulty: "Facile"
 duration: "3 giorni"
 bestTime: "Aprile-Giugno, Settembre-Ottobre"
 seo:
-  title: "Visitare Firenze in 3 Giorni: Itinerario Completo 2024 | Guida Esperta"
+  title: "Visitare Firenze in 3 Giorni: Itinerario Completo 2025 | Guida Esperta"
   description: "Scopri come visitare Firenze in 3 giorni con il nostro itinerario completo. Uffizi, Duomo, Ponte Vecchio, Oltrarno e cucina toscana. Guida pratica per la culla del Rinascimento."
   keywords: ["Firenze 3 giorni", "itinerario Firenze", "cosa vedere Firenze", "visitare Firenze", "guida Firenze", "Uffizi Firenze", "Duomo Firenze", "Ponte Vecchio", "Oltrarno", "Rinascimento"]
 ---

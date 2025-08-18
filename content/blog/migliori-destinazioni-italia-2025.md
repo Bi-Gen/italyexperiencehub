@@ -1,18 +1,18 @@
 ---
-title: "Le 15 Migliori Destinazioni d'Italia nel 2024: Guida Completa per Viaggiatori"
+title: "Le 15 Migliori Destinazioni d'Italia nel 2025: Guida Completa per Viaggiatori"
 description: "Scopri le 15 destinazioni più belle d'Italia nel 2024: dalle città d'arte alle spiagge paradisiache, dai borghi medievali alle isole nascoste. Guida completa con consigli pratici e itinerari."
-author: "Elena Rossi"
-publishedAt: "2024-08-17"
-updatedAt: "2024-08-17"
+author: "Italy Experience Hub"
+publishedAt: "2025-01-18"
+updatedAt: "2025-01-18"
 category: "Guide Viaggio"
-tags: ["Italia", "destinazioni", "viaggio", "turismo", "2024", "città d'arte", "mare", "montagna", "borghi"]
-image: "/images/blog/migliori-destinazioni-italia-2024.jpg"
+tags: ["Italia", "destinazioni", "viaggio", "turismo", "2025", "città d'arte", "mare", "montagna", "borghi"]
+image: "/images/blog/migliori-destinazioni-italia-2025.jpg"
 featured: true
 readTime: "15 min"
 seo:
-  title: "15 Migliori Destinazioni Italia 2024 | Guida Completa Viaggi"
-  description: "Scopri le destinazioni top d'Italia 2024: Roma, Firenze, Costiera Amalfitana, Sicilia, Dolomiti e borghi nascosti. Consigli pratici e itinerari dettagliati."
-  keywords: ["migliori destinazioni Italia 2024", "dove andare Italia", "viaggi Italia", "mete Italia", "vacanze Italia", "turismo Italia", "luoghi da visitare Italia", "città più belle Italia"]
+  title: "15 Migliori Destinazioni Italia 2025 | Guida Completa Viaggi"
+  description: "Scopri le destinazioni top d'Italia 2025: Roma, Firenze, Costiera Amalfitana, Sicilia, Dolomiti e borghi nascosti. Consigli pratici e itinerari dettagliati."
+  keywords: ["migliori destinazioni Italia 2025", "dove andare Italia", "viaggi Italia", "mete Italia", "vacanze Italia", "turismo Italia", "luoghi da visitare Italia", "città più belle Italia"]
 ---
 
 # Le 15 Migliori Destinazioni d'Italia nel 2024: La Guida Definitiva

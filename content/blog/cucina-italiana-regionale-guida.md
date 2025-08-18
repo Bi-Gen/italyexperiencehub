@@ -1,16 +1,16 @@
 ---
-title: "Cucina Italiana Regionale: Viaggio Gastronomico da Nord a Sud nel 2024"
+title: "Cucina Italiana Regionale: Viaggio Gastronomico da Nord a Sud nel 2025"
 description: "Scopri la vera cucina italiana regionale: 20 regioni, 100+ piatti tradizionali, ricette autentiche e dove mangiarli. Guida completa al patrimonio gastronomico italiano."
-author: "Chef Giuseppe Italiano"
-publishedAt: "2024-08-17"
-updatedAt: "2024-08-17"
+author: "Italy Experience Hub"
+publishedAt: "2025-01-18"
+updatedAt: "2025-01-18"
 category: "Gastronomia"
 tags: ["cucina italiana", "gastronomia", "tradizioni", "ricette", "regioni", "specialità", "cibo", "vino"]
 image: "/images/blog/cucina-italiana-regionale.jpg"
 featured: true
 readTime: "18 min"
 seo:
-  title: "Cucina Italiana Regionale: Guida Completa 2024 | Specialità per Regione"
+  title: "Cucina Italiana Regionale: Guida Completa 2025 | Specialità per Regione"
   description: "Esplora la cucina italiana regionale: piatti tipici, ricette tradizionali, vini e specialità di tutte le 20 regioni. Guida gastronomica completa."
   keywords: ["cucina italiana regionale", "piatti tipici italiani", "gastronomia italiana", "ricette regionali", "specialità italiane", "cibo tradizionale italiano", "cucina tradizionale"]
 ---
