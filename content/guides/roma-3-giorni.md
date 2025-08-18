@@ -1,9 +1,9 @@
 ---
 title: "Come Visitare Roma in 3 Giorni: Itinerario Completo"
 description: "Guida completa per visitare Roma in 3 giorni: itinerario dettagliato, attrazioni imperdibili, consigli pratici e suggerimenti per ottimizzare il tempo nella Città Eterna."
-author: "Marco Rossi"
-publishedAt: "2024-08-15"
-updatedAt: "2024-08-17"
+author: "Italy Experience Hub"
+publishedAt: "2025-01-18"
+updatedAt: "2025-01-18"
 category: "Guide Destinazioni"
 tags: ["Roma", "Itinerario", "3 giorni", "Città Eterna", "Monumenti", "Storia"]
 image: "/images/guides/roma-3-giorni.jpg"
@@ -13,7 +13,7 @@ difficulty: "Principiante"
 duration: "3 giorni"
 bestTime: "Aprile-Giugno, Settembre-Ottobre"
 seo:
-  title: "Visitare Roma in 3 Giorni: Itinerario Completo 2024"
+  title: "Visitare Roma in 3 Giorni: Itinerario Completo 2025"
   description: "Scopri come visitare Roma in 3 giorni con il nostro itinerario completo. Tutte le attrazioni imperdibili, consigli pratici e suggerimenti degli esperti."
   keywords: ["Roma 3 giorni", "itinerario Roma", "visitare Roma", "guida Roma", "cosa vedere Roma", "Roma itinerario completo"]
 ---

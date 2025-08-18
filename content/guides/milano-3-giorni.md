@@ -40,16 +40,22 @@ Milano è una città **compatta e ben collegata**, ideale per un weekend lungo. 
 #### **🏛️ Duomo di Milano (9:00-11:00)**
 Inizia la tua avventura milanese dalla **Piazza del Duomo**, il cuore pulsante della città.
 
+![Facciata del Duomo di Milano](/images/guides/duomo-facciata.jpg)
+
 **Il Duomo: cosa non perdere**
 - **Facciata gotica**: la più grande chiesa gotica del mondo
 - **Salita alle terrazze**: vista panoramica su Milano e le Alpi (con ascensore €13, a piedi €8)
 - **Interno**: le 55 vetrate colorate e la cripta di San Carlo
 - **Madonnina**: simbolo dorato di Milano a 108 metri d'altezza
 
+![Vista dalle terrazze del Duomo](/images/guides/duomo-terrazze-vista.jpg)
+
 **💡 Consiglio esperto**: Prenota online il biglietto combinato Duomo + Terrazze per evitare code. La luce migliore per le foto è tra le 10:00 e le 11:00.
 
 #### **🛍️ Galleria Vittorio Emanuele II (11:00-12:00)**
 Collegata direttamente al Duomo, questa galleria del 1867 è il "salotto di Milano".
+
+![Cupola della Galleria Vittorio Emanuele](/images/guides/galleria-vittorio-emanuele-cupola.jpg)
 
 **Highlights della Galleria:**
 - **Architettura**: cupola in ferro e vetro alta 47 metri
@@ -60,6 +66,8 @@ Collegata direttamente al Duomo, questa galleria del 1867 è il "salotto di Mila
 
 #### **🎭 Teatro alla Scala (12:00-13:00)**
 A due passi dalla Galleria, il tempio mondiale della lirica.
+
+![Teatro alla Scala](/images/guides/teatro-scala-esterno.jpg)
 
 **Visita La Scala:**
 - **Museo teatrale**: costumi, strumenti e storia dell'opera
@@ -73,6 +81,10 @@ A due passi dalla Galleria, il tempio mondiale della lirica.
 - **Osteria del Borgo**: risotto alla milanese come una volta
 - **Peck Italian Bar**: gastronomia gourmet milanese
 
+![Cotoletta alla milanese](/images/guides/cotoletta-alla-milanese.jpg)
+
+![Risotto milanese con zafferano](/images/guides/risotto-milanese-zafferano.jpg)
+
 ### Pomeriggio: Shopping e Cultura (14:30-18:00)
 
 #### **🛍️ Quadrilatero della Moda (14:30-16:30)**
@@ -84,10 +96,14 @@ Il distretto della moda più famoso al mondo.
 - **Via Sant'Andrea**: antiquariato e design
 - **Via Manzoni**: Armani, Dolce & Gabbana
 
+![Via Montenapoleone shopping](/images/guides/via-montenapoleone-shopping.jpg)
+
 **💰 Budget shopping**: Corso Buenos Aires (130 negozi in 1 km) per prezzi più accessibili.
 
 #### **🏰 Palazzo Reale (16:30-18:00)**
 Sede di mostre temporanee di livello internazionale.
+
+![Palazzo Reale mostre](/images/guides/palazzo-reale-mostre.jpg)
 
 **Info pratiche:**
 - **Mostre**: verifica sul sito ufficiale
@@ -105,6 +121,10 @@ L'aperitivo è un'istituzione milanese, nato qui nel 1860.
 - **Bulgari Bar**: eleganza contemporanea
 - **Terrazza Aperol**: vista sul Duomo
 
+![Negroni Sbagliato al Bar Basso](/images/guides/negroni-sbagliato-bar-basso.jpg)
+
+![Terrazza Martini vista Duomo](/images/guides/terrazza-martini-vista-duomo.jpeg)
+
 **🍹 Cosa ordinare**: Negroni Sbagliato, Spritz, Americano con stuzzichini gratuiti.
 
 #### **🍽️ Cena Milanese (20:00-22:00)**
@@ -113,6 +133,8 @@ L'aperitivo è un'istituzione milanese, nato qui nel 1860.
 - **Risotto al midollo**: Da Giacomo o Al Pont de Ferr
 - **Mondeghili**: polpette milanesi da Joia
 - **Panettone**: Marchesi dal 1824
+
+![Panettone tradizionale](/images/guides/panettone-tradizionale.jpg)
 
 ---
 
@@ -123,16 +145,22 @@ L'aperitivo è un'istituzione milanese, nato qui nel 1860.
 #### **🏰 Castello Sforzesco (9:00-11:30)**
 Simbolo del potere visconteo e sforzesco, oggi custode di tesori artistici.
 
+![Castello Sforzesco torre](/images/guides/castello-sforzesco-torre.jpg)
+
 **Musei del Castello (biglietto €5):**
 - **Pietà Rondanini**: ultima opera di Michelangelo
 - **Sala delle Asse**: affreschi di Leonardo da Vinci
 - **Museo d'Arte Antica**: sculture e arti decorative
 - **Pinacoteca**: opere di Mantegna, Bellini, Correggio
 
+![Parco Sempione e Torre Branca](/images/guides/parco-sempione-torre-branca.jpg)
+
 **🌳 Parco Sempione**: dietro il castello, 38 ettari di verde con l'Arena Civica e la Torre Branca.
 
 #### **🎨 Pinacoteca di Brera (11:30-13:00)**
 Una delle più importanti pinacoteche italiane.
+
+![Pinacoteca di Brera - Cristo morto di Mantegna](/images/guides/pinacoteca-brera-cristo-mantegna.jpg)
 
 **Capolavori imperdibili:**
 - **"Cristo morto"** di Mantegna
@@ -151,6 +179,8 @@ Una delle più importanti pinacoteche italiane.
 - **Osteria di Brera**: ambiente caratteristico
 - **Café Verdi**: perfetto per un pranzo veloce
 
+![Quartiere Brera vie caratteristiche](/images/guides/quartiere-brera-vie.jpg)
+
 ### Pomeriggio: Design e Modernità (14:30-18:00)
 
 #### **🏢 Quartiere Porta Nuova (14:30-16:00)**
@@ -162,8 +192,14 @@ Il nuovo skyline di Milano con grattacieli e architettura contemporanea.
 - **Piazza Gae Aulenti**: piazza pedonale circolare moderna
 - **Corso Como**: shopping e locali trendy
 
+![Bosco Verticale Porta Nuova](/images/guides/bosco-verticale-porta-nuova.jpg)
+
+![Torre Unicredit skyline](/images/guides/torre-unicredit-skyline.jpg)
+
 #### **🎨 Fondazione Prada (16:00-18:00)**
 Capolavoro architettonico di Rem Koolhaas dedicato all'arte contemporanea.
+
+![Fondazione Prada architettura](/images/guides/fondazione-prada-architettura.jpg)
 
 **Esperienza unica:**
 - **Torre**: 9 piani con vista panoramica
@@ -208,11 +244,15 @@ Il simbolo religioso di Milano, dedicata al santo patrono.
 #### **🚊 Navigli: Il Quartiere dell'Aperitivo (10:30-13:00)**
 I canali progettati in parte da Leonardo da Vinci.
 
+![Naviglio Grande sera](/images/guides/navigli-grande-sera.jpg)
+
 **Naviglio Grande e Naviglio Pavese:**
 - **Storia**: system of waterways for transportation and irrigation
 - **Mercatone dell'Antiquariato**: ultima domenica del mese
 - **Street art**: murales lungo i navigli
 - **Conca dell'Incoronata**: l'unica chiusa rimasta
+
+![Navigli biciclette](/images/guides/navigli-biciclette.jpg)
 
 **🚲 Noleggio bici**: percorri i navigli in bicicletta fino al Parco delle Cave.
 
@@ -236,6 +276,8 @@ Shopping vintage e alternative nel quartiere più bohémien.
 
 #### **🎨 Quartiere Isola (16:00-18:00)**
 Da quartiere operaio a zona trendy e multiculturale.
+
+![Quartiere Isola street art](/images/guides/quartiere-isola-street-art.jpeg)
 
 **Highlights di Isola:**
 - **Via Paolo Sarpi**: Chinatown milanese
@@ -270,6 +312,8 @@ Da quartiere operaio a zona trendy e multiculturale.
 - **Biglietti**: €1.50 singolo, €4.50 giornaliero, €11.30 settimanale
 - **App utili**: ATM Milano per orari e percorsi
 - **Bike sharing**: BikeMi con 280 stazioni
+
+![Metro Milano stazione](/images/guides/metro-milano-stazione.jpg)
 
 #### **Zones and Connections**
 - **Centro**: tutto raggiungibile a piedi
