@@ -67,12 +67,17 @@ export function AdUnit({
 // Predefined ad components for common tourism layouts
 export function HeroAdBanner({ className = '' }: { className?: string }) {
   return (
-    <AdUnit
-      adSlot="1234567890" // Replace with actual ad slot
-      adFormat="auto"
-      className={`w-full max-w-4xl mx-auto ${className}`}
-      style={{ minHeight: '120px' }}
-    />
+    <div className={`w-full max-w-4xl mx-auto ${className}`}>
+      <div className="text-center mb-2">
+        <span className="text-xs text-gray-500 uppercase tracking-wide">Pubblicità</span>
+      </div>
+      <AdUnit
+        adSlot="1234567890" // Sostituire con slot ID reale quando approvato
+        adFormat="auto"
+        className="w-full"
+        style={{ minHeight: '120px' }}
+      />
+    </div>
   )
 }
 
