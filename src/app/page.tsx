@@ -10,7 +10,7 @@ export default function HomePage() {
       id: 'roma',
       name: 'Roma',
       description: 'Capitale eterna ricca di storia, arte e cultura millenaria',
-      image: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&h=600&fit=crop',
+      image: '/images/destinations/roma-hero.webp',
       experiences: 156,
       avgRating: 4.8,
       topExperience: 'Tour Colosseo e Fori Imperiali',
@@ -20,7 +20,7 @@ export default function HomePage() {
       id: 'toscana',
       name: 'Toscana',
       description: 'Paesaggi mozzafiato, arte rinascimentale e vini pregiati',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+      image: '/images/destinations/toscana-hero.webp',
       experiences: 203,
       avgRating: 4.9,
       topExperience: 'Tour del Chianti con Degustazione',
@@ -30,7 +30,7 @@ export default function HomePage() {
       id: 'costiera-amalfitana',
       name: 'Costiera Amalfitana',
       description: 'Costa spettacolare patrimonio UNESCO con borghi incantevoli',
-      image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&h=600&fit=crop',
+      image: '/images/destinations/costiera-amalfitana-hero.webp',
       experiences: 89,
       avgRating: 4.7,
       topExperience: 'Tour in Barca Privata',
@@ -49,7 +49,7 @@ export default function HomePage() {
       originalPrice: 120,
       rating: 4.9,
       reviews: 847,
-      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop',
+      image: '/images/experiences/food-wine-hero.webp',
       highlights: ['6 degustazioni autentiche', 'Guida esperta locale', 'Gruppi piccoli'],
       badge: 'Bestseller',
       href: '/esperienze/food-wine'
@@ -64,7 +64,7 @@ export default function HomePage() {
       originalPrice: 180,
       rating: 4.8,
       reviews: 456,
-      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop',
+      image: '/images/experiences/bike-tours-hero.webp',
       highlights: ['E-bike premium', 'Cantina storica', 'Pranzo incluso'],
       badge: 'Eco-friendly',
       href: '/esperienze/bike-tours'
@@ -79,7 +79,7 @@ export default function HomePage() {
       originalPrice: 450,
       rating: 5.0,
       reviews: 234,
-      image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&h=400&fit=crop',
+      image: '/images/experiences/boat-rental-hero.webp',
       highlights: ['Skipper esperto', 'Pranzo a bordo', 'Grotte nascoste'],
       badge: 'Lusso',
       href: '/esperienze/boat-rental'
@@ -93,7 +93,7 @@ export default function HomePage() {
       readTime: '12 min',
       views: '156K',
       href: '/guide/roma-3-giorni',
-      image: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=400&h=250&fit=crop'
+      image: '/images/guides/milano-3-giorni.jpg'
     },
     {
       title: 'Quando Visitare l\'Italia: Guida Stagionale',
@@ -101,7 +101,7 @@ export default function HomePage() {
       readTime: '8 min',
       views: '89K',
       href: '/guide/quando-visitare',
-      image: 'https://images.unsplash.com/photo-1429554513779-906c3395a1a9?w=400&h=250&fit=crop'
+      image: '/images/guides/italia-stagioni.webp'
     },
     {
       title: 'Trasporti in Italia: Come Muoversi Tra le Città',
@@ -109,7 +109,7 @@ export default function HomePage() {
       readTime: '15 min',
       views: '234K',
       href: '/guide/trasporti',
-      image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=250&fit=crop'
+      image: '/images/guides/trasporti-treni.webp'
     }
   ]
 
