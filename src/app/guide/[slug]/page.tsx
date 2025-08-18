@@ -5,7 +5,6 @@ import { Clock, MapPin, Calendar, User, Tag } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ContentAd, SidebarAd } from '@/components/AdSense/AdUnit'
 
 interface PageProps {
   params: {
@@ -146,12 +145,9 @@ export default function GuidePage({ params }: PageProps) {
 
       {/* Content */}
       <div className="container-custom py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Main Content */}
-            <div className="lg:col-span-2 space-y-8">
-              {/* Article Info */}
-              <div className="bg-white rounded-xl p-6 shadow-sm">
+        <div className="max-w-4xl mx-auto">
+          {/* Article Info */}
+          <div className="bg-white rounded-xl p-6 mb-8 shadow-sm">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {guide.difficulty && (
                 <div>
