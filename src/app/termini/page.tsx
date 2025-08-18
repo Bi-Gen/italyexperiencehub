@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { FileText, Scale } from 'lucide-react'
+import ClientDate from '@/components/ClientDate'
 
 export const metadata: Metadata = {
   title: 'Termini di Servizio - Italy Experience Hub',
@@ -31,7 +32,7 @@ export default function TerminiPage() {
             {/* Last Updated */}
             <div className="bg-gray-50 rounded-lg p-4 mb-8">
               <p className="text-sm text-gray-600">
-                <strong>Ultimo aggiornamento:</strong> 18 agosto 2025
+                <strong>Ultimo aggiornamento:</strong> <ClientDate format="long" />
               </p>
             </div>
 

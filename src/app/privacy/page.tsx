@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import ClientDate from '@/components/ClientDate'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Italy Experience Hub',
@@ -17,7 +18,7 @@ export default function PrivacyPage() {
           
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-gray-600 mb-8">
-              Ultimo aggiornamento: 18 agosto 2025
+              Ultimo aggiornamento: <ClientDate format="long" />
             </p>
 
             <section className="mb-12">

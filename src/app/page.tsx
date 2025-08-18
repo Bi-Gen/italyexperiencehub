@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { MapPin, Star, Clock, Users, Calendar, ArrowRight, TrendingUp, Award, Shield } from 'lucide-react'
 import { HeroAdBanner, ContentAd, DestinationAd } from '@/components/AdSense/AdUnit'
+import AdPlaceholder from '@/components/AdSense/AdPlaceholder'
 
 export default function HomePage() {
   const featuredDestinations = [
@@ -207,12 +208,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Hero Ad Banner - Temporaneamente disabilitato per debug */}
-      {/* <section className="py-4 bg-gray-50">
+      {/* Hero Ad Banner */}
+      <section className="py-4 bg-gray-50">
         <div className="container-custom">
-          <HeroAdBanner />
+          <AdPlaceholder 
+            adSlot="auto"
+            adFormat="auto"
+            className="w-full max-w-4xl mx-auto"
+            style={{ minHeight: '120px' }}
+          />
         </div>
-      </section> */}
+      </section>
 
       {/* Featured Destinations */}
       <section className="py-16 lg:py-24">
@@ -273,8 +279,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Content Ad - Temporaneamente disabilitato per debug */}
-      {/* <ContentAd className="py-8 bg-white" /> */}
+      {/* Content Ad */}
+      <section className="py-8 bg-white">
+        <div className="container-custom">
+          <AdPlaceholder 
+            adSlot="auto"
+            adFormat="auto"
+            className="w-full max-w-2xl mx-auto"
+            style={{ minHeight: '200px' }}
+          />
+        </div>
+      </section>
 
       {/* Featured Experiences */}
       <section className="py-16 lg:py-24 bg-gray-50">
