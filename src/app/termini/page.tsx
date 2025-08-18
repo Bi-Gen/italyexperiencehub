@@ -31,7 +31,7 @@ export default function TerminiPage() {
             {/* Last Updated */}
             <div className="bg-gray-50 rounded-lg p-4 mb-8">
               <p className="text-sm text-gray-600">
-                <strong>Ultimo aggiornamento:</strong> {new Date().toLocaleDateString('it-IT')}
+                <strong>Ultimo aggiornamento:</strong> 18 agosto 2025
               </p>
             </div>
 

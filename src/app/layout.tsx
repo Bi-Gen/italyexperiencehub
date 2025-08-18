@@ -122,12 +122,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         
-        {/* Google AdSense - Codice principale richiesto */}
-        <script
+        {/* Google AdSense - Temporaneamente disabilitato per debug */}
+        {/* <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4718945941038682"
           crossOrigin="anonymous"
-        />
+        /> */}
         
         {/* Google Funding Choices per GDPR - viene caricato dal nostro CookieConsent */}
       </head>

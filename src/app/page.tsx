@@ -207,12 +207,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Hero Ad Banner */}
-      <section className="py-4 bg-gray-50">
+      {/* Hero Ad Banner - Temporaneamente disabilitato per debug */}
+      {/* <section className="py-4 bg-gray-50">
         <div className="container-custom">
           <HeroAdBanner />
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Destinations */}
       <section className="py-16 lg:py-24">
@@ -273,8 +273,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Content Ad */}
-      <ContentAd className="py-8 bg-white" />
+      {/* Content Ad - Temporaneamente disabilitato per debug */}
+      {/* <ContentAd className="py-8 bg-white" /> */}
 
       {/* Featured Experiences */}
       <section className="py-16 lg:py-24 bg-gray-50">
