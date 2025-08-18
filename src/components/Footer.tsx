@@ -10,10 +10,16 @@ declare global {
   }
 }
 
+interface FooterLink {
+  name: string
+  href: string
+  onClick?: boolean
+}
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
   
-  const footerLinks = {
+  const footerLinks: Record<string, FooterLink[]> = {
     destinazioni: [
       { name: 'Roma', href: '/destinazioni/roma' },
       { name: 'Firenze', href: '/destinazioni/firenze' },
@@ -54,6 +60,7 @@ export default function Footer() {
       { name: 'Privacy Policy', href: '/privacy' },
       { name: 'Termini di Servizio', href: '/termini' },
       { name: 'Cookie Policy', href: '/cookie' },
+      { name: 'Impostazioni Cookie', href: '#', onClick: true },
       { name: 'Disclaimer', href: '/disclaimer' },
     ]
   }
@@ -211,24 +218,29 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6">
               {footerLinks.legale.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
-                >
-                  {link.name}
-                </Link>
+                link.onClick ? (
+                  <button
+                    key={link.name}
+                    onClick={() => {
+                      // Clear cookie consent to show banner again
+                      localStorage.removeItem('cookie-consent')
+                      localStorage.removeItem('cookie-consent-date')
+                      window.location.reload()
+                    }}
+                    className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
+                  >
+                    {link.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
-              <button
-                onClick={() => {
-                  if (typeof window !== 'undefined' && window.__gpp) {
-                    window.__gpp('displayUiForConsent')
-                  }
-                }}
-                className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
-              >
-                Gestisci Cookie
-              </button>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { GoogleAnalytics } from '@/components/Analytics'
+import CookieConsent from '@/components/CookieConsent'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://italyexperiencehub.com'
 
@@ -155,6 +156,9 @@ export default function RootLayout({
         
         {/* Footer */}
         <Footer />
+        
+        {/* Cookie Consent Banner */}
+        <CookieConsent />
         
         {/* Enhanced Structured Data */}
         <script
