@@ -115,14 +115,19 @@ export default function CookieConsent() {
   }
 
   const loadAdSense = () => {
-    const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT
-    if (adsenseClient && typeof window !== 'undefined') {
-      // Load AdSense
-      const script = document.createElement('script')
-      script.async = true
-      script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`
-      script.crossOrigin = 'anonymous'
-      document.head.appendChild(script)
+    if (typeof window !== 'undefined') {
+      // AdSense script è già caricato nel layout.tsx
+      // Qui inizializziamo solo gli ads esistenti nella pagina
+      const adElements = document.querySelectorAll('.adsbygoogle')
+      adElements.forEach(() => {
+        try {
+          if (window.adsbygoogle) {
+            window.adsbygoogle.push({})
+          }
+        } catch (err) {
+          console.error('AdSense initialization error:', err)
+        }
+      })
     }
   }
 

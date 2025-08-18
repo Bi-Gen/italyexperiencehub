@@ -23,10 +23,24 @@ export function AdUnit({
   className = '',
   responsive = true 
 }: AdUnitProps) {
-  const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT
+  const adsenseClient = 'ca-pub-4718945941038682' // Client ID reale Google AdSense
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.adsbygoogle) {
+    // Check if marketing cookies are accepted
+    const cookieConsent = localStorage.getItem('cookie-consent')
+    let marketingAccepted = false
+    
+    if (cookieConsent) {
+      try {
+        const preferences = JSON.parse(cookieConsent)
+        marketingAccepted = preferences.marketing
+      } catch (e) {
+        console.error('Error parsing cookie consent:', e)
+      }
+    }
+
+    // Only load AdSense if marketing cookies are accepted
+    if (marketingAccepted && typeof window !== 'undefined' && window.adsbygoogle) {
       try {
         window.adsbygoogle.push({})
       } catch (err) {
@@ -35,14 +49,32 @@ export function AdUnit({
     }
   }, [])
 
-  if (!adsenseClient) {
-    // Show placeholder during development
+  // Check cookie consent for marketing
+  const cookieConsent = typeof window !== 'undefined' ? localStorage.getItem('cookie-consent') : null
+  let showAds = false
+  
+  if (cookieConsent) {
+    try {
+      const preferences = JSON.parse(cookieConsent)
+      showAds = preferences.marketing
+    } catch (e) {
+      showAds = false
+    }
+  }
+
+  if (!showAds) {
+    // Show GDPR compliant message
     return (
       <div 
-        className={`bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center ${className}`}
+        className={`bg-gray-50 border border-gray-200 rounded-lg flex flex-col items-center justify-center p-6 ${className}`}
         style={style}
       >
-        <span className="text-gray-500 text-sm">AdSense Placeholder</span>
+        <span className="text-gray-600 text-sm text-center mb-2">
+          📢 Spazio Pubblicitario
+        </span>
+        <span className="text-gray-500 text-xs text-center">
+          Abilita i cookie di marketing per visualizzare gli annunci
+        </span>
       </div>
     )
   }
@@ -72,7 +104,7 @@ export function HeroAdBanner({ className = '' }: { className?: string }) {
         <span className="text-xs text-gray-500 uppercase tracking-wide">Pubblicità</span>
       </div>
       <AdUnit
-        adSlot="1234567890" // Sostituire con slot ID reale quando approvato
+        adSlot="auto" // Usa AdSense automatico per ottimizzazione
         adFormat="auto"
         className="w-full"
         style={{ minHeight: '120px' }}
@@ -84,7 +116,7 @@ export function HeroAdBanner({ className = '' }: { className?: string }) {
 export function SidebarAd({ className = '' }: { className?: string }) {
   return (
     <AdUnit
-      adSlot="2345678901" // Replace with actual ad slot
+      adSlot="auto" // AdSense automatico
       adFormat="rectangle"
       className={`w-full max-w-sm ${className}`}
       style={{ minHeight: '300px' }}
@@ -95,8 +127,11 @@ export function SidebarAd({ className = '' }: { className?: string }) {
 export function ContentAd({ className = '' }: { className?: string }) {
   return (
     <div className={`my-8 flex justify-center ${className}`}>
+      <div className="text-center mb-2">
+        <span className="text-xs text-gray-500 uppercase tracking-wide">Pubblicità</span>
+      </div>
       <AdUnit
-        adSlot="3456789012" // Replace with actual ad slot
+        adSlot="auto" // AdSense automatico
         adFormat="auto"
         style={{ minHeight: '200px' }}
         className="w-full max-w-2xl"
