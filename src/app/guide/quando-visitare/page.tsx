@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { Sun, Cloud, Snowflake, Flower, Users, Calendar } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -50,8 +51,17 @@ export default function QuandoVisitarePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
-        <div className="container-custom text-center">
+      <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <Image
+            src="/images/guides/italia-stagioni.webp"
+            alt="Stagioni in Italia"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="relative container-custom text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Quando Visitare l'Italia
           </h1>

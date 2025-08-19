@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, Clock, Users, Star } from 'lucide-react'
 
@@ -12,8 +13,17 @@ export default function RomaPage() {
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="relative h-96 bg-gradient-to-r from-accent-600 to-accent-800">
-        <div className="absolute inset-0 bg-black/40" />
+      <section className="relative h-96">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/destinations/roma-hero.webp"
+            alt="Roma - Colosseo"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
         <div className="relative container-custom h-full flex items-center">
           <div className="max-w-4xl text-white">
             <h1 className="text-4xl lg:text-6xl font-bold mb-4">

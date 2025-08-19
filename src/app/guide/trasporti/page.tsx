@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { Train, Car, Plane, Bus, Ship, MapPin } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -42,8 +43,17 @@ export default function TrasportiPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
-        <div className="container-custom text-center">
+      <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/images/guides/trasporti-treni.webp"
+            alt="Treni in Italia"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="relative container-custom text-center">
           <Train className="h-16 w-16 mx-auto mb-6 text-blue-200" />
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Trasporti in Italia
