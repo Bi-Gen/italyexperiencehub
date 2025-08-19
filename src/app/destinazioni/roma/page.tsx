@@ -283,13 +283,13 @@ export default function RomaPage() {
       </section>
 
       {/* Featured Guide */}
-      <section className="py-16 bg-gray-900 text-white">
+      <section className="py-16 bg-green-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
               La Nostra Guida Dettagliata
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Itinerario completo di 3 giorni per scoprire tutti i tesori della Città Eterna
             </p>
           </div>
@@ -340,13 +340,13 @@ export default function RomaPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
+      <section className="py-16 bg-gradient-to-br from-green-600 to-green-700 text-white">
         <div className="container-custom text-center">
-          <Camera className="h-16 w-16 mx-auto mb-6 text-red-400" />
+          <Camera className="h-16 w-16 mx-auto mb-6 text-green-200" />
           <h2 className="text-3xl font-bold mb-4">
             Pronto per la Magia di Roma?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
             Dal Colosseo al Vaticano, da Trastevere al Pantheon: Roma ti aspetta con 28 secoli di meraviglie.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
