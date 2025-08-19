@@ -6,7 +6,7 @@ publishedAt: "2025-01-18"
 updatedAt: "2025-01-18"
 category: "Consigli Viaggio"
 tags: ["risparmiare", "low-cost", "budget", "Italia", "viaggi economici", "consigli", "trucchi", "offerte"]
-image: "/images/blog/risparmiare-viaggio-italia.jpg"
+image: "/images/blog/viaggi-economici-italia-2025.webp"
 featured: true
 readTime: "12 min"
 seo:

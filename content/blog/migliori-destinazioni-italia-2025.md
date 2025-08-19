@@ -1,12 +1,12 @@
 ---
 title: "Le 15 Migliori Destinazioni d'Italia nel 2025: Guida Completa per Viaggiatori"
-description: "Scopri le 15 destinazioni più belle d'Italia nel 2024: dalle città d'arte alle spiagge paradisiache, dai borghi medievali alle isole nascoste. Guida completa con consigli pratici e itinerari."
+description: "Scopri le 15 destinazioni più belle d'Italia nel 2025: dalle città d'arte alle spiagge paradisiache, dai borghi medievali alle isole nascoste. Guida completa con consigli pratici e itinerari."
 author: "Italy Experience Hub"
 publishedAt: "2025-01-18"
 updatedAt: "2025-01-18"
 category: "Guide Viaggio"
 tags: ["Italia", "destinazioni", "viaggio", "turismo", "2025", "città d'arte", "mare", "montagna", "borghi"]
-image: "/images/blog/migliori-destinazioni-italia-2025.jpg"
+image: "/images/blog/italia-destinazioni-top-2025.webp"
 featured: true
 readTime: "15 min"
 seo:

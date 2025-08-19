@@ -6,7 +6,7 @@ publishedAt: "2025-01-18"
 updatedAt: "2025-01-18"
 category: "Guide Pratiche"
 tags: ["quando visitare", "stagioni", "clima", "meteo", "periodi migliori", "Italia", "viaggi", "pianificazione"]
-image: "/images/blog/quando-visitare-italia.jpg"
+image: "/images/guides/italia-stagioni.webp"
 featured: true
 readTime: "14 min"
 seo:

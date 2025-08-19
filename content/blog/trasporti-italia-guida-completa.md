@@ -1,12 +1,12 @@
 ---
 title: "Trasporti in Italia: Guida Completa per Muoversi nel Belpaese nel 2025"
-description: "Guida completa ai trasporti in Italia: treni, autobus, aerei, auto a noleggio e mezzi urbani. Tutti i trucchi per viaggiare comodo ed economico nel 2024."
+description: "Guida completa ai trasporti in Italia: treni, autobus, aerei, auto a noleggio e mezzi urbani. Tutti i trucchi per viaggiare comodo ed economico nel 2025."
 author: "Italy Experience Hub"
 publishedAt: "2025-01-18"
 updatedAt: "2025-01-18"
 category: "Guide Pratiche"
 tags: ["trasporti", "treni", "autobus", "aereo", "noleggio auto", "mezzi pubblici", "Italia", "viaggi"]
-image: "/images/blog/trasporti-italia-guida.jpg"
+image: "/images/guides/trasporti-treni.webp"
 featured: true
 readTime: "16 min"
 seo:

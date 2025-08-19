@@ -6,7 +6,7 @@ publishedAt: "2025-01-18"
 updatedAt: "2025-01-18"
 category: "Gastronomia"
 tags: ["cucina italiana", "gastronomia", "tradizioni", "ricette", "regioni", "specialità", "cibo", "vino"]
-image: "/images/blog/cucina-italiana-regionale.jpg"
+image: "/images/blog/cucina-italiana-tradizionale.webp"
 featured: true
 readTime: "18 min"
 seo:
