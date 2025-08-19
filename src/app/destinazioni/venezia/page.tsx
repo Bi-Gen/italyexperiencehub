@@ -280,13 +280,13 @@ export default function VeneziaPage() {
       </section>
 
       {/* Featured Guide */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-16 bg-cyan-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
               La Nostra Guida Dettagliata
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Itinerario completo di 4 giorni per scoprire ogni segreto della Serenissima
             </p>
           </div>
@@ -337,13 +337,13 @@ export default function VeneziaPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+      <section className="py-16 bg-gradient-to-br from-cyan-500 to-blue-500 text-white">
         <div className="container-custom text-center">
-          <Camera className="h-16 w-16 mx-auto mb-6 text-blue-200" />
+          <Camera className="h-16 w-16 mx-auto mb-6 text-cyan-200" />
           <h2 className="text-3xl font-bold mb-4">
             Pronto per la Magia Veneziana?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-cyan-100 mb-8 max-w-2xl mx-auto">
             Dai palazzi dorati del Canal Grande ai bacari nascosti: Venezia ti aspetta con i suoi mille segreti.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
