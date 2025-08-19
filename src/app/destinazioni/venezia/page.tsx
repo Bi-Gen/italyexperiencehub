@@ -296,7 +296,7 @@ export default function VeneziaPage() {
               <div className="md:flex">
                 <div className="md:w-1/3 h-48 md:h-auto relative">
                   <Image
-                    src="/images/blog/venezia-gondola-hero.webp"
+                    src="/images/blog/venezia-gondole-hero.webp"
                     alt="Venezia in 4 Giorni"
                     fill
                     className="object-cover"
