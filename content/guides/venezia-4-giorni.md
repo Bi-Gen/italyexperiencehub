@@ -6,7 +6,7 @@ publishedAt: "2025-01-18"
 updatedAt: "2025-01-18"
 category: "Guide Destinazioni"
 tags: ["Venezia", "Itinerario", "4 giorni", "Veneto", "Gondola", "Bacari", "San Marco"]
-image: "/images/guides/venezia-4-giorni.jpg"
+image: "/images/guides/italia-stagioni.webp"
 featured: true
 destination: "Venezia"
 difficulty: "Medio"

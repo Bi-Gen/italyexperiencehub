@@ -6,7 +6,7 @@ publishedAt: "2025-01-18"
 updatedAt: "2025-01-18"
 category: "Guide Destinazioni"
 tags: ["Firenze", "Itinerario", "3 giorni", "Toscana", "Rinascimento", "Uffizi", "Duomo"]
-image: "/images/guides/firenze-3-giorni.jpg"
+image: "/images/destinations/toscana-hero.webp"
 featured: true
 destination: "Firenze"
 difficulty: "Facile"

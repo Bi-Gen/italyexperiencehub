@@ -6,7 +6,7 @@ publishedAt: "2025-01-18"
 updatedAt: "2025-01-18"
 category: "Guide Destinazioni"
 tags: ["Milano", "Itinerario", "3 giorni", "Lombardia", "Moda", "Aperitivo", "Duomo"]
-image: "/images/guides/milano-3-giorni.jpg"
+image: "/images/guides/duomo-facciata.jpg"
 featured: true
 destination: "Milano"
 difficulty: "Facile"

@@ -6,7 +6,7 @@ publishedAt: "2025-01-18"
 updatedAt: "2025-01-18"
 category: "Guide Destinazioni"
 tags: ["Roma", "Itinerario", "3 giorni", "Città Eterna", "Monumenti", "Storia"]
-image: "/images/guides/roma-3-giorni.jpg"
+image: "/images/destinations/roma-hero.webp"
 featured: true
 destination: "Roma"
 difficulty: "Principiante"
