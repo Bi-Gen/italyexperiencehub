@@ -170,41 +170,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Quick Navigation Bar */}
-      <section className="bg-white shadow-lg -mt-8 relative z-10 mx-4 lg:mx-8 rounded-2xl">
-        <div className="p-6 lg:p-8">
-          <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              Inizia la Tua Avventura Italiana
-            </h2>
-            <p className="text-gray-600">
-              Guide complete, consigli pratici e tutto quello che ti serve per viaggiare come un esperto
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Link href="/destinazioni" className="card p-4 text-center hover:shadow-lg transition-all group">
-              <MapPin className="h-8 w-8 mx-auto mb-2 text-primary-600 group-hover:text-primary-700" />
-              <h3 className="font-semibold text-gray-900 group-hover:text-primary-600">Destinazioni</h3>
-              <p className="text-sm text-gray-600 mt-1">Guide complete alle città</p>
-            </Link>
-            <Link href="/guide" className="card p-4 text-center hover:shadow-lg transition-all group">
-              <Calendar className="h-8 w-8 mx-auto mb-2 text-primary-600 group-hover:text-primary-700" />
-              <h3 className="font-semibold text-gray-900 group-hover:text-primary-600">Guide Pratiche</h3>
-              <p className="text-sm text-gray-600 mt-1">Itinerari e consigli utili</p>
-            </Link>
-            <Link href="/blog" className="card p-4 text-center hover:shadow-lg transition-all group">
-              <Users className="h-8 w-8 mx-auto mb-2 text-primary-600 group-hover:text-primary-700" />
-              <h3 className="font-semibold text-gray-900 group-hover:text-primary-600">Blog</h3>
-              <p className="text-sm text-gray-600 mt-1">Articoli e approfondimenti</p>
-            </Link>
-            <Link href="/esperienze" className="card p-4 text-center hover:shadow-lg transition-all group">
-              <Star className="h-8 w-8 mx-auto mb-2 text-primary-600 group-hover:text-primary-700" />
-              <h3 className="font-semibold text-gray-900 group-hover:text-primary-600">Ispirazioni</h3>
-              <p className="text-sm text-gray-600 mt-1">Idee per il tuo viaggio</p>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* Hero Ad Banner */}
       <section className="py-4 bg-gray-50">

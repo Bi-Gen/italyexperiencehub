@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Search, MapPin, Calendar, Users } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -116,11 +116,8 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Search & CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors">
-              <Search className="h-5 w-5 text-gray-600" />
-            </button>
+          {/* CTA */}
+          <div className="hidden lg:flex items-center">
             <Link
               href="/guide"
               className="btn-primary"
