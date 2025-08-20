@@ -122,10 +122,10 @@ export default function Navigation() {
               <Search className="h-5 w-5 text-gray-600" />
             </button>
             <Link
-              href="/contatti"
+              href="/guide"
               className="btn-primary"
             >
-              Pianifica Viaggio
+              Guide Pratiche
             </Link>
           </div>
 
@@ -181,11 +181,11 @@ export default function Navigation() {
             {/* Mobile CTA */}
             <div className="mt-4 pt-4 border-t border-gray-200">
               <Link
-                href="/contatti"
+                href="/guide"
                 className="block w-full text-center btn-primary"
                 onClick={() => setIsOpen(false)}
               >
-                Pianifica il tuo Viaggio
+                Scopri le Guide
               </Link>
             </div>
           </div>

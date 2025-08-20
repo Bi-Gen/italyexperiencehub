@@ -4,9 +4,9 @@ import Link from 'next/link'
 import { Star, Clock, Users, MapPin, Wine, UtensilsCrossed, ChefHat } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Tour Gastronomici e Food & Wine | Italy Experience Hub',
-  description: 'Scopri i migliori tour gastronomici d\'Italia. Degustazioni vini, cooking class e esperienze culinarie autentiche con chef locali.',
-  keywords: ['tour gastronomici Italia', 'food tour', 'degustazione vini', 'cooking class', 'cucina italiana'],
+  title: 'Guida ai Tour Gastronomici in Italia | Food & Wine',
+  description: 'Guida completa ai migliori tour gastronomici in Italia: dove prenotare, prezzi, consigli e le esperienze più autentiche regione per regione.',
+  keywords: ['tour gastronomici Italia', 'food tour', 'degustazione vini', 'cooking class', 'cucina italiana', 'guida gastronomia'],
 }
 
 export default function FoodWinePage() {
@@ -70,19 +70,18 @@ export default function FoodWinePage() {
         <div className="relative container-custom text-white">
           <div className="max-w-3xl">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              Tour Gastronomici
-              <span className="block text-accent-400">& Food Experience</span>
+              Guida Food & Wine
+              <span className="block text-accent-400">Esperienze Gastronomiche</span>
             </h1>
             <p className="text-xl mb-8 text-gray-200">
-              Scopri i sapori autentici d'Italia con le nostre esperienze culinarie esclusive. 
-              Dalle tavernas romane alle cantine toscane.
+              La guida completa per scoprire i sapori autentici d'Italia: dove prenotare, cosa aspettarsi e i migliori consigli per ogni regione.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="#experiences" className="btn-primary bg-accent-500 hover:bg-accent-600">
                 Scopri le Esperienze
               </Link>
-              <Link href="/contatti" className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/30">
-                Prenota Consulenza
+              <Link href="/guide" className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/30">
+                Guide Pratiche
               </Link>
             </div>
           </div>
@@ -190,8 +189,8 @@ export default function FoodWinePage() {
                       <span className="text-sm font-medium">{experience.rating}</span>
                       <span className="text-sm text-gray-500">({experience.reviews})</span>
                     </div>
-                    <Link href="/contatti" className="btn-primary text-sm px-4 py-2">
-                      Prenota Ora
+                    <Link href="https://www.getyourguide.com/s/?q=food+tour+italy" target="_blank" className="btn-primary text-sm px-4 py-2">
+                      Vedi Offerte
                     </Link>
                   </div>
                 </div>
@@ -211,9 +210,14 @@ export default function FoodWinePage() {
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
             I nostri tour gastronomici sono molto richiesti. Prenota ora per garantirti il posto.
           </p>
-          <Link href="/contatti" className="btn-primary bg-accent-500 hover:bg-accent-600">
-            Contattaci Ora
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="https://www.getyourguide.com/s/?q=food+tour+italy" target="_blank" className="btn-primary bg-accent-500 hover:bg-accent-600">
+              Prenota su GetYourGuide
+            </Link>
+            <Link href="https://www.viator.com/Italy/Food-Wine-and-Nightlife/d6-g6" target="_blank" className="btn-secondary bg-white/20 hover:bg-white/30">
+              Vedi su Viator
+            </Link>
+          </div>
         </div>
       </section>
     </div>

@@ -4,9 +4,9 @@ import Image from 'next/image'
 import { MapPin, Star, Clock, Users, Euro } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Esperienze Uniche in Italia | Tour e Attività Autentiche',
-  description: 'Scopri esperienze uniche in Italia: food tour, bike tour, visite guidate e attività autentiche con guide locali esperte.',
-  keywords: ['esperienze Italia', 'tour Italia', 'food tour', 'bike tour', 'visite guidate', 'attività Italia']
+  title: 'Esperienze Uniche in Italia | Guida Completa e Consigli',
+  description: 'Scopri le migliori esperienze in Italia: food tour, bike tour, visite guidate. Guida completa con consigli, prezzi e come prenotare.',
+  keywords: ['esperienze Italia', 'tour Italia', 'food tour', 'bike tour', 'visite guidate', 'attività Italia', 'consigli viaggio']
 }
 
 const experiences = [
@@ -76,10 +76,10 @@ export default function ExperiencesPage() {
       <section className="bg-gradient-italy text-white py-16 lg:py-24">
         <div className="container-custom text-center">
           <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-            Esperienze Autentiche
+            Guida alle Esperienze
           </h1>
           <p className="text-xl lg:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Vivi l'Italia come un locale con le nostre esperienze uniche e guide esperte
+            Tutto quello che devi sapere per vivere l'Italia come un locale: consigli, prezzi e come prenotare
           </p>
         </div>
       </section>
@@ -111,10 +111,10 @@ export default function ExperiencesPage() {
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Esperienze in Evidenza
+              Le Migliori Esperienze in Italia
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Le esperienze più amate dai nostri viaggiatori
+              Guida completa alle esperienze più autentiche con consigli pratici per prenotare
             </p>
           </div>
 
@@ -198,13 +198,100 @@ export default function ExperiencesPage() {
                       <span className="text-sm font-medium">{experience.rating}</span>
                       <span className="text-sm text-gray-500">({experience.reviews})</span>
                     </div>
-                    <button className="btn-primary btn-sm">
-                      Prenota ora
-                    </button>
+                    <Link href="https://www.getyourguide.com/s/?q=italia" target="_blank" className="btn-primary btn-sm">
+                      Vedi Offerte
+                    </Link>
                   </div>
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Info Section */}
+      <section className="py-16 bg-primary-50">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+              Come Scegliere e Prenotare le Migliori Esperienze
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white p-6 rounded-xl">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">🍽️ Food & Wine Tours</h3>
+                <ul className="space-y-2 text-gray-600">
+                  <li>• Prenota in anticipo per i tour più richiesti</li>
+                  <li>• Scegli gruppi piccoli per un'esperienza autentica</li>
+                  <li>• Verifica cosa è incluso nel prezzo</li>
+                  <li>• Informa su allergie e intolleranze</li>
+                </ul>
+                <p className="mt-4 text-sm text-primary-600">
+                  <strong>Prezzo medio:</strong> 60-150€ per persona
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-xl">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">🚴 Tour in Bicicletta</h3>
+                <ul className="space-y-2 text-gray-600">
+                  <li>• Controlla il livello di difficoltà</li>
+                  <li>• E-bike disponibili per percorsi collinari</li>
+                  <li>• Include casco e attrezzature</li>
+                  <li>• Migliori nelle stagioni intermedie</li>
+                </ul>
+                <p className="mt-4 text-sm text-primary-600">
+                  <strong>Prezzo medio:</strong> 45-120€ per persona
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-xl">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">🎭 Arte & Cultura</h3>
+                <ul className="space-y-2 text-gray-600">
+                  <li>• Prenota con anticipo per musei famosi</li>
+                  <li>• Tour privati per approfondimenti</li>
+                  <li>• Audio guide spesso incluse</li>
+                  <li>• Verifica giorni e orari di chiusura</li>
+                </ul>
+                <p className="mt-4 text-sm text-primary-600">
+                  <strong>Prezzo medio:</strong> 25-80€ per persona
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-xl">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">⛵ Mare & Relax</h3>
+                <ul className="space-y-2 text-gray-600">
+                  <li>• Controlla condizioni meteo marine</li>
+                  <li>• Skipper incluso per maggiore sicurezza</li>
+                  <li>• Pranzo a bordo spesso disponibile</li>
+                  <li>• Migliori da maggio a settembre</li>
+                </ul>
+                <p className="mt-4 text-sm text-primary-600">
+                  <strong>Prezzo medio:</strong> 80-350€ per persona
+                </p>
+              </div>
+            </div>
+            
+            <div className="text-center mt-12">
+              <div className="bg-accent-100 p-8 rounded-2xl">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  📝 Suggerimento Pro
+                </h3>
+                <p className="text-lg text-gray-700 mb-6">
+                  Confronta sempre prezzi e recensioni su più piattaforme. Le migliori offerte si trovano spesso prenotando direttamente o con un po' di anticipo.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <Link href="https://www.getyourguide.com/s/?q=italia" target="_blank" className="btn-primary">
+                    GetYourGuide
+                  </Link>
+                  <Link href="https://www.viator.com/Italy/d6" target="_blank" className="btn-secondary">
+                    Viator
+                  </Link>
+                  <Link href="https://www.klook.com/country/25-italy/" target="_blank" className="btn-secondary">
+                    Klook
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

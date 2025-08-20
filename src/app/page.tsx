@@ -144,10 +144,10 @@ export default function HomePage() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <Link 
-                href="/esperienze"
+                href="/guide"
                 className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/30"
               >
-                Vedi Esperienze
+                Guide Pratiche
               </Link>
             </div>
 
@@ -170,44 +170,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Quick Search Bar */}
+      {/* Quick Navigation Bar */}
       <section className="bg-white shadow-lg -mt-8 relative z-10 mx-4 lg:mx-8 rounded-2xl">
         <div className="p-6 lg:p-8">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              Inizia la Tua Avventura Italiana
+            </h2>
+            <p className="text-gray-600">
+              Guide complete, consigli pratici e tutto quello che ti serve per viaggiare come un esperto
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="md:col-span-2">
-              <label htmlFor="search-destination" className="block text-sm font-medium text-gray-700 mb-2">
-                Dove vuoi andare?
-              </label>
-              <div className="relative">
-                <MapPin className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                <input
-                  id="search-destination"
-                  name="destination"
-                  type="text"
-                  placeholder="Roma, Toscana, Costiera Amalfitana..."
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="search-date" className="block text-sm font-medium text-gray-700 mb-2">
-                Quando
-              </label>
-              <div className="relative">
-                <Calendar className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                <input
-                  id="search-date"
-                  name="date"
-                  type="date"
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                />
-              </div>
-            </div>
-            <div className="flex items-end">
-              <button className="w-full btn-primary">
-                Cerca Esperienze
-              </button>
-            </div>
+            <Link href="/destinazioni" className="card p-4 text-center hover:shadow-lg transition-all group">
+              <MapPin className="h-8 w-8 mx-auto mb-2 text-primary-600 group-hover:text-primary-700" />
+              <h3 className="font-semibold text-gray-900 group-hover:text-primary-600">Destinazioni</h3>
+              <p className="text-sm text-gray-600 mt-1">Guide complete alle città</p>
+            </Link>
+            <Link href="/guide" className="card p-4 text-center hover:shadow-lg transition-all group">
+              <Calendar className="h-8 w-8 mx-auto mb-2 text-primary-600 group-hover:text-primary-700" />
+              <h3 className="font-semibold text-gray-900 group-hover:text-primary-600">Guide Pratiche</h3>
+              <p className="text-sm text-gray-600 mt-1">Itinerari e consigli utili</p>
+            </Link>
+            <Link href="/blog" className="card p-4 text-center hover:shadow-lg transition-all group">
+              <Users className="h-8 w-8 mx-auto mb-2 text-primary-600 group-hover:text-primary-700" />
+              <h3 className="font-semibold text-gray-900 group-hover:text-primary-600">Blog</h3>
+              <p className="text-sm text-gray-600 mt-1">Articoli e approfondimenti</p>
+            </Link>
+            <Link href="/esperienze" className="card p-4 text-center hover:shadow-lg transition-all group">
+              <Star className="h-8 w-8 mx-auto mb-2 text-primary-600 group-hover:text-primary-700" />
+              <h3 className="font-semibold text-gray-900 group-hover:text-primary-600">Ispirazioni</h3>
+              <p className="text-sm text-gray-600 mt-1">Idee per il tuo viaggio</p>
+            </Link>
           </div>
         </div>
       </section>
