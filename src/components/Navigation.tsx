@@ -116,15 +116,6 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="hidden lg:flex items-center">
-            <Link
-              href="/guide"
-              className="btn-primary"
-            >
-              Guide Pratiche
-            </Link>
-          </div>
 
           {/* Mobile menu button */}
           <button
@@ -175,16 +166,6 @@ export default function Navigation() {
               ))}
             </div>
             
-            {/* Mobile CTA */}
-            <div className="mt-4 pt-4 border-t border-gray-200">
-              <Link
-                href="/guide"
-                className="block w-full text-center btn-primary"
-                onClick={() => setIsOpen(false)}
-              >
-                Scopri le Guide
-              </Link>
-            </div>
           </div>
         )}
       </div>

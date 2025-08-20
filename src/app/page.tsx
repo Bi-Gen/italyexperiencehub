@@ -118,7 +118,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative container-custom py-20 lg:py-32">
+        <div className="relative container-custom py-12 lg:py-20">
           <div className="max-w-4xl">
             <div className="flex items-center space-x-2 mb-6">
               <Award className="h-6 w-6 text-gold-400" />
@@ -135,21 +135,6 @@ export default function HomePage() {
               Il punto di riferimento per vivere l'Italia autentica.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Link 
-                href="/destinazioni"
-                className="btn-primary bg-accent-500 hover:bg-accent-600 text-white border-none"
-              >
-                Esplora Destinazioni
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link 
-                href="/guide"
-                className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/30"
-              >
-                Guide Pratiche
-              </Link>
-            </div>
 
             {/* Trust Indicators */}
             <div className="flex flex-wrap gap-8 text-blue-100">
