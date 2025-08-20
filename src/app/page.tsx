@@ -183,6 +183,75 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Popular Guides - Stile Aranzulla */}
+      <section className="py-16 lg:py-24">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Guide più Lette
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              I nostri tutorial completi per viaggiare in Italia come un esperto
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {popularGuides.map((guide, index) => (
+              <Link
+                key={index}
+                href={guide.href}
+                className="card group overflow-hidden hover:shadow-xl transition-all duration-300"
+              >
+                <div className="relative h-40 overflow-hidden">
+                  <Image
+                    src={guide.image}
+                    alt={guide.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-semibold text-primary-600 bg-primary-50 px-2 py-1 rounded">
+                      {guide.category}
+                    </span>
+                    <div className="flex items-center space-x-4 text-xs text-gray-500">
+                      <span>{guide.readTime} lettura</span>
+                      <span>{guide.views} visualizzazioni</span>
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2">
+                    {guide.title}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link 
+              href="/guide"
+              className="btn-primary"
+            >
+              Tutte le Guide Pratiche
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Ad */}
+      <section className="py-8 bg-white">
+        <div className="container-custom">
+          <AdPlaceholder 
+            adSlot="auto"
+            adFormat="auto"
+            className="w-full max-w-2xl mx-auto"
+            style={{ minHeight: '200px' }}
+          />
+        </div>
+      </section>
+
       {/* Featured Destinations */}
       <section className="py-16 lg:py-24">
         <div className="container-custom">
@@ -239,18 +308,6 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Content Ad */}
-      <section className="py-8 bg-white">
-        <div className="container-custom">
-          <AdPlaceholder 
-            adSlot="auto"
-            adFormat="auto"
-            className="w-full max-w-2xl mx-auto"
-            style={{ minHeight: '200px' }}
-          />
         </div>
       </section>
 
@@ -355,64 +412,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Popular Guides - Stile Aranzulla */}
-      <section className="py-16 lg:py-24">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Guide più Lette
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              I nostri tutorial completi per viaggiare in Italia come un esperto
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {popularGuides.map((guide, index) => (
-              <Link
-                key={index}
-                href={guide.href}
-                className="card group overflow-hidden hover:shadow-xl transition-all duration-300"
-              >
-                <div className="relative h-40 overflow-hidden">
-                  <Image
-                    src={guide.image}
-                    alt={guide.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-semibold text-primary-600 bg-primary-50 px-2 py-1 rounded">
-                      {guide.category}
-                    </span>
-                    <div className="flex items-center space-x-4 text-xs text-gray-500">
-                      <span>{guide.readTime} lettura</span>
-                      <span>{guide.views} visualizzazioni</span>
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2">
-                    {guide.title}
-                  </h3>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link 
-              href="/guide"
-              className="btn-secondary"
-            >
-              Tutte le Guide Pratiche
-            </Link>
-          </div>
-
-          {/* Content Ad - temporaneamente disabilitato */}
-          {/* <ContentAd className="mt-16" /> */}
-        </div>
-      </section>
 
       {/* Newsletter CTA */}
       <section className="py-16 lg:py-24 bg-gradient-italy text-white">
