@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { MapPin, Star, Clock, Users, Euro } from 'lucide-react'
+import { MapPin, Star, Clock, Users } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Esperienze Uniche in Italia | Guida Completa e Consigli',
@@ -17,13 +17,11 @@ const experiences = [
     category: 'Food & Wine',
     duration: '3.5 ore',
     groupSize: 'Max 12 persone',
-    price: 85,
-    originalPrice: 120,
     rating: 4.9,
     reviews: 847,
     image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop',
     highlights: ['6 degustazioni autentiche', 'Guida esperta locale', 'Gruppi piccoli'],
-    badge: 'Bestseller',
+    badge: 'Popolare',
     href: '/esperienze/food-tour-trastevere'
   },
   {
@@ -33,8 +31,6 @@ const experiences = [
     category: 'Outdoor',
     duration: '6 ore',
     groupSize: 'Max 8 persone',
-    price: 145,
-    originalPrice: 180,
     rating: 4.8,
     reviews: 456,
     image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop',
@@ -49,13 +45,11 @@ const experiences = [
     category: 'Mare & Relax',
     duration: '8 ore',
     groupSize: 'Max 6 persone',
-    price: 320,
-    originalPrice: 450,
     rating: 5.0,
     reviews: 234,
     image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&h=400&fit=crop',
     highlights: ['Skipper esperto', 'Pranzo a bordo', 'Grotte nascoste'],
-    badge: 'Lusso',
+    badge: 'Premium',
     href: '/esperienze/boat-amalfi'
   }
 ]
@@ -134,25 +128,12 @@ export default function ExperiencesPage() {
                   />
                   <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      experience.badge === 'Bestseller' ? 'bg-accent-500 text-white' :
-                      experience.badge === 'Eco-friendly' ? 'bg-primary-500 text-white' :
-                      'bg-gold-500 text-white'
+                      experience.badge === 'Popolare' ? 'bg-accent-500 text-white' :
+                      experience.badge === 'Eco-friendly' ? 'bg-green-500 text-white' :
+                      'bg-primary-500 text-white'
                     }`}>
                       {experience.badge}
                     </span>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <div className="bg-white/90 px-2 py-1 rounded-lg">
-                      <span className="text-sm font-bold text-gray-900 flex items-center">
-                        <Euro className="h-3 w-3 mr-1" />
-                        {experience.price}
-                      </span>
-                      {experience.originalPrice && (
-                        <span className="text-xs text-gray-500 line-through ml-1">
-                          €{experience.originalPrice}
-                        </span>
-                      )}
-                    </div>
                   </div>
                 </div>
                 

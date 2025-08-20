@@ -45,13 +45,11 @@ export default function HomePage() {
       location: 'Roma',
       duration: '3.5 ore',
       groupSize: 'Max 12 persone',
-      price: 85,
-      originalPrice: 120,
       rating: 4.9,
       reviews: 847,
       image: '/images/experiences/food-wine-hero.webp',
       highlights: ['6 degustazioni autentiche', 'Guida esperta locale', 'Gruppi piccoli'],
-      badge: 'Bestseller',
+      badge: 'Popolare',
       href: '/esperienze/food-wine'
     },
     {
@@ -60,8 +58,6 @@ export default function HomePage() {
       location: 'Toscana',
       duration: '6 ore',
       groupSize: 'Max 8 persone',
-      price: 145,
-      originalPrice: 180,
       rating: 4.8,
       reviews: 456,
       image: '/images/experiences/bike-tours-hero.webp',
@@ -75,13 +71,11 @@ export default function HomePage() {
       location: 'Costiera Amalfitana',
       duration: '8 ore',
       groupSize: 'Max 6 persone',
-      price: 320,
-      originalPrice: 450,
       rating: 5.0,
       reviews: 234,
       image: '/images/experiences/boat-rental-hero.webp',
       highlights: ['Skipper esperto', 'Pranzo a bordo', 'Grotte nascoste'],
-      badge: 'Lusso',
+      badge: 'Premium',
       href: '/esperienze/boat-rental'
     }
   ]
@@ -328,24 +322,12 @@ export default function HomePage() {
                   />
                   <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      experience.badge === 'Bestseller' ? 'bg-accent-500 text-white' :
-                      experience.badge === 'Eco-friendly' ? 'bg-primary-500 text-white' :
-                      'bg-gold-500 text-white'
+                      experience.badge === 'Popolare' ? 'bg-accent-500 text-white' :
+                      experience.badge === 'Eco-friendly' ? 'bg-green-500 text-white' :
+                      'bg-primary-500 text-white'
                     }`}>
                       {experience.badge}
                     </span>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <div className="bg-white/90 px-2 py-1 rounded-lg">
-                      <span className="text-sm font-bold text-gray-900">
-                        €{experience.price}
-                      </span>
-                      {experience.originalPrice && (
-                        <span className="text-xs text-gray-500 line-through ml-1">
-                          €{experience.originalPrice}
-                        </span>
-                      )}
-                    </div>
                   </div>
                 </div>
                 

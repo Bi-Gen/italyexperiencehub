@@ -17,12 +17,10 @@ export default function FoodWinePage() {
       location: 'Roma',
       duration: '3.5 ore',
       groupSize: 'Max 12 persone',
-      price: 85,
-      originalPrice: 120,
       rating: 4.9,
       reviews: 847,
       highlights: ['6 degustazioni autentiche', 'Guida esperta locale', 'Gruppi piccoli', 'Storia e cultura'],
-      badge: 'Bestseller'
+      badge: 'Popolare'
     },
     {
       id: 'wine-tour-chianti',
@@ -30,8 +28,6 @@ export default function FoodWinePage() {
       location: 'Toscana',
       duration: '7 ore',
       groupSize: 'Max 8 persone',
-      price: 165,
-      originalPrice: 210,
       rating: 4.8,
       reviews: 456,
       highlights: ['3 cantine storiche', 'Pranzo tipico toscano', 'Trasferimenti inclusi', 'Sommelier esperto'],
@@ -43,8 +39,6 @@ export default function FoodWinePage() {
       location: 'Milano',
       duration: '4 ore',
       groupSize: 'Max 10 persone',
-      price: 135,
-      originalPrice: 180,
       rating: 5.0,
       reviews: 234,
       highlights: ['Ricette tradizionali', 'Ingredienti freschi', 'Chef professionista', 'Cena inclusa'],
@@ -136,18 +130,12 @@ export default function FoodWinePage() {
                   />
                   <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold text-white ${
-                      experience.badge === 'Bestseller' ? 'bg-accent-500' :
+                      experience.badge === 'Popolare' ? 'bg-accent-500' :
                       experience.badge === 'Premium' ? 'bg-gold-500' :
                       'bg-primary-500'
                     }`}>
                       {experience.badge}
                     </span>
-                  </div>
-                  <div className="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded-lg">
-                    <span className="text-sm font-bold text-gray-900">€{experience.price}</span>
-                    {experience.originalPrice && (
-                      <span className="text-xs text-gray-500 line-through ml-1">€{experience.originalPrice}</span>
-                    )}
                   </div>
                 </div>
                 
