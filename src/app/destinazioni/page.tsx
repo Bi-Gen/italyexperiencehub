@@ -15,7 +15,7 @@ const destinations = [
     name: 'Roma',
     region: 'Lazio',
     description: 'La Città Eterna ricca di storia, arte e cultura millenaria',
-    image: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&h=600&fit=crop',
+    image: '/images/destinations/roma-hero.webp',
     experiences: 156,
     rating: 4.8,
     duration: '3-5 giorni',
@@ -23,28 +23,100 @@ const destinations = [
     href: '/destinazioni/roma'
   },
   {
-    id: 'toscana',
-    name: 'Toscana',
+    id: 'firenze',
+    name: 'Firenze',
     region: 'Toscana',
-    description: 'Paesaggi mozzafiato, arte rinascimentale e vini pregiati',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-    experiences: 203,
+    description: 'Culla del Rinascimento con arte e architettura straordinarie',
+    image: '/images/destinations/firenze-duomo-cupola-brunelleschi.webp',
+    experiences: 134,
     rating: 4.9,
-    duration: '5-7 giorni',
-    highlights: ['Firenze', 'Siena', 'Chianti'],
-    href: '/destinazioni/toscana'
+    duration: '3-4 giorni',
+    highlights: ['Uffizi', 'Duomo', 'Ponte Vecchio'],
+    href: '/destinazioni/firenze'
   },
   {
     id: 'venezia',
     name: 'Venezia',
     region: 'Veneto',
     description: 'La Serenissima unica al mondo con i suoi canali e palazzi',
-    image: 'https://images.unsplash.com/photo-1514890547357-a9ee288728e0?w=800&h=600&fit=crop',
+    image: '/images/destinations/venezia-canal-grande-hero.webp',
     experiences: 89,
     rating: 4.7,
     duration: '2-3 giorni',
     highlights: ['Piazza San Marco', 'Ponte di Rialto', 'Murano'],
     href: '/destinazioni/venezia'
+  },
+  {
+    id: 'toscana',
+    name: 'Toscana',
+    region: 'Toscana',
+    description: 'Paesaggi mozzafiato, arte rinascimentale e vini pregiati',
+    image: '/images/destinations/toscana-hero.webp',
+    experiences: 203,
+    rating: 4.9,
+    duration: '5-7 giorni',
+    highlights: ['Chianti', 'Val d\'Orcia', 'Montepulciano'],
+    href: '/destinazioni/toscana'
+  },
+  {
+    id: 'milano',
+    name: 'Milano',
+    region: 'Lombardia',
+    description: 'Capitale della moda e del design con tradizione culinaria',
+    image: '/images/destinations/milano-skyline-hero.webp',
+    experiences: 78,
+    rating: 4.6,
+    duration: '2-3 giorni',
+    highlights: ['Duomo', 'La Scala', 'Quadrilatero'],
+    href: '/destinazioni/milano'
+  },
+  {
+    id: 'napoli',
+    name: 'Napoli',
+    region: 'Campania',
+    description: 'Città vibrante con storia millenaria e pizza autentica',
+    image: '/images/destinations/napoli-golfo-vesuvio-panorama.webp',
+    experiences: 112,
+    rating: 4.5,
+    duration: '3-4 giorni',
+    highlights: ['Centro Storico', 'Pizza', 'Vesuvio'],
+    href: '/destinazioni/napoli'
+  },
+  {
+    id: 'sicilia',
+    name: 'Sicilia',
+    region: 'Sicilia',
+    description: 'Isola mediterranea con cultura unica e paesaggi vulcanici',
+    image: '/images/destinations/sicilia-hero.webp',
+    experiences: 145,
+    rating: 4.8,
+    duration: '7-10 giorni',
+    highlights: ['Etna', 'Taormina', 'Palermo'],
+    href: '/destinazioni/sicilia'
+  },
+  {
+    id: 'costiera-amalfitana',
+    name: 'Costiera Amalfitana',
+    region: 'Campania',
+    description: 'Costa spettacolare patrimonio UNESCO con borghi incantevoli',
+    image: '/images/destinations/costiera-amalfitana-hero.webp',
+    experiences: 67,
+    rating: 4.7,
+    duration: '4-5 giorni',
+    highlights: ['Positano', 'Amalfi', 'Ravello'],
+    href: '/destinazioni/costiera-amalfitana'
+  },
+  {
+    id: 'villetta-barrea',
+    name: 'Villetta Barrea',
+    region: 'Abruzzo',
+    description: 'Borgo incantevole nel Parco Nazionale d\'Abruzzo',
+    image: '/images/destinations/abruzzo/villetta-barrea-lago-hero.avif',
+    experiences: 12,
+    rating: 4.9,
+    duration: '2-3 giorni',
+    highlights: ['Lago di Barrea', 'Parco Nazionale', 'Castello'],
+    href: '/destinazioni/villetta-barrea'
   }
 ]
 

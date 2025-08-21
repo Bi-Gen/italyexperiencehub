@@ -19,6 +19,7 @@ const navigation = [
       { name: 'Sicilia', href: '/destinazioni/sicilia' },
       { name: 'Toscana', href: '/destinazioni/toscana' },
       { name: 'Costa Amalfitana', href: '/destinazioni/costiera-amalfitana' },
+      { name: 'Villetta Barrea', href: '/destinazioni/villetta-barrea' },
     ]
   },
   { 
