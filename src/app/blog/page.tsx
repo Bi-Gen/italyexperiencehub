@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Calendar, User, Clock, Tag, TrendingUp } from 'lucide-react'
 import { getAllBlogPosts } from '@/lib/content'
+import NewsletterForm from '@/components/NewsletterForm'
 
 export const metadata: Metadata = {
   title: 'Blog di Viaggio | Storie e Consigli dall\'Italia',
@@ -163,38 +164,13 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-16 bg-primary-50">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Non Perdere i Nostri Articoli
-          </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Iscriviti alla newsletter per ricevere i migliori consigli di viaggio direttamente nella tua casella email
-          </p>
-          
-          <form className="max-w-md mx-auto flex space-x-4">
-            <label htmlFor="blog-newsletter-email" className="sr-only">La tua email</label>
-            <input
-              id="blog-newsletter-email"
-              name="email"
-              type="email"
-              placeholder="La tua email"
-              required
-              className="flex-1 px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-            />
-            <button
-              type="submit"
-              className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-xl font-semibold transition-colors"
-            >
-              Iscriviti
-            </button>
-          </form>
-          
-          <p className="text-sm text-gray-500 mt-4">
-            Oltre 15.000 viaggiatori leggono i nostri consigli ogni settimana
-          </p>
-        </div>
-      </section>
+      <NewsletterForm 
+        source="blog-page"
+        variant="inline"
+        customTitle="Non Perdere i Nostri Articoli"
+        customDescription="Iscriviti alla newsletter per ricevere i migliori consigli di viaggio direttamente nella tua casella email"
+        className="py-16 bg-primary-50"
+      />
     </div>
   )
 }

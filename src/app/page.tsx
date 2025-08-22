@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { MapPin, Star, Clock, Users, Calendar, ArrowRight, TrendingUp, Award, Shield } from 'lucide-react'
 import { HeroAdBanner, ContentAd, DestinationAd } from '@/components/AdSense/AdUnit'
 import AdPlaceholder from '@/components/AdSense/AdPlaceholder'
+import NewsletterForm from '@/components/NewsletterForm'
 
 export default function HomePage() {
   const featuredDestinations = [
@@ -381,39 +382,7 @@ export default function HomePage() {
 
 
       {/* Newsletter CTA */}
-      <section className="py-16 lg:py-24 bg-gradient-italy text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Non Perdere Nessun Consiglio
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Iscriviti alla nostra newsletter per ricevere guide esclusive, 
-            offerte speciali e i migliori consigli di viaggio
-          </p>
-          
-          <form className="max-w-md mx-auto flex space-x-4">
-            <label htmlFor="newsletter-email" className="sr-only">La tua email</label>
-            <input
-              id="newsletter-email"
-              name="email"
-              type="email"
-              placeholder="La tua email"
-              required
-              className="flex-1 px-4 py-3 rounded-xl text-gray-900 focus:ring-2 focus:ring-accent-400 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="bg-accent-500 hover:bg-accent-600 text-white px-8 py-3 rounded-xl font-semibold transition-colors"
-            >
-              Iscriviti
-            </button>
-          </form>
-          
-          <p className="text-sm text-blue-200 mt-4">
-            Più di 25.000 viaggiatori si fidano dei nostri consigli
-          </p>
-        </div>
-      </section>
+      <NewsletterForm source="homepage" />
     </div>
   )
 }
