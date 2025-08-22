@@ -38,8 +38,13 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({
         success: false,
         test: 'connection',
-        error: testError
-      }, { status: 500 })
+        error: {
+          message: testError.message,
+          code: testError.code,
+          details: testError.details,
+          hint: testError.hint
+        }
+      }, { status: 200 }) // Cambiamo a 200 per vedere l'errore
     }
     
     console.log('Test 1 passed - Connection OK')
@@ -62,9 +67,14 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({
         success: false,
         test: 'insert',
-        error: insertError,
+        error: {
+          message: insertError.message,
+          code: insertError.code,
+          details: insertError.details,
+          hint: insertError.hint
+        },
         connectionTest: 'passed'
-      }, { status: 500 })
+      }, { status: 200 }) // Cambiamo a 200 per vedere l'errore
     }
     
     console.log('Test 2 passed - Insert OK:', insertData)
