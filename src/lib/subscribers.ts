@@ -8,7 +8,7 @@ export async function addSubscriber(email: string, source: string): Promise<bool
     // Test connessione prima di inserire
     const { data: testData, error: testError } = await supabaseAdmin
       .from('subscribers')
-      .select('count(*)')
+      .select('id')
       .limit(1)
     
     if (testError) {

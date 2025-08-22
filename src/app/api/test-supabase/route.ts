@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
     // Test 1: Basic connection
     const { data: testData, error: testError } = await supabase
       .from('subscribers')
-      .select('count(*)')
+      .select('id')
       .limit(1)
     
     if (testError) {
