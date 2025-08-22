@@ -16,7 +16,13 @@ export async function addSubscriber(email: string, source: string): Promise<bool
       ])
     
     if (error) {
-      console.error('Supabase insert error:', error)
+      console.error('Supabase insert error details:', {
+        message: error.message,
+        code: error.code,
+        details: error.details,
+        hint: error.hint,
+        full_error: error
+      })
       return false
     }
     
