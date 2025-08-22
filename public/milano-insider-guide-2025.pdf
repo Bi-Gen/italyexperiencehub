@@ -1,0 +1,94 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+>>
+>>
+>>
+endobj
+4 0 obj
+<<
+/Length 1000
+>>
+stream
+BT
+/F1 24 Tf
+50 750 Td
+(Milano Insider Guide 2025) Tj
+0 -50 Td
+/F1 16 Tf
+(Italy Experience Hub) Tj
+0 -100 Td
+/F1 12 Tf
+(Questa e' una versione placeholder del PDF.) Tj
+0 -30 Td
+(Per creare il PDF completo:) Tj
+0 -30 Td
+(1. Usa il file milano-guide-content.html) Tj
+0 -20 Td
+(2. Convertilo in PDF con un tool come Puppeteer) Tj
+0 -20 Td
+(3. Sostituisci questo file placeholder) Tj
+0 -50 Td
+(Contenuto della guida:) Tj
+0 -30 Td
+(- 25+ luoghi segreti di Milano) Tj
+0 -20 Td
+(- Ristoranti autentici frequentati dai locals) Tj
+0 -20 Td
+(- Musei nascosti e arte underground) Tj
+0 -20 Td
+(- Shopping locale e mercati storici) Tj
+0 -20 Td
+(- Aperitivo milanese e vita notturna) Tj
+0 -20 Td
+(- Consigli pratici e app essenziali) Tj
+0 -50 Td
+(Grazie per esserti iscritto alla newsletter!) Tj
+0 -30 Td
+(italyexperiencehub.com) Tj
+ET
+endstream
+endobj
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000001327 00000 n 
+trailer
+<<
+/Size 6
+/Root 1 0 R
+>>
+startxref
+1404
+%%EOF

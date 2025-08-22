@@ -8,8 +8,18 @@ export async function POST(request: NextRequest) {
   try {
     const { email, source = 'website' } = await request.json()
 
+    // Debug logging
+    console.log('Newsletter API called with:', { email, source })
+    console.log('Environment check:', {
+      hasApiKey: !!MAILCHIMP_API_KEY,
+      hasAudienceId: !!MAILCHIMP_AUDIENCE_ID,
+      hasServer: !!MAILCHIMP_API_SERVER,
+      server: MAILCHIMP_API_SERVER
+    })
+
     // Validazione email
     if (!email || !email.includes('@')) {
+      console.log('Email validation failed:', email)
       return NextResponse.json(
         { error: 'Email non valida' },
         { status: 400 }
@@ -18,7 +28,11 @@ export async function POST(request: NextRequest) {
 
     // Verifica configurazione Mailchimp
     if (!MAILCHIMP_API_KEY || !MAILCHIMP_AUDIENCE_ID || !MAILCHIMP_API_SERVER) {
-      console.error('Mailchimp configuration missing')
+      console.error('Mailchimp configuration missing:', {
+        apiKey: !!MAILCHIMP_API_KEY,
+        audienceId: !!MAILCHIMP_AUDIENCE_ID,
+        server: !!MAILCHIMP_API_SERVER
+      })
       return NextResponse.json(
         { error: 'Configurazione newsletter non disponibile' },
         { status: 500 }
@@ -48,6 +62,9 @@ export async function POST(request: NextRequest) {
 
     const result = await response.json()
 
+    console.log('Mailchimp response status:', response.status)
+    console.log('Mailchimp response:', result)
+
     if (response.ok) {
       return NextResponse.json({ 
         success: true, 
@@ -57,13 +74,17 @@ export async function POST(request: NextRequest) {
       // Gestione errori specifici Mailchimp
       if (result.title === 'Member Exists') {
         return NextResponse.json({
-          error: 'Questo indirizzo email è già iscritto alla newsletter'
+          error: '✅ Questa email è già iscritta alla nostra newsletter!'
         }, { status: 400 })
       }
       
-      console.error('Mailchimp error:', result)
+      console.error('Mailchimp error details:', {
+        status: response.status,
+        statusText: response.statusText,
+        error: result
+      })
       return NextResponse.json({
-        error: 'Errore durante l\'iscrizione. Riprova più tardi.'
+        error: `Errore Mailchimp: ${result.detail || result.title || 'Errore sconosciuto'}`
       }, { status: 400 })
     }
 

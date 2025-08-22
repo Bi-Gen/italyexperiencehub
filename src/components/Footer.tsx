@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { MapPin, Mail, Phone, Facebook, Instagram, Twitter } from 'lucide-react'
+import NewsletterForm from './NewsletterForm'
 
 // Extend Window interface for Google Funding Choices
 declare global {
@@ -187,23 +188,12 @@ export default function Footer() {
             <p className="text-sm text-gray-600 mb-4">
               Ricevi guide esclusive, offerte speciali e consigli di viaggio direttamente nella tua inbox.
             </p>
-            <form className="flex space-x-2">
-              <label htmlFor="footer-email" className="sr-only">La tua email</label>
-              <input
-                id="footer-email"
-                name="email"
-                type="email"
-                placeholder="La tua email"
-                required
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              />
-              <button
-                type="submit"
-                className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-medium transition-colors"
-              >
-                Iscriviti
-              </button>
-            </form>
+            <NewsletterForm 
+              source="footer"
+              variant="inline"
+              showTitle={false}
+              className="bg-transparent p-0"
+            />
           </div>
         </div>
       </div>

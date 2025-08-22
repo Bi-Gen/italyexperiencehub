@@ -43,6 +43,7 @@ export default function NewsletterForm({
       const data = await response.json()
 
       if (response.ok) {
+        console.log('SUCCESS! Newsletter signup completed:', data)
         setStatus('success')
         setMessage(data.message)
         setEmail('')
@@ -55,6 +56,7 @@ export default function NewsletterForm({
           })
         }
       } else {
+        console.log('ERROR response:', data)
         setStatus('error')
         setMessage(data.error || 'Errore durante l\'iscrizione')
       }
@@ -135,7 +137,7 @@ export default function NewsletterForm({
               />
               <button
                 type="submit"
-                disabled={status === 'loading' || !email}
+                disabled={status === 'loading' || !email.trim()}
                 className={`px-6 py-3 rounded-xl font-semibold transition-colors flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed ${
                   isDefaultVariant
                     ? 'bg-accent-500 hover:bg-accent-600 text-white'
