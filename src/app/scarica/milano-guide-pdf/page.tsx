@@ -1,12 +1,8 @@
+'use client'
+
 import { Suspense } from 'react'
 import { Download, CheckCircle, ArrowLeft, MapPin, Coffee, Camera } from 'lucide-react'
 import Link from 'next/link'
-
-export const metadata = {
-  title: 'Scarica Milano Insider Guide 2025 | Italy Experience Hub',
-  description: 'Scarica gratuitamente la tua guida esclusiva di Milano con 25+ luoghi segreti, ristoranti autentici e consigli da locals.',
-  robots: 'noindex, nofollow'
-}
 
 function DownloadContent() {
   // Simulated PDF download - in production, this would serve an actual PDF
