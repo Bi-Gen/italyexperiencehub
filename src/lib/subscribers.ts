@@ -5,6 +5,19 @@ export async function addSubscriber(email: string, source: string): Promise<bool
   try {
     console.log('Adding subscriber to Supabase:', { email, source })
     
+    // Test connessione prima di inserire
+    const { data: testData, error: testError } = await supabase
+      .from('subscribers')
+      .select('count(*)')
+      .limit(1)
+    
+    if (testError) {
+      console.error('Supabase connection test failed:', testError)
+      return false
+    }
+    
+    console.log('Supabase connection test passed')
+    
     const { data, error } = await supabase
       .from('subscribers')
       .insert([
@@ -14,6 +27,7 @@ export async function addSubscriber(email: string, source: string): Promise<bool
           status: 'active'
         }
       ])
+      .select() // Aggiungiamo select per avere i dati di ritorno
     
     if (error) {
       console.error('Supabase insert error details:', {
