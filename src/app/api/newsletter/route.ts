@@ -45,10 +45,7 @@ export async function POST(request: NextRequest) {
     const data = {
       email_address: email,
       status: 'subscribed',
-      merge_fields: {
-        SOURCE: source
-      },
-      tags: ['italia-experience-hub']
+      tags: ['italia-experience-hub', source]
     }
 
     const response = await fetch(url, {
