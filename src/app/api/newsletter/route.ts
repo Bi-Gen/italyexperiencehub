@@ -39,7 +39,33 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Chiamata API Mailchimp
+    // Prima verifica se l'audience esiste
+    const audienceUrl = `https://${MAILCHIMP_API_SERVER}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}`
+    
+    console.log('Testing audience access:', {
+      audienceUrl,
+      server: MAILCHIMP_API_SERVER,
+      audienceId: MAILCHIMP_AUDIENCE_ID
+    })
+    
+    const audienceResponse = await fetch(audienceUrl, {
+      headers: {
+        'Authorization': `Bearer ${MAILCHIMP_API_KEY}`
+      }
+    })
+    
+    if (!audienceResponse.ok) {
+      const audienceError = await audienceResponse.json()
+      console.error('Audience verification failed:', {
+        status: audienceResponse.status,
+        error: audienceError
+      })
+      return NextResponse.json({
+        error: `Errore configurazione audience: ${audienceError.detail || 'Audience non trovata'}`
+      }, { status: 500 })
+    }
+    
+    // Chiamata API Mailchimp per aggiungere member
     const url = `https://${MAILCHIMP_API_SERVER}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`
     
     const data = {
@@ -47,9 +73,9 @@ export async function POST(request: NextRequest) {
       status: 'subscribed'
     }
 
-    console.log('Sending minimal data to Mailchimp:', {
+    console.log('Sending subscription request:', {
       url,
-      data: data,
+      data,
       timestamp: new Date().toISOString()
     })
 
