@@ -10,12 +10,32 @@ export async function POST(request: NextRequest) {
     const { email, source = 'website' } = await request.json()
 
     console.log('Newsletter signup with Resend:', { email, source, timestamp: new Date().toISOString() })
+    
+    // Debug environment variables
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    const resendKey = process.env.RESEND_API_KEY
+    
+    console.log('Environment variables check:', {
+      supabaseUrl: supabaseUrl ? 'SET' : 'MISSING',
+      supabaseKey: supabaseKey ? 'SET' : 'MISSING', 
+      resendKey: resendKey ? 'SET' : 'MISSING'
+    })
 
     // Validazione email
     if (!email || !email.includes('@')) {
       return NextResponse.json(
         { error: 'Email non valida' },
         { status: 400 }
+      )
+    }
+
+    // Verifica configurazione Supabase
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('Supabase environment variables missing')
+      return NextResponse.json(
+        { error: 'Database non configurato correttamente' },
+        { status: 500 }
       )
     }
 

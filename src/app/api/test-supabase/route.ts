@@ -7,25 +7,25 @@ export async function GET(request: NextRequest) {
     
     // Test environment variables
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
     
     console.log('Environment check:', {
       url: supabaseUrl ? `${supabaseUrl.substring(0, 30)}...` : 'MISSING',
-      key: supabaseKey ? `${supabaseKey.substring(0, 20)}...` : 'MISSING'
+      serviceKey: supabaseServiceKey ? `${supabaseServiceKey.substring(0, 20)}...` : 'MISSING'
     })
     
-    if (!supabaseUrl || !supabaseKey) {
+    if (!supabaseUrl || !supabaseServiceKey) {
       return NextResponse.json({
         success: false,
         error: 'Environment variables missing',
         details: {
           url: !!supabaseUrl,
-          key: !!supabaseKey
+          serviceKey: !!supabaseServiceKey
         }
       }, { status: 500 })
     }
     
-    const supabase = createClient(supabaseUrl, supabaseKey)
+    const supabase = createClient(supabaseUrl, supabaseServiceKey)
     
     // Test 1: Basic connection
     const { data: testData, error: testError } = await supabase

@@ -1,12 +1,12 @@
 // Sistema subscribers con Supabase database
-import { supabase, type Subscriber } from './supabase'
+import { supabase, supabaseAdmin, type Subscriber } from './supabase'
 
 export async function addSubscriber(email: string, source: string): Promise<boolean> {
   try {
     console.log('Adding subscriber to Supabase:', { email, source })
     
     // Test connessione prima di inserire
-    const { data: testData, error: testError } = await supabase
+    const { data: testData, error: testError } = await supabaseAdmin
       .from('subscribers')
       .select('count(*)')
       .limit(1)
@@ -18,7 +18,7 @@ export async function addSubscriber(email: string, source: string): Promise<bool
     
     console.log('Supabase connection test passed')
     
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from('subscribers')
       .insert([
         {
@@ -77,7 +77,7 @@ export async function unsubscribeUser(email: string): Promise<boolean> {
   try {
     console.log('Unsubscribing user in Supabase:', email)
     
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from('subscribers')
       .update({ 
         status: 'unsubscribed',
