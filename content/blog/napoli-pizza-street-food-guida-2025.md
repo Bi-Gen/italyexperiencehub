@@ -161,6 +161,8 @@ Come napoletano doc che ha vissuto 35 anni tra questi vicoli, vi guido alla scop
 
 ### Ragù Napoletano: 6 Ore di Passione
 
+![Ragù napoletano della domenica](/images/blog/napoli-ragu-napoletano-domenicale.webp)
+
 **Il ragù napoletano non è il bolognese**: è **una religione**, un **rito domenicale** che unisce le famiglie. **Cottura minimo 6 ore**, tradizione tramandata di nonna in nipote.
 
 **Ingredienti del Vero Ragù:**
@@ -184,6 +186,8 @@ Come napoletano doc che ha vissuto 35 anni tra questi vicoli, vi guido alla scop
 ## Caffè e Tradizioni: Il Rituale Napoletano
 
 ### Il Caffè Sospeso: Solidarietà in Tazzina
+
+![Caffè sospeso tradizione napoletana](/images/blog/napoli-caffe-sospeso-tradizione.webp)
 
 **Il caffè sospeso** è una tradizione napoletana **nata nei caffè storici della città**: quando paghi un caffè, ne paghi due lasciando il secondo "sospeso" per chi non può permetterselo.
 
@@ -212,6 +216,8 @@ Come napoletano doc che ha vissuto 35 anni tra questi vicoli, vi guido alla scop
 ## Mercati e Botteghe: Dove Fare la Spesa Come i Napoletani
 
 ### Mercato della Pignasecca: Il Ventre di Napoli
+
+![Mercato della Pignasecca autentico](/images/blog/napoli-mercato-pignasecca-autentico.webp)
 
 **Via Pignasecca** - Il mercato più antico di Napoli (1200), **"'o Mercato"** per i napoletani. Qui compravano **Eduardo De Filippo** e **Totò**.
 

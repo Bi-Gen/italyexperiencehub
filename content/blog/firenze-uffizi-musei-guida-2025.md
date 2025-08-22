@@ -45,6 +45,8 @@ Gli **Uffizi nacquero nel 1560 per volontà di Cosimo I de' Medici** come edific
 
 **"L'Annunciazione" (1472-1475)** è l'unico dipinto di Leonardo conservato a Firenze. **Realizzata quando aveva solo 20 anni**, mostra già la sua genialità nella prospettiva e nei dettagli naturalistici.
 
+![Leonardo Annunciazione dettaglio](/images/blog/firenze-leonardo-annunciazione-dettaglio.jpg)
+
 **Dettagli Straordinari da Osservare:**
 - **Le ali dell'Angelo**: studiate su veri rapaci
 - **Il paesaggio sullo sfondo**: tecnica dello sfumato già perfetta

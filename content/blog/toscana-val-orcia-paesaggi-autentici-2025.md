@@ -6,7 +6,7 @@ publishedAt: "2025-01-21"
 updatedAt: "2025-01-21"
 category: "Paesaggi & Natura"
 tags: ["Val d'Orcia", "Toscana", "UNESCO", "Borghi", "Paesaggi", "Pienza", "Montalcino", "Terme", "Brunello"]
-image: "/images/destinations/toscana-hero.webp"
+image: "/images/blog/toscana-val-orcia-colline-cipressi.webp"
 featured: true
 destination: "Toscana"
 readTime: "10 min"
@@ -59,6 +59,8 @@ Pienza è la **capitale mondiale del Pecorino di Pienza DOP**, formaggio prodott
 - **Pecorino alle vinacce**: affinato con vinacce del Brunello
 - **Pecorino al tartufo**: eleganza e profumo inconfondibile
 
+![Pienza centro storico](/images/blog/toscana-pienza-centro-storico.webp)
+
 **Dove degustare**: Caseificio Sociale della Val d'Orcia, Azienda Agricola Il Casale, Fattoria Latte Sano.
 
 ---
@@ -89,6 +91,8 @@ La **Fortezza di Montalcino** del 1361 è perfettamente conservata e offre panor
 - **Via Matteotti**: shopping e degustazioni enogastronomiche
 
 ### **🍇 Cantine Imperdibili**
+
+![Montalcino Brunello vigne](/images/blog/toscana-montalcino-brunello-vigne.png)
 
 **Cantine storiche da visitare:**
 - **Biondi Santi**: inventori del Brunello (1888)
@@ -132,6 +136,8 @@ Gli **Orti Leonini** del 1581 sono un raro esempio di giardino all'italiana rina
 ### **♨️ La Piazza delle Sorgenti**
 
 La **"Piazza delle Sorgenti"** è una vasca rettangolare del XV secolo dove le acque termali formano un lago fumante nel cuore del borgo.
+
+![Bagno Vignoni terme](/images/blog/toscana-bagno-vignoni-terme.webp)
 
 **Storia millenaria delle terme:**
 - **Epoca etrusca**: primi utilizzi delle acque curative

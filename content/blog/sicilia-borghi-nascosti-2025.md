@@ -6,7 +6,7 @@ publishedAt: "2025-01-19"
 updatedAt: "2025-01-19"
 category: "Destinazioni Nascoste"
 tags: ["Sicilia", "borghi", "paesi", "tradizioni", "storia", "panorami", "turismo lento", "autenticità"]
-image: "/images/blog/sicilia-borghi-medievali-2025.webp"
+image: "/images/blog/sicilia-erice-borgo-medievale.jpg"
 featured: true
 readTime: "18 min"
 seo:
@@ -73,6 +73,8 @@ Visita Erice al tramonto quando le luci si accendono e il borgo si trasforma in 
 **🚂 Come arrivarci:** Treno diretto da Palermo (1h) o auto lungo la costa nord
 **⏰ Tempo consigliato:** Giornata intera
 
+![Cefalù duomo e mare](/images/blog/sicilia-cefalu-duomo-mare.jpeg)
+
 ### **Cosa Vedere:**
 - **Duomo Normanno (UNESCO)**: Mosaici bizantini tra i più belli al mondo
 - **La Rocca**: Salita panoramica al "Tempio di Diana" (45min, vista spettacolare)
@@ -107,6 +109,8 @@ Aggrappato a 529 metri sopra Taormina, **Castelmola** è un minuscolo borgo di 1
 - **Ruderi del Castello**: Rovine medievali sulla vetta
 - **Chiesa Madre**: Piccola chiesa con panorama mozzafiato
 - **Via De Gasperi**: La strada principale con negozietti tipici
+
+![Cannoli e granita con vista Etna](/images/blog/cannoli-granite-etna.jpg)
 
 ### **Specialità Uniche:**
 - **Vino alle mandorle**: Liquore dolce tipico del borgo

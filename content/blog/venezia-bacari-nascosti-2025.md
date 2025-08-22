@@ -6,7 +6,7 @@ publishedAt: "2025-01-19"
 updatedAt: "2025-01-19"
 category: "Gastronomia Locale"
 tags: ["Venezia", "bacari", "cicchetti", "spritz", "osterie", "tradizioni", "cucina veneziana", "locali autentici"]
-image: "/images/blog/venezia-bacari-cicchetti-2025.webp"
+image: "/images/blog/venezia-cicchetti-tradizionali.jpg"
 featured: true
 readTime: "16 min"
 seo:
@@ -167,6 +167,8 @@ Il ritrovo storico dei gondolieri dopo il lavoro. Se vuoi capire la vera Venezia
 **Location da Cartolina:**
 L'unico bacaro con terrazza direttamente sul Canal Grande, di fronte al Mercato di Rialto. Paghi la vista ma ne vale la pena.
 
+![Spritz aperitivo Canal Grande](/images/blog/venezia-spritz-aperitivo-canal-grande.webp)
+
 **Esperienza Premium:**
 - **Terrazza sul Canal Grande**: Vista sui palazzi storici
 - **Cicchetti gourmet**: Qualità da ristorante
@@ -186,6 +188,8 @@ L'unico bacaro con terrazza direttamente sul Canal Grande, di fronte al Mercato 
 
 **Il Paradosso:**
 A 50 metri da San Marco ma frequentato solo da veneziani. Il segreto è la posizione nascosta in una calle secondaria.
+
+![Osteria autentica veneziana](/images/blog/venezia-osteria-autentica-locali.jpg)
 
 **Tradizione Consolidata:**
 - **Clientela fissa**: Gli stessi volti da decenni

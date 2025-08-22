@@ -27,6 +27,8 @@ Ho dedicato 15 anni a esplorare ogni angolo della Roma sotterranea: **dai labiri
 - **Cripta dei Papi**: il "Piccolo Vaticano" sotterraneo
 - **Cripta di Santa Cecilia**: affreschi del IX secolo
 
+![Catacombe di San Callisto cripta](/images/blog/roma-catacombe-san-callisto-cripta.jpg)
+
 **Cosa Vedere Assolutamente:**
 - **Cripta dei Papi**: iscrizioni in greco dei primi Pontefici
 - **Cubicolo di Eusebio**: simboli paleocristiani originali
@@ -93,6 +95,8 @@ Nella **Via Salaria**, le **Catacombe di Priscilla** custodiscono **la più anti
 2. **Livello -4m (IV sec.)**: Basilica paleocristiana con affreschi
 3. **Livello -12m (I-III sec.)**: Mitreo e strutture romane imperiali
 
+![San Clemente mitreo sotterraneo](/images/blog/roma-san-clemente-mitreo-sotterraneo.jpg)
+
 **Il Mitreo Segreto:**
 - **Altare del dio Mitra**: religione dei soldati romani
 - **Scuole di iniziazione**: riti misterici maschili
@@ -106,6 +110,8 @@ Nella **Via Salaria**, le **Catacombe di Priscilla** custodiscono **la più anti
 - **Nota importante**: Temperature di 8-10°C nel sottosuolo
 
 ### San Nicola in Carcere - Prigioni Antiche di Roma
+
+![Basilica sotterranea San Nicola](/images/blog/roma-basilica-sotterranea-san-nicola.jpg)
 
 **Sopra la prigione romana più famosa** sorge questa chiesa medievale. Nei **sotterranei si conservano le celle** dove furono imprigionati **San Pietro e San Paolo** prima del martirio.
 
