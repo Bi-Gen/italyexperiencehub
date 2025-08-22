@@ -29,7 +29,7 @@ export default function NewsletterForm({
     setStatus('loading')
 
     try {
-      const response = await fetch('/api/newsletter', {
+      const response = await fetch(`/api/newsletter?t=${Date.now()}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

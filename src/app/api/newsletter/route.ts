@@ -80,13 +80,19 @@ export async function POST(request: NextRequest) {
         }, { status: 400 })
       }
       
-      console.error('Mailchimp error details:', {
+      // Log dettagliato dell'errore
+      console.error('MAILCHIMP ERROR FULL DETAILS:', {
         status: response.status,
         statusText: response.statusText,
-        error: result
+        headers: Object.fromEntries(response.headers.entries()),
+        result: result,
+        requestData: data,
+        requestUrl: url,
+        timestamp: new Date().toISOString()
       })
+      
       return NextResponse.json({
-        error: `Errore Mailchimp: ${result.detail || result.title || 'Errore sconosciuto'}`
+        error: `API Error [${response.status}]: ${result.detail || result.title || JSON.stringify(result)}`
       }, { status: 400 })
     }
 
