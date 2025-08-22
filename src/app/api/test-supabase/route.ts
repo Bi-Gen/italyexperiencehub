@@ -1,9 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@supabase/supabase-js'
 
 export async function GET(request: NextRequest) {
   try {
     console.log('Testing Supabase connection...')
+    
+    // Test environment variables
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    
+    console.log('Environment check:', {
+      url: supabaseUrl ? `${supabaseUrl.substring(0, 30)}...` : 'MISSING',
+      key: supabaseKey ? `${supabaseKey.substring(0, 20)}...` : 'MISSING'
+    })
+    
+    if (!supabaseUrl || !supabaseKey) {
+      return NextResponse.json({
+        success: false,
+        error: 'Environment variables missing',
+        details: {
+          url: !!supabaseUrl,
+          key: !!supabaseKey
+        }
+      }, { status: 500 })
+    }
+    
+    const supabase = createClient(supabaseUrl, supabaseKey)
     
     // Test 1: Basic connection
     const { data: testData, error: testError } = await supabase
