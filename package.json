@@ -11,6 +11,7 @@
     "quick-deploy": "node scripts/deploy.js \"Quick update: content and fixes\""
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.56.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "22.10.6",
     "@types/react": "19.0.9",

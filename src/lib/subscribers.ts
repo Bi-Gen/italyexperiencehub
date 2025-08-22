@@ -1,24 +1,26 @@
-// Sistema semplice per gestire subscribers
-// In produzione potresti usare un database come Supabase, PlanetScale, etc.
-
-interface Subscriber {
-  email: string
-  source: string
-  subscribed_at: string
-  status: 'active' | 'unsubscribed'
-}
-
-// Per ora usiamo un file JSON per demo
-// In produzione sostituirai con database vero
-const SUBSCRIBERS_FILE = 'subscribers.json'
+// Sistema subscribers con Supabase database
+import { supabase, type Subscriber } from './supabase'
 
 export async function addSubscriber(email: string, source: string): Promise<boolean> {
   try {
-    // In una app reale, qui faresti una chiamata al database
-    // Per ora simuliamo il salvataggio
-    console.log('Adding subscriber:', { email, source, timestamp: new Date() })
+    console.log('Adding subscriber to Supabase:', { email, source })
     
-    // Simulate successful save
+    const { data, error } = await supabase
+      .from('subscribers')
+      .insert([
+        {
+          email: email.toLowerCase().trim(),
+          source: source,
+          status: 'active'
+        }
+      ])
+    
+    if (error) {
+      console.error('Supabase insert error:', error)
+      return false
+    }
+    
+    console.log('Subscriber added successfully:', data)
     return true
   } catch (error) {
     console.error('Error adding subscriber:', error)
@@ -28,10 +30,23 @@ export async function addSubscriber(email: string, source: string): Promise<bool
 
 export async function isSubscribed(email: string): Promise<boolean> {
   try {
-    // In una app reale, qui controlleresti il database
-    // Per ora simuliamo che non ci siano duplicati
-    console.log('Checking if subscribed:', email)
-    return false
+    console.log('Checking if subscribed in Supabase:', email)
+    
+    const { data, error } = await supabase
+      .from('subscribers')
+      .select('id, status')
+      .eq('email', email.toLowerCase().trim())
+      .eq('status', 'active')
+      .single()
+    
+    if (error && error.code !== 'PGRST116') { // PGRST116 = no rows found
+      console.error('Supabase query error:', error)
+      return false
+    }
+    
+    const exists = !!data
+    console.log('Subscription check result:', exists)
+    return exists
   } catch (error) {
     console.error('Error checking subscription:', error)
     return false
@@ -40,8 +55,22 @@ export async function isSubscribed(email: string): Promise<boolean> {
 
 export async function unsubscribeUser(email: string): Promise<boolean> {
   try {
-    // In una app reale, qui aggiorneresti lo status nel database
-    console.log('Unsubscribing user:', email)
+    console.log('Unsubscribing user in Supabase:', email)
+    
+    const { data, error } = await supabase
+      .from('subscribers')
+      .update({ 
+        status: 'unsubscribed',
+        unsubscribed_at: new Date().toISOString()
+      })
+      .eq('email', email.toLowerCase().trim())
+    
+    if (error) {
+      console.error('Supabase unsubscribe error:', error)
+      return false
+    }
+    
+    console.log('User unsubscribed successfully:', data)
     return true
   } catch (error) {
     console.error('Error unsubscribing user:', error)
@@ -91,7 +120,7 @@ export const WELCOME_EMAIL_TEMPLATE = `
                             <table width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%); border-radius: 8px; border: 2px solid #27ae60;">
                                 <tr>
                                     <td style="padding: 30px; text-align: center;">
-                                        <div style="font-size: 48px; margin-bottom: 15px;">🏛️</div>
+                                        
                                         <h3 style="color: #27ae60; font-size: 22px; font-weight: bold; margin: 0 0 10px 0;">
                                             REGALO DI BENVENUTO
                                         </h3>
