@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
   try {
     const { email, source = 'website' } = await request.json()
 
-    console.log('Newsletter signup:', { email, source, timestamp: new Date().toISOString() })
+    console.log('Newsletter signup with Resend:', { email, source, timestamp: new Date().toISOString() })
 
     // Validazione email
     if (!email || !email.includes('@')) {
