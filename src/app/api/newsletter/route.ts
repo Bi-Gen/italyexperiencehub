@@ -44,9 +44,14 @@ export async function POST(request: NextRequest) {
     
     const data = {
       email_address: email,
-      status: 'subscribed',
-      tags: ['italia-experience-hub', source]
+      status: 'subscribed'
     }
+
+    console.log('Sending minimal data to Mailchimp:', {
+      url,
+      data: data,
+      timestamp: new Date().toISOString()
+    })
 
     const response = await fetch(url, {
       method: 'POST',
