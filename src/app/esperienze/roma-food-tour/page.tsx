@@ -7,6 +7,20 @@ export const metadata: Metadata = {
   title: 'Food Tour Roma Autentico | Trastevere, Campo de Fiori, Testaccio 2025',
   description: 'Food Tour Roma autentico: Trastevere, Testaccio, Campo de Fiori con romani veri. Carbonara, maritozzo, supplì, vino. Esperienza gastronomica romana unica.',
   keywords: ['food tour Roma', 'tour gastronomico Roma', 'cucina romana autentica', 'Trastevere food tour', 'Testaccio mercato', 'carbonara Roma', 'supplì romano', 'maritozzo', 'aperitivo romano', 'guide locali Roma'],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://italyexperiencehub.com/esperienze/roma-food-tour',
+  },
 }
 
 export default function RomaFoodTourPage() {

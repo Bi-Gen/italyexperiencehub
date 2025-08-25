@@ -103,6 +103,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return 'monthly'
   }
   
+  // Add specific missing routes that were causing 404s
+  const specificRoutes = [
+    '/bike-toscana',
+  ]
+  
+  specificRoutes.forEach(route => {
+    sitemapEntries.push({
+      url: `${SITE_URL}${route}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    })
+  })
+
   // Add all app routes automatically
   appRoutes.forEach(route => {
     sitemapEntries.push({
