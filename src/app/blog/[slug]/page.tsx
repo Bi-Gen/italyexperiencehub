@@ -5,6 +5,7 @@ import { Clock, Calendar, User, Tag, TrendingUp } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 import Image from 'next/image'
+import AuthorByline from '@/components/AuthorByline'
 
 interface PageProps {
   params: {
@@ -162,6 +163,15 @@ export default function BlogPostPage({ params }: PageProps) {
 
           {/* Main Content */}
           <article className="bg-white rounded-xl p-8 shadow-sm">
+            {/* Author Byline */}
+            <AuthorByline 
+              author={post.author}
+              publishedAt={post.publishedAt}
+              updatedAt={post.updatedAt}
+              readingTime={post.readingTime}
+              category={post.category}
+            />
+            
             <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary-600 prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:text-gray-700">
               <ReactMarkdown
                 components={{

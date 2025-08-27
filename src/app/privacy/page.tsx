@@ -69,7 +69,24 @@ export default function PrivacyPage() {
               <p>Google Analytics per comprendere come gli utenti utilizzano il sito.</p>
 
               <h3>4.3 Cookie Pubblicitari</h3>
-              <p>Google AdSense per mostrare annunci personalizzati e rilevanti.</p>
+              <p>
+                Utilizziamo Google AdSense per mostrare annunci pubblicitari pertinenti. Google può utilizzare cookie 
+                per personalizzare gli annunci in base alle tue visite precedenti al nostro sito e ad altri siti web. 
+                Puoi disattivare gli annunci personalizzati visitando le 
+                <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-primary-600 underline">
+                  Impostazioni Annunci di Google
+                </a>.
+              </p>
+              
+              <div className="bg-blue-50 p-4 rounded-lg my-6">
+                <h4 className="font-semibold text-blue-900 mb-2">Informativa Google AdSense</h4>
+                <p className="text-blue-800 text-sm">
+                  I fornitori di annunci di terze parti, incluso Google, utilizzano cookie per pubblicare annunci 
+                  in base alle precedenti visite dell'utente al nostro sito web o ad altri siti web. 
+                  L'utilizzo dei cookie per la pubblicità consente a Google e ai suoi partner di pubblicare 
+                  annunci per i nostri utenti in base alla loro visita ai nostri siti e/o ad altri siti Internet.
+                </p>
+              </div>
 
               <h3>4.4 Gestione Cookie</h3>
               <p>

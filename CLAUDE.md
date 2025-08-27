@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-- `npm run dev` - Start development server
-- `npm run build` - Build the production application
+- `npm run dev` - Start development server on port 3000
+- `npm run build` - Build the production application 
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint to check code quality
-- `npm run deploy` - Deploy using custom deploy script
+- `npm run deploy` - Deploy using custom deploy script (`scripts/deploy.js`)
 - `npm run quick-deploy` - Quick deploy with default commit message
 
 ## Architecture Overview
@@ -16,13 +16,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a **Next.js 15** travel website for Italy Experience Hub, built with **TypeScript** and **Tailwind CSS**.
 
 ### Key Technologies
-- **Next.js 15** with App Router
+- **Next.js 15** with App Router and React 19
 - **TypeScript** with strict mode
-- **Tailwind CSS** for styling
-- **Supabase** for database operations
-- **Gray Matter** for markdown content parsing
+- **Tailwind CSS** with Typography plugin for styling
+- **Supabase** for database operations (newsletter subscriptions)
+- **Gray Matter** for markdown content parsing  
 - **React Markdown** for content rendering
 - **Lucide React** for icons
+- **Resend** for email services
+- **clsx** for conditional CSS classes
 
 ### Project Structure
 
@@ -46,17 +48,20 @@ The site uses a **file-based CMS** with TypeScript interfaces defined in `src/li
 - `ExperiencePost` - Tour and experience details
 
 #### Database Integration
-- **Supabase** integration for newsletter subscriptions
-- Dual client setup: anonymous client for reads, service role for writes
+- **Supabase** integration for newsletter subscriptions and content management
+- Dual client setup: anonymous client (`supabase`) for reads, service role (`supabaseAdmin`) for writes
+- Database schema includes `Subscriber` interface with email, source, status, and timestamps
 - Located in `src/lib/supabase.ts`
 
 ### Important Configuration Details
 
 - **Image Optimization**: Disabled (`unoptimized: true`) in `next.config.js`
-- **Build Settings**: ESLint and TypeScript errors are ignored during builds
-- **Path Aliases**: `@/*` maps to `./src/*`
+- **External Image Domains**: Configured for `picsum.photos` and `images.unsplash.com`
+- **Build Settings**: ESLint and TypeScript errors are ignored during builds (`ignoreDuringBuilds: true`)
+- **Path Aliases**: `@/*` maps to `./src/*` in `tsconfig.json`
 - **Italian Language**: Default locale is `it_IT`
-- **SEO Optimized**: Comprehensive meta tags and structured data
+- **SEO Optimized**: Comprehensive meta tags, structured data, sitemap, and robots.txt
+- **URL Redirects**: Configured in `next.config.js` for legacy URL compatibility
 
 ### Content Types
 
@@ -66,3 +71,10 @@ When working with content, use the established interfaces:
 - Experiences contain: pricing, duration, includes/excludes, provider details
 
 The content parsing functions in `src/lib/content.ts` handle reading markdown files and extracting frontmatter automatically.
+
+### API Routes and Server Actions
+
+- `/api/newsletter/` - Newsletter subscription endpoint (POST)
+- `/api/unsubscribe/` - Newsletter unsubscription endpoint (GET/POST)
+- `/api/test-supabase/` - Database connection testing endpoint
+- All API routes use Supabase service role client for write operations

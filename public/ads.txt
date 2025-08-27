@@ -1,0 +1,11 @@
+# ads.txt file for italyexperiencehub.com
+# This file is required by Google AdSense and other ad networks
+# to verify authorized digital sellers
+
+# Google AdSense - Italy Experience Hub
+google.com, ca-pub-4718945941038682, DIRECT, f08c47fec0942fa0
+
+# Additional authorized sellers can be added here if needed
+# Example for other ad networks:
+# adnxs.com, 12345, RESELLER, f08c47fec0942fa0
+# rubiconproject.com, 12345, RESELLER, 0bfd66d529a55807

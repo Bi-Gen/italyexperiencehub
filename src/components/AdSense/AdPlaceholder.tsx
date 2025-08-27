@@ -58,8 +58,8 @@ export default function AdPlaceholder({
           Spazio Pubblicitario
         </h3>
         <p className="text-xs text-gray-500 text-center max-w-xs">
-          Supporta Italy Experience Hub permettendo gli annunci. 
-          I nostri partner selezionati offrono servizi di qualità per i viaggiatori.
+          Questo contenuto è sostenuto dai nostri partner verificati. 
+          Scopri servizi di qualità per il tuo viaggio in Italia.
         </p>
       </div>
     </div>

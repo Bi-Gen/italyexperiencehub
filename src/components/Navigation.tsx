@@ -35,6 +35,7 @@ const navigation = [
   },
   { name: 'Guide Pratiche', href: '/guide' },
   { name: 'Blog', href: '/blog' },
+  { name: 'Chi Siamo', href: '/chi-siamo' },
 ]
 
 export default function Navigation() {

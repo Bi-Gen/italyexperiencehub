@@ -44,8 +44,8 @@ export default function Footer() {
       { name: 'Documenti', href: '/guide/documenti' },
     ],
     azienda: [
+      { name: 'Chi Siamo', href: '/chi-siamo' },
       { name: 'Contatti', href: '/contatti' },
-      { name: 'Chi Siamo', href: '#' },
       { name: 'Partnership', href: '#' },
     ],
     supporto: [
